@@ -127,14 +127,14 @@
 
       <t>The import and include are direct dependencies while the augment and deviate are 
       reverse dependencies. To know a model's direct dependencies, we must parse 
-      the model  as dependencies are directly specifies there. As for the reverse dependency, 
-      since they are defined externally, we cannot parse the model. Among all the methods, 
-      getting the ietf-yang-library content is one of the most convenient. However, it only 
-      provides the deviation list at the moment. It is reasonable to augment it so that it 
-      also provides the augmentation to facilitate collecting the reverse dependency, due to 
-      the fact that both augment and deviate has similar way of working when defining content 
-      to the original model, and that both of them are invisible to the original model.
+      the model as those dependencies are directly specifies in the model code. As for the 
+      reverse dependency, since they are defined externally, we cannot parse the model to get it. Among all the methods for getting reverse dependency, getting the ietf-yang-library content is one of the most convenient. However, it only provides the deviation list at the moment. It is reasonable to augment it so that it also provides the augmentation to facilitate collecting the reverse dependency, due to the fact that both augment and deviate has similar way of working when defining content to the original model, and that both of them are invisible to the original model.
       </t>
+
+      <t>Besides, with the demand arises for monitoring metrics using YANG, there is a need for real-time obtaining the YANG model's dependency list instead of getting and storing the entire module set everywhere. This is an open-sourced project with operators, vendors and universities researchers involved. Some other related works are: draft-ietf-netconf-yang-notifications-versioning, draft-netconf-tgraf-yang-push-observation-time. The purpose is to provide adequate information in the YANG push notification so that when it is received, the model and its dependency can be parsed and found. Currently, the method used for finding model's reverse dependency is get-all-schemas, that is to retrieve all YANG modules from the device to the client's disk to enable the client fully understand the YANG model relationship. This process is complicated because dependencies are recursive, that each dependency module could have another set of dependency. There is not a more feasible way for doing this job other then get-all-schemas, even though this method is not wise enought. 
+      </t>
+
+      <t>The augmentation in this draft is proposed to solve the above problem. It can make the process of understanding the reverse dependency of a YANG model eaiser.</t>
 
     </section>
 
