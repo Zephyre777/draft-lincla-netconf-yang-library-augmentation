@@ -49,7 +49,7 @@
       </address>
     </author>
 
-    <date day="23" month="October" year="2023"/>
+    <date day="03" month="November" year="2023"/>
 
     <area>OPS</area>
 
@@ -57,9 +57,9 @@
 
     <abstract>
       <t>This document augments the ietf-yang-library in [RFC8525] to provide not 
-        only the deviation list, but also the augmentation list, in order to provide
-        sufficient information about the YANG models reverse dependency. It  
-        facilitates the process of obtaining the entire dependencies of YANG model. 
+        only the deviation list, but also the augmentation list. It facilitates 
+        the process of obtaining the entire dependencies of YANG model, by directly 
+        querying the server YANG module.
 
 </t>
     </abstract>
@@ -67,33 +67,30 @@
     <note removeInRFC="true">
       <name>Discussion Venues</name>
       <t>Source for this draft and an issue tracker can be found at <eref
-      target="https://github.com/... To be updated" />.</t>
+      target="https://github.com/Zephyre777/draft-lincla-netconf-yang-library-augmentation" />.</t>
     </note>
   </front>
 
 <middle>
   <section anchor="intro" title="Introduction">
 
-    <t>The YANG library <xref target="RFC8525" /> specifies a YANG library that provides 
+    <t>The YANG library <xref target="RFC8525" /> specifies a YANG module that provides 
     the information about the YANG models and datastores to facilitate a client 
     application to fully utilize and understand the YANG data modelling language. 
-    To know the YANG dependencies, <xref target="RFC8525" /> has defined and provided the 
-    submodule list and the YANG modules deviation list. However, the YANG modules augmentation 
-    list is not provided.</t>
+    To know the YANG dependencies, <xref target="RFC8525" /> has defined and provided the submodule list and the YANG modules deviation list. However, the YANG modules augmentation list is not provided.</t>
 
-    <t>According to <xref target="RFC7950" />, both augmentation and deviation are 
+    <t>According to <xref target="RFC7950" />, both augmentations and deviations are 
     defining contents external to the model, but applying internally for the model. 
     Therefore, it is important to know the augmentation and deviation as they are 
-    dependencies of the model, but it is also difficult because they are defined externally.
+    dependencies of the model, but it is also difficult because they are defined externally. 
     When we try to use the ietf-yang-library in <xref target="RFC8525" /> to obtain the reverse 
     dependencies (augmentations and deviations), the augmentation is missing. However, the 
     augmentation and the deviation work similarly as YANG modules dependency, therefore it is 
     resonable to document them the same way in the IETF YANG library. Besides, it will be 
     easier to determine the reverse dependency if the augmentation is directly available, 
-    through a GET request into the ietf-yang-library model.</t>
+    through a GET request into this new YANG model.</t>
 
-    <t>To provide sufficient information about the reverse dependencies, this draft augments 
-    the ietf-yang-library to include the augmentation.</t>
+    <t>Therefore, this draft augments the ietf-yang-library to include the YANG modules augmentated information.</t>
 
       <section anchor="terminology" title="Terminology">
        <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
@@ -116,31 +113,38 @@
       are presented. In <xref target="RFC7950" /> there are four dependencies for one YANG mode:</t>
 
       <ul>
-        <li>Import</li>
+        <li>Import: the "import" statement allows a module or submodule to reference
+            definitions defined in other modules.</li>
 
-        <li>Include</li>
+        <li>Include: the "include" statement is used in a module to identify each
+            submodule that belongs to it.</li>
 
-        <li>Augment</li>
+        <li>Augmentation: the "augment" statement defines the location in the data model
+            hierarchy where additional nodes are inserted</li>
 
-        <li>Deviate</li>
+        <li>Deviation: the "deviation" statement defines a hierarchy of a module that the
+            server does not implement faithfully.</li>
       </ul>
 
-      <t>The import and include are direct dependencies while the augment and deviate are 
-      reverse dependencies. To know a model's direct dependencies, we must parse 
-      the model as those dependencies are directly specifies in the model code. As for the 
-      reverse dependency, since they are defined externally, we cannot parse the model to get it. Among all the methods for getting reverse dependency, getting the ietf-yang-library content is one of the most convenient. However, it only provides the deviation list at the moment. It is reasonable to augment it so that it also provides the augmentation to facilitate collecting the reverse dependency, due to the fact that both augment and deviate has similar way of working when defining content to the original model, and that both of them are invisible to the original model.
+      <t>The import and include are direct dependencies while the augmentation and deviation are 
+      reverse dependencies. To know a specific YANG model's direct dependencies, we can parse 
+      this YANG model as the dependencies are directly specified (import and include statements"). As for the reverse dependencies, since they are defined externally, we cannot parse the YANG model itself. Among all the methods for getting reverse dependency, getting the ietf-yang-library content is one of the most convenient. However, it only provides the deviation list, not the augmentation list. It is reasonable to update it with the augmentation list, since both augmentation and deviation have similar behavior (both are invisible to the original model)
       </t>
 
-      <t>Besides, with the demand arises for monitoring metrics using YANG, there is a need for real-time obtaining the YANG model's dependency list instead of getting and storing the entire module set everywhere. This is an open-sourced project with operators, vendors and universities researchers involved. Some other related works are: draft-ietf-netconf-yang-notifications-versioning, draft-netconf-tgraf-yang-push-observation-time. The purpose is to provide adequate information in the YANG push notification so that when it is received, the model and its dependency can be parsed and found. Currently, the method used for finding model's reverse dependency is get-all-schemas, that is to retrieve all YANG modules from the device to the client's disk to enable the client fully understand the YANG model relationship. This process is complicated because dependencies are recursive, that each dependency module could have another set of dependency. There is not a more feasible way for doing this job other then get-all-schemas, even though this method is not wise enought. 
+      <t>Besides, with the demand arises for YANG-based telemetry <xref target="RFC8641"/>, there is a need for real-time knowledge of a specific YANG model's dependency list, when a specific YANG-Push message is received. The alternative, for a YANG-push receiver, to collect and store the entire module set for every single server who could be streaming data, is not always practical.</t>
+
+      <t>In an open-sourced project covering <xref target="I-D.ietf-netconf-yang-notifications-versioning">Support of Versioning in YANG Notifications Subscription</xref>, 
+      <xref target="I-D.netconf-tgraf-yang-push-observation-time">Support of Network Observation Timestamping in YANG Notifications</xref>, 
+      among others, the purpose is to provide adequate information in the YANG push notification so that when it is received, the model and its dependency can be parsed and found automatically from the vantage point. Currently, the method used for finding model's reverse dependency is get-all-schemas, that is to retrieve all YANG modules from the device to the client's disk to enable the client fully understand the YANG model relationship. This process is heavy because dependencies are recursive; each dependency module could have another set of dependencies. Considering the telemetry real-time aspects, this extra delay in processing the dependencies through get-all-schemas is a burden.
       </t>
 
-      <t>The augmentation in this draft is proposed to solve the above problem. It can make the process of understanding the reverse dependency of a YANG model eaiser.</t>
+      <t>The YANG module in this draft is proposed to solve the above problem. It can make the process of discovering the augmentation easier.</t>
 
     </section>
 
   <section anchor="ietf-yang-library-add-augmentation model" title="The &quot;ietf-yang-library-add-augmentation&quot; YANG module">
       <t>
-      This YANG module augments the ietf-yang-library module with the augmentation in the "yang-library/module-set". Note that this module only augment the ietf-yang-library defined in <xref target="RFC8525"/>. The module that augments both the <xref target="RFC7895" /> and <xref target="RFC8525" /> are provided as an example in the appendix.
+      This YANG module augments the ietf-yang-library module with the augmentation in the "yang-library/module-set". Note that this module only augment the ietf-yang-library defined in <xref target="RFC8525"/>.   At the time of writing this document, most router vendors support <xref target="RFC7895" />, a previous revision of the IETF-YANG-LIBRARY YANG module; The module that augments [<xref target="RFC7895" /> is provided in the appendix A.
       </t>
   
   <section anchor="data model overview" title="Data Model Overview">
@@ -822,12 +826,20 @@ module ietf-yang-library-add-augmentation {
 
     <references title="Informative References">
 
-      <?rfc include='reference.I-D.ietf-netmod-yang-module-versioning'?>
+      <?rfc include='reference.RFC.8641'?>
+      
+      <?rfc include='reference.I-D.ietf-netconf-yang-notifications-versioning'?>
+
+      <?rfc include='reference.I-D.netconf-tgraf-yang-push-observation-time'?>
+
 
     </references>
 
-    <section anchor="Full Tree View with augmentation to RFC7895" title="Full Tree View for the module that augments also the RFC7895">
-       <t>The following is the YANG tree diagram for augmenting both the RFC8525 and RFC7895.</t>
+    <section anchor="YANG Module augmenting RFC7895" title="YANG Module augmenting RFC7895">
+
+      <section anchor="Full Tree View with augmentation to RFC7895" title="Full Tree View">
+        <t>The following is the YANG tree diagram for augmenting both the RFC8525 and RFC7895.</t>
+        
         <t><figure>
               <artwork><![CDATA[
 module: ietf-yang-library-add-augmentation-01
@@ -889,11 +901,11 @@ module: ietf-yang-library-add-augmentation-01
        x--ro module-set-id    -> /modules-state/module-set-id
 ]]></artwork>
           </figure></t>
-    </section>
+     </section>
 
 
-   <section anchor="YANG-revision-module with augmentation to RFC7895" title="YANG Module that augments also the RFC7985">
-        <t>The YANG module that augments the ietf-yang-library YANG module defined in both RFC8525 and RFC7895.</t>
+     <section anchor="YANG-revision-module with augmentation to RFC7895" title="YANG Module">
+        <t>The YANG module that augments the ietf-yang-library RFC7895.</t>
 
         <t><figure>
             <artwork><![CDATA[
@@ -1491,6 +1503,8 @@ module ietf-yang-library-add-augmentation-01 {
 }
 <CODE ENDS>]]></artwork>
           </figure></t>
+      </section>
+
     </section>
 
     <?rfc needLines="100"?>
