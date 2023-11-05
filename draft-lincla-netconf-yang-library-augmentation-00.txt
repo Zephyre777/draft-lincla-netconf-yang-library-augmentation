@@ -473,7 +473,7 @@ A.1.  Tree View with augmentation to RFC7895
 
    The following is the YANG tree diagram for augmenting RFC7895.
 
-module: ietf-yang-library-augmentation-01
+module: ietf-yang-library-rfc7895-augmentation
 
   augment /yanglib:yang-library/yanglib:module-set/yanglib:module:
     +--ro augmentation*   -> /yanglib:yang-library/module-set/module/name
@@ -566,10 +566,11 @@ A.3.  YANG module with augmentation to RFC7895
 
    The YANG module that augments the ietf-yang-library RFC7895.
 
-   <CODE BEGINS> file "ietf-yang-library-augmentation-01@2023-10-27.yang"
-   module ietf-yang-library-augmentation-01 {
+   <CODE BEGINS>
+     file "ietf-yang-library-rfc7895-augmentation@2023-10-27.yang"
+   module ietf-yang-library-rfc7895-augmentation {
      yang-version 1.1;
-     namespace "urn:ietf:params:xml:ns:yang:ietf-yang-library-augmentation-01";
+     namespace "urn:ietf:params:xml:ns:yang:ietf-yang-library-rfc7895-augmentation";
      prefix yanglib-aug;
 
      import ietf-yang-library {
@@ -609,7 +610,6 @@ A.3.  YANG module with augmentation to RFC7895
 
      augment "/yanglib:modules-state/yanglib:module" {
        description
-         "Augment the augmentation from module info with the module-augmentation grouping" ;
 
 
 
@@ -618,6 +618,7 @@ Lin & Claise               Expires 6 May 2024                  [Page 11]
 Internet-Draft  Augmentaiton Addition into the IETF-YANG   November 2023
 
 
+         "Augment the augmentation from module info with the module-augmentation grouping" ;
        uses yanglib-aug:module-state-augmentation;
      }
 
@@ -665,7 +666,6 @@ Internet-Draft  Augmentaiton Addition into the IETF-YANG   November 2023
             used by this server to modify the conformance of
             the module associated with this entry.  Note that
             the same module can be used for augmentations for
-            multiple modules, so the same entry MAY appear
 
 
 
@@ -674,6 +674,7 @@ Lin & Claise               Expires 6 May 2024                  [Page 12]
 Internet-Draft  Augmentaiton Addition into the IETF-YANG   November 2023
 
 
+            multiple modules, so the same entry MAY appear
             within multiple 'module' entries.
 
             The augmentation module MUST be present in the 'module'
@@ -719,7 +720,6 @@ Authors' Addresses
    Huawei
    Belgium
    Email: benoit.claise@huawei.com
-
 
 
 

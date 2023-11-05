@@ -1,6 +1,6 @@
-module ietf-yang-library-augmentation-01 {
+module ietf-yang-library-rfc7895-augmentation {
   yang-version 1.1;
-  namespace "urn:ietf:params:xml:ns:yang:ietf-yang-library-augmentation-01";
+  namespace "urn:ietf:params:xml:ns:yang:ietf-yang-library-rfc7895-augmentation";
   prefix yanglib-aug;
 
   import ietf-yang-library {
