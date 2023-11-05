@@ -344,15 +344,13 @@ module ietf-yang-library-augmentation {
 
     <section anchor="YANG Module augmenting RFC7895" title="YANG Module augmenting RFC7895">
 
-      <section anchor="Tree View 7895" title="Tree View with augmentation to RFC7895">
-        <t>The following is the YANG tree diagram for augmenting RFC7895.</t>
+      <section anchor="Tree View 7895" title="Tree View for YANG module augmentating RFC7895">
+        <t>The following is the YANG tree diagram for module augmenting RFC7895.</t>
         
         <t><figure>
               <artwork><![CDATA[
 module: ietf-yang-library-rfc7895-augmentation
 
-  augment /yanglib:yang-library/yanglib:module-set/yanglib:module:
-    +--ro augmentation*   -> /yanglib:yang-library/module-set/module/name
   augment /yanglib:modules-state/yanglib:module:
     x--ro augmentation* [name revision]
        +--ro name        -> /yanglib:modules-state/module/name
@@ -367,68 +365,35 @@ module: ietf-yang-library-rfc7895-augmentation
         <t><figure>
               <artwork><![CDATA[
 module: ietf-yang-library
-  +--ro yang-library
-  |  +--ro module-set* [name]
-  |  |  +--ro name                  string
-  |  |  +--ro module* [name]
-  |  |  |  +--ro name                        yang:yang-identifier
-  |  |  |  +--ro revision?                   revision-identifier
-  |  |  |  +--ro namespace                   inet:uri
-  |  |  |  +--ro location*                   inet:uri
-  |  |  |  +--ro submodule* [name]
-  |  |  |  |  +--ro name        yang:yang-identifier
-  |  |  |  |  +--ro revision?   revision-identifier
-  |  |  |  |  +--ro location*   inet:uri
-  |  |  |  +--ro feature*                    yang:yang-identifier
-  |  |  |  +--ro deviation*                  -> ../../module/name
-  |  |  |  +--ro yanglib-aug:augmentation*   -> /yanglib:yang-library/module-set/module/name
-  |  |  +--ro import-only-module* [name revision]
-  |  |     +--ro name         yang:yang-identifier
-  |  |     +--ro revision     union
-  |  |     +--ro namespace    inet:uri
-  |  |     +--ro location*    inet:uri
-  |  |     +--ro submodule* [name]
-  |  |        +--ro name        yang:yang-identifier
-  |  |        +--ro revision?   revision-identifier
-  |  |        +--ro location*   inet:uri
-  |  +--ro schema* [name]
-  |  |  +--ro name          string
-  |  |  +--ro module-set*   -> ../../module-set/name
-  |  +--ro datastore* [name]
-  |  |  +--ro name      ds:datastore-ref
-  |  |  +--ro schema    -> ../../schema/name
-  |  +--ro content-id    string
-  x--ro modules-state
-     x--ro module-set-id    string
-     x--ro module* [name revision]
-        x--ro name                        yang:yang-identifier
-        x--ro revision                    union
+  +--ro modules-state
+     +--ro module-set-id    string
+     +--ro module* [name revision]
+        +--ro name                        yang:yang-identifier
+        +--ro revision                    union
         +--ro schema?                     inet:uri
-        x--ro namespace                   inet:uri
-        x--ro feature*                    yang:yang-identifier
-        x--ro deviation* [name revision]
-        |  x--ro name        yang:yang-identifier
-        |  x--ro revision    union
-        x--ro conformance-type            enumeration
-        x--ro submodule* [name revision]
-        |  x--ro name        yang:yang-identifier
-        |  x--ro revision    union
+        +--ro namespace                   inet:uri
+        +--ro feature*                    yang:yang-identifier
+        +--ro deviation* [name revision]
+        |  +--ro name        yang:yang-identifier
+        |  +--ro revision    union
+        +--ro conformance-type            enumeration
+        +--ro submodule* [name revision]
+        |  +--ro name        yang:yang-identifier
+        |  +--ro revision    union
         |  +--ro schema?     inet:uri
         x--ro yanglib-aug:augmentation* [name revision]
            +--ro yanglib-aug:name        -> /yanglib:modules-state/module/name
            +--ro yanglib-aug:revision    -> /yanglib:modules-state/module/revision
 
   notifications:
-    +---n yang-library-update
-    |  +--ro content-id    -> /yang-library/content-id
-    x---n yang-library-change
-       x--ro module-set-id    -> /modules-state/module-set-id
+    +---n yang-library-change
+       +--ro module-set-id    -> /modules-state/module-set-id
 ]]></artwork>
           </figure></t>
      </section>
 
 
-     <section anchor="YANG Module" title="YANG module with augmentation to RFC7895">
+     <section anchor="YANG Module" title="YANG module augmenting RFC7895">
         <t>The YANG module that augments the ietf-yang-library RFC7895.</t>
 
         <t><figure>
@@ -442,7 +407,7 @@ module ietf-yang-library-rfc7895-augmentation {
   import ietf-yang-library {
     prefix yanglib;
     reference
-      "RFC 8525: YANG library";
+      "RFC 7895: YANG Module Library.";
   }
 
   organization
@@ -457,21 +422,15 @@ module ietf-yang-library-rfc7895-augmentation {
                <mailto:benoit.claise@huawei.com>";
 
   description
-    "This module augments the ietf-yang-library defined in [RFC8525] to provide not only the deviation list, but also the augmentation list, in order to give sufficient information about the YANG models reverse dependency. It facilitates the process of obtaining the entire dependencies of YANG model.";
+    "This module augments the ietf-yang-library defined in [RFC7895] to provide not only the deviation list, but also the augmentation list, in order to give sufficient information about the YANG models reverse dependency. It facilitates the process of obtaining the entire dependencies of YANG model.";
 
   revision 2023-10-27 {
     description
-      "Added list augmentation in yang-library/module-set/module to
+      "Added list augmentation in yang-library/modules-state/module to
       make the module store the entire reverse dependency information
       (augmentation and deviation).";
     reference
-      "RFC XXXX: Support of augmentation in ietf-yang-library";
-  }
-
-  augment "/yanglib:yang-library/yanglib:module-set/yanglib:module" {
-    description
-      "Augment the augmentation from module info with the module-augmentation grouping" ;
-    uses yanglib-aug:module-augmentation;
+      "RFC XXXX: Support of augmentation in ietf-yang-library defined in RFC7895";
   }
 
   augment "/yanglib:modules-state/yanglib:module" {
@@ -483,32 +442,6 @@ module ietf-yang-library-rfc7895-augmentation {
   /*
    * Groupings
    */
-
-
-  grouping module-augmentation {
-    description
-      "This grouping defines a leaf-list that contains the augmentation list.";
-
-  leaf-list augmentation {
-      type leafref {
-        path "/yanglib:yang-library/yanglib:module-set/yanglib:module/yanglib:name";
-      }
-
-      description
-        "List of all YANG augmentation modules used by this server to
-         modify the conformance of the module associated with this
-         entry.  Note that the same module can be used for augmentation
-         for multiple modules, so the same entry MAY appear within
-         multiple 'module' entries.
-
-         This reference MUST NOT (directly or indirectly)
-         refer to the module being augmented.
-
-         Robust clients may want to make sure that they handle a
-         situation where a module augments itself (directly or
-         indirectly) gracefully.";
-    }
-  }
 
   grouping module-state-augmentation {
     description
@@ -546,7 +479,6 @@ module ietf-yang-library-rfc7895-augmentation {
     }
   }
 }
-
 <CODE ENDS>]]></artwork>
           </figure></t>
       </section>
