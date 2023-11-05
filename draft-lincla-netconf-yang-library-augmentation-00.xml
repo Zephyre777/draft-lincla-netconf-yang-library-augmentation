@@ -38,10 +38,6 @@
 
       <address>
         <postal>
-          <street>ADD</street>
-
-          <city>ADD</city>
-
           <country>Belgium</country>
         </postal>
 
@@ -56,10 +52,7 @@
     <workgroup>OPSAWG</workgroup>
 
     <abstract>
-      <t>This document augments the ietf-yang-library in [RFC8525] to provide not 
-        only the deviation list, but also the augmentation list. It facilitates 
-        the process of obtaining the entire dependencies of YANG model, by directly 
-        querying the server YANG module.
+      <t>This document augments the ietf-yang-library in [RFC8525] to provide the augmentation list. It facilitates the process of obtaining the entire dependencies of YANG model, by directly querying the server YANG module.
 
 </t>
     </abstract>
@@ -126,12 +119,10 @@
             server does not implement faithfully.</li>
       </ul>
 
-      <t>The import and include are direct dependencies while the augmentation and deviation are 
-      reverse dependencies. To know a specific YANG model's direct dependencies, we can parse 
-      this YANG model as the dependencies are directly specified (import and include statements"). As for the reverse dependencies, since they are defined externally, we cannot parse the YANG model itself. Among all the methods for getting reverse dependency, getting the ietf-yang-library content is one of the most convenient. However, it only provides the deviation list, not the augmentation list. It is reasonable to update it with the augmentation list, since both augmentation and deviation have similar behavior (both are invisible to the original model)
+      <t>The import and include are direct dependencies while the augmentation and deviation are reverse dependencies. To know a specific YANG model's direct dependencies, we can parse this YANG model as the dependencies are directly specified (import and include statements"). As for the reverse dependencies, since they are defined externally, we cannot parse the YANG model itself. Among all the methods for getting reverse dependency, getting the ietf-yang-library content is one of the most convenient way. However, it only provides the deviation list, not the augmentation list. It is reasonable to update it with the augmentation list, since both augmentation and deviation have similar behavior (both are invisible to the original model). A noticable difference between deviations and augmentations is that the deviations are required to understand the API contract between the client and the server.
       </t>
 
-      <t>Besides, with the demand arises for YANG-based telemetry <xref target="RFC8641"/>, there is a need for real-time knowledge of a specific YANG model's dependency list, when a specific YANG-Push message is received. The alternative, for a YANG-push receiver, to collect and store the entire module set for every single server who could be streaming data, is not always practical.</t>
+      <t>Here is a typical use case: as the demand arises for YANG-based telemetry <xref target="RFC8641"/>, there is a need for real-time knowledge of a specific YANG model's dependency list, when a specific YANG-Push message is received. The alternative, for a YANG-push receiver, to collect and store the entire module set for every single server who could be streaming data, is not always practical. Indeed, it's time consuming to request all YANG modules from the server.</t>
 
       <t>In an open-sourced project covering <xref target="I-D.ietf-netconf-yang-notifications-versioning">Support of Versioning in YANG Notifications Subscription</xref>, 
       <xref target="I-D.netconf-tgraf-yang-push-observation-time">Support of Network Observation Timestamping in YANG Notifications</xref>, 
@@ -144,7 +135,7 @@
 
   <section anchor="ietf-yang-library-augmentation model" title="The &quot;ietf-yang-library-augmentation&quot; YANG module">
       <t>
-      This YANG module augments the ietf-yang-library module with the augmentation in the "yang-library/module-set". Note that this module only augment the ietf-yang-library defined in <xref target="RFC8525"/>.   At the time of writing this document, most router vendors support <xref target="RFC7895" />, a previous revision of the IETF-YANG-LIBRARY YANG module; The module that augments <xref target="RFC7895" /> is provided in the appendix A.
+      This YANG module augments the ietf-yang-library module with the augmentation in the "yang-library/module-set". Note that this module only augments the ietf-yang-library defined in <xref target="RFC8525"/>.   At the time of writing this document, most router vendors support <xref target="RFC7895" />, a previous revision of the IETF-YANG-LIBRARY YANG module; The module that augments <xref target="RFC7895" /> is provided in the appendix A.
       </t>
   
   <section anchor="data model overview" title="Data Model Overview">
@@ -257,7 +248,7 @@ module ietf-yang-library-augmentation {
                <mailto:benoit.claise@huawei.com>";
 
   description
-    "This module augments the ietf-yang-library defined in [RFC8525] to provide not only the deviation list, but also the augmentation list, in order to give sufficient information about the YANG models reverse dependency. It facilitates the process of obtaining the entire dependencies of YANG model.";
+    "This module augments the ietf-yang-library defined in [RFC8525] to provide the augmentation list, in order to give sufficient information about the YANG models reverse dependency. It facilitates the process of obtaining the entire dependencies of YANG model.";
 
   revision 2023-10-27 {
     description
@@ -354,7 +345,7 @@ module ietf-yang-library-augmentation {
     <section anchor="YANG Module augmenting RFC7895" title="YANG Module augmenting RFC7895">
 
       <section anchor="Tree View 7895" title="Tree View with augmentation to RFC7895">
-        <t>The following is the YANG tree diagram for augmenting both the RFC8525 and RFC7895.</t>
+        <t>The following is the YANG tree diagram for augmenting RFC7895.</t>
         
         <t><figure>
               <artwork><![CDATA[
@@ -371,7 +362,7 @@ module: ietf-yang-library-augmentation-01
      </section>
 
      <section anchor="Full Tree View 7895" title="Full Tree View for ietf-yang-library with augmentation to RFC7895">
-        <t>The following is the full YANG tree diagram for ietf-yang-library with augmentation to both the RFC8525 and RFC7895.</t>
+        <t>The following is the full YANG tree diagram for ietf-yang-library with augmentation to RFC7895.</t>
         
         <t><figure>
               <artwork><![CDATA[
