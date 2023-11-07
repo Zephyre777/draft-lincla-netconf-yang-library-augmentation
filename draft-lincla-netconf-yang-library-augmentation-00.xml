@@ -248,7 +248,11 @@ module ietf-yang-library-augmentation {
                <mailto:benoit.claise@huawei.com>";
 
   description
-    "This module augments the ietf-yang-library defined in [RFC8525] to provide the augmentation list, in order to give sufficient information about the YANG models reverse dependency. It facilitates the process of obtaining the entire dependencies of YANG model.";
+    "This module augments the ietf-yang-library defined in [RFC8525] 
+    to provide the augmentation list, in order to give sufficient 
+    information about the YANG models reverse dependency. 
+    It facilitates the process of obtaining the entire dependencies 
+    of YANG model.";
 
   revision 2023-10-27 {
     description
@@ -422,7 +426,11 @@ module ietf-yang-library-rfc7895-augmentation {
                <mailto:benoit.claise@huawei.com>";
 
   description
-    "This module augments the ietf-yang-library defined in [RFC7895] to provide not only the deviation list, but also the augmentation list, in order to give sufficient information about the YANG models reverse dependency. It facilitates the process of obtaining the entire dependencies of YANG model.";
+    "This module augments the ietf-yang-library defined in [RFC7895]
+     to provide not only the deviation list, but also the augmentation
+     list, in order to give sufficient information about the YANG 
+     models reverse dependency. It facilitates the process of 
+     obtaining the entire dependencies of YANG model.";
 
   revision 2023-10-27 {
     description

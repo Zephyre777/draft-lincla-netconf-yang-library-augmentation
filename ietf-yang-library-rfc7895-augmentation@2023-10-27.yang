@@ -5,6 +5,7 @@ module ietf-yang-library-rfc7895-augmentation {
 
   import ietf-yang-library {
     prefix yanglib;
+    revision-date 2016-06-21;
     reference
       "RFC 7895: YANG Module Library.";
   }
