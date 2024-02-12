@@ -9,7 +9,7 @@ module ietf-yang-library {
     prefix inet;
   }
 
-  organizati on
+  organization
     "IETF NETCONF (Network Configuration) Working Group";
 
   contact
