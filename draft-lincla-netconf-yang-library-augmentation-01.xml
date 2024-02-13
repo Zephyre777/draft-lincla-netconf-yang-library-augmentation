@@ -389,6 +389,19 @@ module ietf-yang-library-augmentedby {
       <t>TBC</t>
     </section>
 
+    <section anchor="Implementation" title="Implementation Status">
+      <t>
+      Note to the RFC-Editor: Please remove this section before
+      publishing.
+      </t>
+      <section anchor="draft repository" title="draft repository">
+        <t>
+        Here is the github repository for the YANG source code of this draft:
+        https://github.com/Zephyre777/draft-lincla-netconf-yang-library-augmentation.git
+        </t>
+      </section>
+    </section>
+
     <section anchor="iana-considerations" title="IANA Considerations">
 
       <t>This document has no actions for IANA.</t>
