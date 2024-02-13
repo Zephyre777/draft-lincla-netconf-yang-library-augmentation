@@ -50,8 +50,8 @@ def _find_yang_file(prefix: str, yang_dir):
     raise Exception(f"Yang file with prefix {prefix} not found.")
 
 
-YANGLIB_AUGMENT_RFC7895 = _find_yang_file("ietf-yang-library-rfc7895-augmentation", YANG_DIR_RFC7895)
-YANGLIB_AUGMENT_RFC8525 = _find_yang_file("ietf-yang-library-augmentation", YANG_DIR_RFC8525)
+YANGLIB_AUGMENT_RFC7895 = _find_yang_file("ietf-yang-library-rfc7895-augmentedby", YANG_DIR_RFC7895)
+YANGLIB_AUGMENT_RFC8525 = _find_yang_file("ietf-yang-library-augmentedby", YANG_DIR_RFC8525)
 
 
 def draft_content():
