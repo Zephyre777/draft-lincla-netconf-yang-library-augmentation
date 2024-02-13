@@ -1,0 +1,724 @@
+OPSAWG                                                            Z. Lin
+Internet-Draft                                                 B. Claise
+Intended status: Standards Track                                  Huawei
+Expires: 6 May 2024                                      3 November 2023
+
+
+            Augmentaiton Addition into the IETF-YANG-Library
+           draft-lincla-netconf-yang-library-augmentation-00
+
+Abstract
+
+   This document augments the ietf-yang-library in [RFC8525] to provide
+   the augmentation list.  It facilitates the process of obtaining the
+   entire dependencies of YANG model, by directly querying the server
+   YANG module.
+
+Discussion Venues
+
+   This note is to be removed before publishing as an RFC.
+
+   Source for this draft and an issue tracker can be found at
+   https://github.com/Zephyre777/draft-lincla-netconf-yang-library-
+   augmentation.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 6 May 2024.
+
+Copyright Notice
+
+   Copyright (c) 2023 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+
+
+
+
+
+Lin & Claise               Expires 6 May 2024                   [Page 1]
+
+Internet-Draft  Augmentaiton Addition into the IETF-YANG   November 2023
+
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Revised BSD License text as
+   described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Revised BSD License.
+
+Table of Contents
+
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
+     1.1.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   3
+   2.  Motivation  . . . . . . . . . . . . . . . . . . . . . . . . .   3
+   3.  The "ietf-yang-library-augmentation" YANG module  . . . . . .   4
+     3.1.  Data Model Overview . . . . . . . . . . . . . . . . . . .   4
+       3.1.1.  Tree View . . . . . . . . . . . . . . . . . . . . . .   5
+       3.1.2.  Full Tree View  . . . . . . . . . . . . . . . . . . .   5
+       3.1.3.  YANG Module . . . . . . . . . . . . . . . . . . . . .   6
+   4.  Security Considerations . . . . . . . . . . . . . . . . . . .   8
+   5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   8
+   6.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   8
+     6.1.  Normative References  . . . . . . . . . . . . . . . . . .   8
+     6.2.  Informative References  . . . . . . . . . . . . . . . . .   8
+   Appendix A.  YANG Module augmenting RFC7895 . . . . . . . . . . .   9
+     A.1.  Tree View with augmentation to RFC7895  . . . . . . . . .   9
+     A.2.  Full Tree View for ietf-yang-library with augmentation to
+           RFC7895 . . . . . . . . . . . . . . . . . . . . . . . . .   9
+     A.3.  YANG module with augmentation to RFC7895  . . . . . . . .  11
+   Contributors  . . . . . . . . . . . . . . . . . . . . . . . . . .  13
+   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  13
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  13
+
+1.  Introduction
+
+   The YANG library [RFC8525] specifies a YANG module that provides the
+   information about the YANG models and datastores to facilitate a
+   client application to fully utilize and understand the YANG data
+   modelling language.  To know the YANG dependencies, [RFC8525] has
+   defined and provided the submodule list and the YANG modules
+   deviation list.  However, the YANG modules augmentation list is not
+   provided.
+
+   According to [RFC7950], both augmentations and deviations are
+   defining contents external to the model, but applying internally for
+   the model.  Therefore, it is important to know the augmentation and
+   deviation as they are dependencies of the model, but it is also
+   difficult because they are defined externally.  When we try to use
+
+
+
+Lin & Claise               Expires 6 May 2024                   [Page 2]
+
+Internet-Draft  Augmentaiton Addition into the IETF-YANG   November 2023
+
+
+   the ietf-yang-library in [RFC8525] to obtain the reverse dependencies
+   (augmentations and deviations), the augmentation is missing.
+   However, the augmentation and the deviation work similarly as YANG
+   modules dependency, therefore it is resonable to document them the
+   same way in the IETF YANG library.  Besides, it will be easier to
+   determine the reverse dependency if the augmentation is directly
+   available, through a GET request into this new YANG model.
+
+   Therefore, this draft augments the ietf-yang-library to include the
+   YANG modules augmentated information.
+
+1.1.  Terminology
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in BCP
+   14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
+
+   The terminology from [RFC8525] is used in this document
+
+   Tree diagrams in this document use the notation defined in [RFC8340]
+   .
+
+2.  Motivation
+
+   When using one YANG model, it is important to make sure that all its
+   dependencies are presented.  In [RFC7950] there are four dependencies
+   for one YANG mode:
+
+   *  Import: the "import" statement allows a module or submodule to
+      reference definitions defined in other modules.
+
+   *  Include: the "include" statement is used in a module to identify
+      each submodule that belongs to it.
+
+   *  Augmentation: the "augment" statement defines the location in the
+      data model hierarchy where additional nodes are inserted
+
+   *  Deviation: the "deviation" statement defines a hierarchy of a
+      module that the server does not implement faithfully.
+
+   The import and include are direct dependencies while the augmentation
+   and deviation are reverse dependencies.  To know a specific YANG
+   model's direct dependencies, we can parse this YANG model as the
+   dependencies are directly specified (import and include statements").
+   As for the reverse dependencies, since they are defined externally,
+   we cannot parse the YANG model itself.  Among all the methods for
+
+
+
+Lin & Claise               Expires 6 May 2024                   [Page 3]
+
+Internet-Draft  Augmentaiton Addition into the IETF-YANG   November 2023
+
+
+   getting reverse dependency, getting the ietf-yang-library content is
+   one of the most convenient way.  However, it only provides the
+   deviation list, not the augmentation list.  It is reasonable to
+   update it with the augmentation list, since both augmentation and
+   deviation have similar behavior (both are invisible to the original
+   model).  A noticable difference between deviations and augmentations
+   is that the deviations are required to understand the API contract
+   between the client and the server.
+
+   Here is a typical use case: as the demand arises for YANG-based
+   telemetry [RFC8641], there is a need for real-time knowledge of a
+   specific YANG model's dependency list, when a specific YANG-Push
+   message is received.  The alternative, for a YANG-push receiver, to
+   collect and store the entire module set for every single server who
+   could be streaming data, is not always practical.  Indeed, it's time
+   consuming to request all YANG modules from the server.
+
+   In an open-sourced project covering Support of Versioning in YANG
+   Notifications Subscription
+   [I-D.ietf-netconf-yang-notifications-versioning], Support of Network
+   Observation Timestamping in YANG Notifications
+   [I-D.netconf-tgraf-yang-push-observation-time], among others, the
+   purpose is to provide adequate information in the YANG push
+   notification so that when it is received, the model and its
+   dependency can be parsed and found automatically from the vantage
+   point.  Currently, the method used for finding model's reverse
+   dependency is get-all-schemas, that is to retrieve all YANG modules
+   from the device to the client's disk to enable the client fully
+   understand the YANG model relationship.  This process is heavy
+   because dependencies are recursive; each dependency module could have
+   another set of dependencies.  Considering the telemetry real-time
+   aspects, this extra delay in processing the dependencies through get-
+   all-schemas is a burden.
+
+   The YANG module in this draft is proposed to solve the above problem.
+   It can make the process of discovering the augmentation easier.
+
+3.  The "ietf-yang-library-augmentation" YANG module
+
+   This YANG module augments the ietf-yang-library module with the
+   augmentation in the "yang-library/module-set".  Note that this module
+   only augments the ietf-yang-library defined in [RFC8525].  At the
+   time of writing this document, most router vendors support [RFC7895],
+   a previous revision of the IETF-YANG-LIBRARY YANG module; The module
+   that augments [RFC7895] is provided in the appendix A.
+
+3.1.  Data Model Overview
+
+
+
+
+Lin & Claise               Expires 6 May 2024                   [Page 4]
+
+Internet-Draft  Augmentaiton Addition into the IETF-YANG   November 2023
+
+
+3.1.1.  Tree View
+
+   The following is the YANG tree diagram for model ietf-yang-library-
+   augmentation.
+
+module: ietf-yang-library-augmentation
+
+  augment /yanglib:yang-library/yanglib:module-set/yanglib:module:
+    +--ro augmentation*   -> /yanglib:yang-library/module-set/module/name
+
+3.1.2.  Full Tree View
+
+   The following is the YANG tree diagram[RFC8340] for the ietf-yang-
+   library-augmentation augmentation within the ietf-yang-library,
+   including the RPCs and notifications.
+
+module: ietf-yang-library
+  +--ro yang-library
+  |  +--ro module-set* [name]
+  |  |  +--ro name                  string
+  |  |  +--ro module* [name]
+  |  |  |  +--ro name                        yang:yang-identifier
+  |  |  |  +--ro revision?                   revision-identifier
+  |  |  |  +--ro namespace                   inet:uri
+  |  |  |  +--ro location*                   inet:uri
+  |  |  |  +--ro submodule* [name]
+  |  |  |  |  +--ro name        yang:yang-identifier
+  |  |  |  |  +--ro revision?   revision-identifier
+  |  |  |  |  +--ro location*   inet:uri
+  |  |  |  +--ro feature*                    yang:yang-identifier
+  |  |  |  +--ro deviation*                  -> ../../module/name
+  |  |  |  +--ro yanglib-aug:augmentation*   -> /yanglib:yang-library/module-set/module/name
+  |  |  +--ro import-only-module* [name revision]
+  |  |     +--ro name         yang:yang-identifier
+  |  |     +--ro revision     union
+  |  |     +--ro namespace    inet:uri
+  |  |     +--ro location*    inet:uri
+  |  |     +--ro submodule* [name]
+  |  |        +--ro name        yang:yang-identifier
+  |  |        +--ro revision?   revision-identifier
+  |  |        +--ro location*   inet:uri
+  |  +--ro schema* [name]
+  |  |  +--ro name          string
+  |  |  +--ro module-set*   -> ../../module-set/name
+  |  +--ro datastore* [name]
+  |  |  +--ro name      ds:datastore-ref
+  |  |  +--ro schema    -> ../../schema/name
+  |  +--ro content-id    string
+
+
+
+Lin & Claise               Expires 6 May 2024                   [Page 5]
+
+Internet-Draft  Augmentaiton Addition into the IETF-YANG   November 2023
+
+
+  x--ro modules-state
+     x--ro module-set-id    string
+     x--ro module* [name revision]
+        x--ro name                yang:yang-identifier
+        x--ro revision            union
+        +--ro schema?             inet:uri
+        x--ro namespace           inet:uri
+        x--ro feature*            yang:yang-identifier
+        x--ro deviation* [name revision]
+        |  x--ro name        yang:yang-identifier
+        |  x--ro revision    union
+        x--ro conformance-type    enumeration
+        x--ro submodule* [name revision]
+           x--ro name        yang:yang-identifier
+           x--ro revision    union
+           +--ro schema?     inet:uri
+
+  notifications:
+    +---n yang-library-update
+    |  +--ro content-id    -> /yang-library/content-id
+    x---n yang-library-change
+       x--ro module-set-id    -> /modules-state/module-set-id
+
+3.1.3.  YANG Module
+
+   The YANG module augments the ietf-yang-library YANG module defined in
+   [RFC8525].
+
+   <CODE BEGINS> file "ietf-yang-library-augmentation@2023-10-27.yang"
+   module ietf-yang-library-augmentation {
+     yang-version 1.1;
+     namespace "urn:ietf:params:xml:ns:yang:ietf-yang-library-augmentation";
+     prefix yanglib-aug;
+
+     import ietf-yang-library {
+       prefix yanglib;
+       reference
+         "RFC 8525: YANG library";
+     }
+
+     organization
+       "IETF NETCONF (Network Configuration) Working Group";
+     contact
+       "WG Web:   <https://datatracker.ietf.org/wg/netconf/>
+        WG List:  <mailto:netconf@ietf.org>
+
+        Author:   Zhuoyao Lin
+                  <mailto:zephyre888@gmail.com>
+
+
+
+Lin & Claise               Expires 6 May 2024                   [Page 6]
+
+Internet-Draft  Augmentaiton Addition into the IETF-YANG   November 2023
+
+
+                  Benoit Claise
+                  <mailto:benoit.claise@huawei.com>";
+
+     description
+       "This module augments the ietf-yang-library defined in [RFC8525] to provide the augmentation list, in order to give sufficient information about the YANG models reverse dependency. It facilitates the process of obtaining the entire dependencies of YANG model.";
+
+     revision 2023-10-27 {
+       description
+         "Added list augmentation in yang-library/module-set/module to
+         make the module store the entire reverse dependency information
+         (augmentation and deviation).";
+       reference
+         "RFC XXXX: Support of augmentation in ietf-yang-library";
+     }
+
+     augment "/yanglib:yang-library/yanglib:module-set/yanglib:module" {
+       description
+         "Augment the augmentation from module info with the module-augmentation grouping" ;
+       uses yanglib-aug:module-augmentation;
+     }
+
+     /*
+      * Groupings
+      */
+
+
+     grouping module-augmentation {
+       description
+         "This grouping defines a leaf-list that contains the augmentation list.";
+
+     leaf-list augmentation {
+         type leafref {
+           path "/yanglib:yang-library/yanglib:module-set/yanglib:module/yanglib:name";
+         }
+
+         description
+           "List of all YANG augmentation modules used by this server to
+            modify the conformance of the module associated with this
+            entry.  Note that the same module can be used for augmentation
+            for multiple modules, so the same entry MAY appear within
+            multiple 'module' entries.
+
+            This reference MUST NOT (directly or indirectly)
+            refer to the module being augmented.
+
+            Robust clients may want to make sure that they handle a
+            situation where a module augments itself (directly or
+            indirectly) gracefully.";
+
+
+
+Lin & Claise               Expires 6 May 2024                   [Page 7]
+
+Internet-Draft  Augmentaiton Addition into the IETF-YANG   November 2023
+
+
+       }
+     }
+   }
+   <CODE ENDS>
+
+4.  Security Considerations
+
+   TBC
+
+5.  IANA Considerations
+
+   This document has no actions for IANA.
+
+6.  References
+
+6.1.  Normative References
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
+
+   [RFC7895]  Bierman, A., Bjorklund, M., and K. Watsen, "YANG Module
+              Library", RFC 7895, DOI 10.17487/RFC7895, June 2016,
+              <https://www.rfc-editor.org/info/rfc7895>.
+
+   [RFC7950]  Bjorklund, M., Ed., "The YANG 1.1 Data Modeling Language",
+              RFC 7950, DOI 10.17487/RFC7950, August 2016,
+              <https://www.rfc-editor.org/info/rfc7950>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
+
+   [RFC8340]  Bjorklund, M. and L. Berger, Ed., "YANG Tree Diagrams",
+              BCP 215, RFC 8340, DOI 10.17487/RFC8340, March 2018,
+              <https://www.rfc-editor.org/info/rfc8340>.
+
+   [RFC8525]  Bierman, A., Bjorklund, M., Schoenwaelder, J., Watsen, K.,
+              and R. Wilton, "YANG Library", RFC 8525,
+              DOI 10.17487/RFC8525, March 2019,
+              <https://www.rfc-editor.org/info/rfc8525>.
+
+6.2.  Informative References
+
+   [I-D.ietf-netconf-yang-notifications-versioning]
+              Graf, T., Claise, B., and A. H. Feng, "Support of
+              Versioning in YANG Notifications Subscription", Work in
+
+
+
+Lin & Claise               Expires 6 May 2024                   [Page 8]
+
+Internet-Draft  Augmentaiton Addition into the IETF-YANG   November 2023
+
+
+              Progress, Internet-Draft, draft-ietf-netconf-yang-
+              notifications-versioning-03, 20 October 2023,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-netconf-
+              yang-notifications-versioning-03>.
+
+   [I-D.netconf-tgraf-yang-push-observation-time]
+              Graf, T., Claise, B., and A. H. Feng, "Support of Network
+              Observation Timestamping in YANG Notifications", Work in
+              Progress, Internet-Draft, draft-netconf-tgraf-yang-push-
+              observation-time-00, 6 July 2023,
+              <https://datatracker.ietf.org/doc/html/draft-netconf-
+              tgraf-yang-push-observation-time-00>.
+
+   [RFC8641]  Clemm, A. and E. Voit, "Subscription to YANG Notifications
+              for Datastore Updates", RFC 8641, DOI 10.17487/RFC8641,
+              September 2019, <https://www.rfc-editor.org/info/rfc8641>.
+
+Appendix A.  YANG Module augmenting RFC7895
+
+A.1.  Tree View with augmentation to RFC7895
+
+   The following is the YANG tree diagram for augmenting RFC7895.
+
+module: ietf-yang-library-rfc7895-augmentation
+
+  augment /yanglib:yang-library/yanglib:module-set/yanglib:module:
+    +--ro augmentation*   -> /yanglib:yang-library/module-set/module/name
+  augment /yanglib:modules-state/yanglib:module:
+    x--ro augmentation* [name revision]
+       +--ro name        -> /yanglib:modules-state/module/name
+       +--ro revision    -> /yanglib:modules-state/module/revision
+
+A.2.  Full Tree View for ietf-yang-library with augmentation to RFC7895
+
+   The following is the full YANG tree diagram for ietf-yang-library
+   with augmentation to RFC7895.
+
+module: ietf-yang-library
+  +--ro yang-library
+  |  +--ro module-set* [name]
+  |  |  +--ro name                  string
+  |  |  +--ro module* [name]
+  |  |  |  +--ro name                        yang:yang-identifier
+  |  |  |  +--ro revision?                   revision-identifier
+  |  |  |  +--ro namespace                   inet:uri
+  |  |  |  +--ro location*                   inet:uri
+  |  |  |  +--ro submodule* [name]
+  |  |  |  |  +--ro name        yang:yang-identifier
+
+
+
+Lin & Claise               Expires 6 May 2024                   [Page 9]
+
+Internet-Draft  Augmentaiton Addition into the IETF-YANG   November 2023
+
+
+  |  |  |  |  +--ro revision?   revision-identifier
+  |  |  |  |  +--ro location*   inet:uri
+  |  |  |  +--ro feature*                    yang:yang-identifier
+  |  |  |  +--ro deviation*                  -> ../../module/name
+  |  |  |  +--ro yanglib-aug:augmentation*   -> /yanglib:yang-library/module-set/module/name
+  |  |  +--ro import-only-module* [name revision]
+  |  |     +--ro name         yang:yang-identifier
+  |  |     +--ro revision     union
+  |  |     +--ro namespace    inet:uri
+  |  |     +--ro location*    inet:uri
+  |  |     +--ro submodule* [name]
+  |  |        +--ro name        yang:yang-identifier
+  |  |        +--ro revision?   revision-identifier
+  |  |        +--ro location*   inet:uri
+  |  +--ro schema* [name]
+  |  |  +--ro name          string
+  |  |  +--ro module-set*   -> ../../module-set/name
+  |  +--ro datastore* [name]
+  |  |  +--ro name      ds:datastore-ref
+  |  |  +--ro schema    -> ../../schema/name
+  |  +--ro content-id    string
+  x--ro modules-state
+     x--ro module-set-id    string
+     x--ro module* [name revision]
+        x--ro name                        yang:yang-identifier
+        x--ro revision                    union
+        +--ro schema?                     inet:uri
+        x--ro namespace                   inet:uri
+        x--ro feature*                    yang:yang-identifier
+        x--ro deviation* [name revision]
+        |  x--ro name        yang:yang-identifier
+        |  x--ro revision    union
+        x--ro conformance-type            enumeration
+        x--ro submodule* [name revision]
+        |  x--ro name        yang:yang-identifier
+        |  x--ro revision    union
+        |  +--ro schema?     inet:uri
+        x--ro yanglib-aug:augmentation* [name revision]
+           +--ro yanglib-aug:name        -> /yanglib:modules-state/module/name
+           +--ro yanglib-aug:revision    -> /yanglib:modules-state/module/revision
+
+  notifications:
+    +---n yang-library-update
+    |  +--ro content-id    -> /yang-library/content-id
+    x---n yang-library-change
+       x--ro module-set-id    -> /modules-state/module-set-id
+
+
+
+
+
+Lin & Claise               Expires 6 May 2024                  [Page 10]
+
+Internet-Draft  Augmentaiton Addition into the IETF-YANG   November 2023
+
+
+A.3.  YANG module with augmentation to RFC7895
+
+   The YANG module that augments the ietf-yang-library RFC7895.
+
+   <CODE BEGINS>
+     file "ietf-yang-library-rfc7895-augmentation@2023-10-27.yang"
+   module ietf-yang-library-rfc7895-augmentation {
+     yang-version 1.1;
+     namespace "urn:ietf:params:xml:ns:yang:ietf-yang-library-rfc7895-augmentation";
+     prefix yanglib-aug;
+
+     import ietf-yang-library {
+       prefix yanglib;
+           revision-date 2016-06-21;
+       reference
+         "RFC 8525: YANG library";
+     }
+
+     organization
+       "IETF NETCONF (Network Configuration) Working Group";
+     contact
+       "WG Web:   <https://datatracker.ietf.org/wg/netconf/>
+        WG List:  <mailto:netconf@ietf.org>
+
+        Author:   Zhuoyao Lin
+                  <mailto:zephyre888@gmail.com>
+                  Benoit Claise
+                  <mailto:benoit.claise@huawei.com>";
+
+     description
+       "This module augments the ietf-yang-library defined in [RFC8525] to provide not only the deviation list, but also the augmentation list, in order to give sufficient information about the YANG models reverse dependency. It facilitates the process of obtaining the entire dependencies of YANG model.";
+
+     revision 2023-10-27 {
+       description
+         "Added list augmentation in yang-library/module-set/module to
+         make the module store the entire reverse dependency information
+         (augmentation and deviation).";
+       reference
+         "RFC XXXX: Support of augmentation in ietf-yang-library";
+     }
+
+     augment "/yanglib:yang-library/yanglib:module-set/yanglib:module" {
+       description
+         "Augment the augmentation from module info with the module-augmentation grouping" ;
+       uses yanglib-aug:module-augmentation;
+     }
+
+     augment "/yanglib:modules-state/yanglib:module" {
+
+
+
+Lin & Claise               Expires 6 May 2024                  [Page 11]
+
+Internet-Draft  Augmentaiton Addition into the IETF-YANG   November 2023
+
+
+       description
+         "Augment the augmentation from module info with the module-augmentation grouping" ;
+       uses yanglib-aug:module-state-augmentation;
+     }
+
+     /*
+      * Groupings
+      */
+
+
+     grouping module-augmentation {
+       description
+         "This grouping defines a leaf-list that contains the augmentation list.";
+
+     leaf-list augmentation {
+         type leafref {
+           path "/yanglib:yang-library/yanglib:module-set/yanglib:module/yanglib:name";
+         }
+
+         description
+           "List of all YANG augmentation modules used by this server to
+            modify the conformance of the module associated with this
+            entry.  Note that the same module can be used for augmentation
+            for multiple modules, so the same entry MAY appear within
+            multiple 'module' entries.
+
+            This reference MUST NOT (directly or indirectly)
+            refer to the module being augmented.
+
+            Robust clients may want to make sure that they handle a
+            situation where a module augments itself (directly or
+            indirectly) gracefully.";
+       }
+     }
+
+     grouping module-state-augmentation {
+       description
+         "This grouping defines a list with keys being the module
+         name and revison. The list contains the augmentation list.";
+
+       list augmentation {
+         key "name revision";
+         status deprecated;
+
+         description
+           "List of YANG augmentation module names and revisions
+            used by this server to modify the conformance of
+            the module associated with this entry.  Note that
+
+
+
+Lin & Claise               Expires 6 May 2024                  [Page 12]
+
+Internet-Draft  Augmentaiton Addition into the IETF-YANG   November 2023
+
+
+            the same module can be used for augmentations for
+            multiple modules, so the same entry MAY appear
+            within multiple 'module' entries.
+
+            The augmentation module MUST be present in the 'module'
+            list, with the same name and revision values.
+            The 'conformance-type' value will be 'implement' for
+            the augmentation module.";
+
+         leaf name {
+           type leafref {
+             path "/yanglib:modules-state/yanglib:module/yanglib:name";
+           }
+         }
+
+         leaf revision {
+           type leafref {
+             path "/yanglib:modules-state/yanglib:module/yanglib:revision";
+           }
+         }
+       }
+     }
+   }
+   <CODE ENDS>
+
+Contributors
+
+   The following people all contributed to creating this document:
+
+Acknowledgements
+
+   Thanks to xx for their reviews and comments.
+
+Authors' Addresses
+
+   Zhuoyao
+   Huawei
+   Townsend Street, George's Court
+   Dublin
+   Ireland
+   Email: zephyre888@gmail.com
+
+
+   Benoit Claise
+   Huawei
+   Belgium
+   Email: benoit.claise@huawei.com
+
+
+
+
+Lin & Claise               Expires 6 May 2024                  [Page 13]
