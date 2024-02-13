@@ -81,7 +81,7 @@
     <xref target="RFC8525" /> to obtain the reverse dependencies 
     (augmentations and deviations), the augmentation is missing. 
     However, the augmentation and the deviation work similarly 
-    as YANG modules dependency, therefore it is resonable to 
+    as YANG modules dependency, therefore it is reasonable to 
     document them the same way in the IETF YANG library. Besides, 
     it will be easier to determine the reverse dependency if the 
     augmentation is directly available, through a GET request 
@@ -89,7 +89,7 @@
     </t>
 
     <t>Therefore, this draft augments the ietf-yang-library to 
-    include the YANG modules augmentated information.</t>
+    include the YANG modules augmentation information.</t>
 
       <section anchor="terminology" title="Terminology">
        <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
@@ -142,7 +142,7 @@
        provides the deviation list, not the augmentation list. It is 
        reasonable to update it with the augmentation list, since both 
        augmentation and deviation have similar behavior (both are 
-       invisible to the original model). A noticable difference 
+       invisible to the original model). A noticeable difference 
        between deviations and augmentations is that the deviations 
        are required to understand the API contract between the 
        client and the server.
@@ -404,7 +404,7 @@ module ietf-yang-library-augmentation {
 
     <section anchor="YANG-Module-augmenting-RFC7895" title="YANG Module augmenting RFC7895">
 
-      <section anchor="Tree-View-7895" title="Tree View for YANG module augmentating RFC7895">
+      <section anchor="Tree-View-7895" title="Tree View for YANG module augmenting RFC7895">
         <t>The following is the YANG tree diagram for module 
         augmenting RFC7895.</t>
         
