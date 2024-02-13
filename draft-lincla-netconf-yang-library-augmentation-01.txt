@@ -55,7 +55,7 @@ Copyright Notice
 
 Lin & Claise             Expires 15 August 2024                 [Page 1]
 
-Internet-Draft  Augmentaiton Addition into the IETF-YANG   February 2024
+Internet-Draft  Augmentation Addition into the IETF-YANG   February 2024
 
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -111,7 +111,7 @@ Table of Contents
 
 Lin & Claise             Expires 15 August 2024                 [Page 2]
 
-Internet-Draft  Augmentaiton Addition into the IETF-YANG   February 2024
+Internet-Draft  Augmentation Addition into the IETF-YANG   February 2024
 
 
    the ietf-yang-library in [RFC8525] to obtain the reverse dependencies
@@ -167,7 +167,7 @@ Internet-Draft  Augmentaiton Addition into the IETF-YANG   February 2024
 
 Lin & Claise             Expires 15 August 2024                 [Page 3]
 
-Internet-Draft  Augmentaiton Addition into the IETF-YANG   February 2024
+Internet-Draft  Augmentation Addition into the IETF-YANG   February 2024
 
 
    getting reverse dependency, getting the ietf-yang-library content is
@@ -223,7 +223,7 @@ Internet-Draft  Augmentaiton Addition into the IETF-YANG   February 2024
 
 Lin & Claise             Expires 15 August 2024                 [Page 4]
 
-Internet-Draft  Augmentaiton Addition into the IETF-YANG   February 2024
+Internet-Draft  Augmentation Addition into the IETF-YANG   February 2024
 
 
 3.1.1.  Tree View
@@ -279,7 +279,7 @@ module: ietf-yang-library
 
 Lin & Claise             Expires 15 August 2024                 [Page 5]
 
-Internet-Draft  Augmentaiton Addition into the IETF-YANG   February 2024
+Internet-Draft  Augmentation Addition into the IETF-YANG   February 2024
 
 
   |  +--ro content-id    string
@@ -335,7 +335,7 @@ Internet-Draft  Augmentaiton Addition into the IETF-YANG   February 2024
 
 Lin & Claise             Expires 15 August 2024                 [Page 6]
 
-Internet-Draft  Augmentaiton Addition into the IETF-YANG   February 2024
+Internet-Draft  Augmentation Addition into the IETF-YANG   February 2024
 
 
                   <mailto:zephyre888@gmail.com>
@@ -391,7 +391,7 @@ Internet-Draft  Augmentaiton Addition into the IETF-YANG   February 2024
 
 Lin & Claise             Expires 15 August 2024                 [Page 7]
 
-Internet-Draft  Augmentaiton Addition into the IETF-YANG   February 2024
+Internet-Draft  Augmentation Addition into the IETF-YANG   February 2024
 
 
             This reference MUST NOT (directly or indirectly)
@@ -447,7 +447,7 @@ Internet-Draft  Augmentaiton Addition into the IETF-YANG   February 2024
 
 Lin & Claise             Expires 15 August 2024                 [Page 8]
 
-Internet-Draft  Augmentaiton Addition into the IETF-YANG   February 2024
+Internet-Draft  Augmentation Addition into the IETF-YANG   February 2024
 
 
 6.2.  Informative References
@@ -503,7 +503,7 @@ A.2.  Full Tree View for ietf-yang-library with augmentation to RFC7895
 
 Lin & Claise             Expires 15 August 2024                 [Page 9]
 
-Internet-Draft  Augmentaiton Addition into the IETF-YANG   February 2024
+Internet-Draft  Augmentation Addition into the IETF-YANG   February 2024
 
 
 module: ietf-yang-library
@@ -559,7 +559,7 @@ A.3.  YANG module augmenting RFC7895
 
 Lin & Claise             Expires 15 August 2024                [Page 10]
 
-Internet-Draft  Augmentaiton Addition into the IETF-YANG   February 2024
+Internet-Draft  Augmentation Addition into the IETF-YANG   February 2024
 
 
         Author:   Zhuoyao Lin
@@ -615,7 +615,7 @@ Internet-Draft  Augmentaiton Addition into the IETF-YANG   February 2024
 
 Lin & Claise             Expires 15 August 2024                [Page 11]
 
-Internet-Draft  Augmentaiton Addition into the IETF-YANG   February 2024
+Internet-Draft  Augmentation Addition into the IETF-YANG   February 2024
 
 
             The augmentation module MUST be present in the 'module'

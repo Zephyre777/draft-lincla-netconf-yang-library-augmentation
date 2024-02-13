@@ -12,7 +12,7 @@
 <rfc category="std" docName="draft-lincla-netconf-yang-library-augmentation-01"
      ipr="trust200902">
   <front>
-    <title abbrev="Augmentaiton Addition into the IETF-YANG-Library">
+    <title abbrev="Augmentation Addition into the IETF-YANG-Library">
     Augmentation Addition into the IETF-YANG-Library</title>
 
     <author fullname="Zhuoyao" initials="Z " surname="Lin">
