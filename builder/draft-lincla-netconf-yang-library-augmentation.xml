@@ -159,29 +159,50 @@
     Indeed, it's time consuming to request all YANG modules 
     from the server.</t>
 
-    <t>In an open-sourced project covering 
-    <xref target="I-D.ietf-netconf-yang-notifications-versioning">
-    Support of Versioning in YANG Notifications Subscription</xref>, 
-    <xref target="I-D.netconf-tgraf-yang-push-observation-time">
-    Support of Network Observation Timestamping in YANG Notifications
-    </xref>, among others, the purpose is to provide adequate 
-    information in the YANG push notification so that when it is 
-    received, the model and its dependency can be parsed and found 
-    automatically from the vantage point. Currently, the method 
-    used for finding model's reverse dependency is get-all-schemas, 
-    that is to retrieve all YANG modules from the device to the 
-    client's disk to enable the client fully understand the YANG 
-    model relationship. This process is heavy because dependencies 
-    are recursive; each dependency module could have another set of 
-    dependencies. Considering the telemetry real-time aspects, 
-    this extra delay in processing the dependencies through 
-    get-all-schemas is a burden.
+  </section>
+
+  <section anchor="Use Cases" title="Use Cases">
+    <section anchor="Data Mesh Telemetry Architecture" title="Data Mesh Telemetry Architecture">
+    <t>
+      A network analytics architecture that integrates YANG-push and 
+      Kafka is proposed in 2022 and is continously growing and gaining 
+      incluence.
     </t>
 
-    <t>The YANG module in this draft is proposed to solve the above 
-    problem. It can make the process of discovering the augmentation 
-    easier.</t>
+    <t>In this open-sourced project covering 
+      <xref target="I-D.ietf-netconf-yang-notifications-versioning">
+      Support of Versioning in YANG Notifications Subscription</xref>, 
+      <xref target="I-D.netconf-tgraf-yang-push-observation-time">
+      Support of Network Observation Timestamping in YANG Notifications
+      </xref>, among others, the purpose is to provide adequate 
+      information in the YANG push notification so that when it is 
+      received, the model and its dependency can be parsed and found 
+      automatically from the vantage point. The architecture relies on
+      the information of YANG model and their dependency to realise,
+      as one its main goal is to solve the problem of missing YANG
+      semantics when data is receive in Time Series Database in the end.
+      To solve the problem, a schema registry is introduced to store 
+      YANG models and all their relationship(direct dependency and
+      reverse dependency).
+      </t>
+      <t>Currently, the method used for finding model's reverse 
+      dependency is get-all-schemas, that is to retrieve all YANG 
+      modules from the device to the client's disk to enable the 
+      client fully understand the YANG model relationship. This 
+      process is heavy because dependencies are recursive; 
+      each dependency module could have another set of 
+      dependencies. Considering the telemetry real-time aspects, 
+      this extra delay in processing the dependencies through 
+      get-all-schemas is a burden.
+      </t>
 
+      <t>The YANG model proposed in this draft can be used in this 
+      architecture to release the stress of get-all-schemas. By 
+      providing the augmentation information, it enables the collector
+      to get the YANG reverse dependencies by simply sending one 
+      query.
+      </t>
+    </section>
   </section>
 
   <section anchor="ietf-yang-library-augmentedby-model" title="The &quot;ietf-yang-library-augmentedby&quot; YANG module">
