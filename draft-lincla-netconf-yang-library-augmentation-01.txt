@@ -15,7 +15,7 @@ Abstract
 
    This document augments the ietf-yang-library in [RFC8525] to provide
    the augmented-by list.  It facilitates the process of obtaining the
-   entire dependencies of YANG model, by directly querying the server
+   entire dependencies of YANG model, by directly querying the server's
    YANG module.
 
 Discussion Venues
@@ -101,7 +101,7 @@ Table of Contents
    modelling language.  To know the YANG dependencies, [RFC8525] has
    defined and provided the submodule list and the YANG modules
    deviation list.  However, the YANG modules augmented-by list is not
-   provided.
+   provided.  However, the YANG modules augmentation is not provided.
 
    According to [RFC7950], both augmentations and deviations are
    defining contents external to the model, but applying internally for
@@ -174,12 +174,12 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG   February 2024
    we cannot parse the YANG model itself.  Among all the methods for
    getting reverse dependency, getting the ietf-yang-library content is
    one of the most convenient way.  However, it only provides the
-   deviation list, not the augmentation list.  It is reasonable to
-   update it with the augmentation list, since both augmentation and
-   deviation have similar behavior (both are invisible to the original
-   model).  A noticeable difference between deviations and augmentations
-   is that the deviations are required to understand the API contract
-   between the client and the server.
+   deviation list, not the augmentation.  It is reasonable to update it
+   with the augmentation list, since both augmentation and deviation
+   have similar behavior (both are invisible to the original model).  A
+   noticeable difference between deviations and augmentations is that
+   the deviations are required to understand the API contract between
+   the client and the server.
 
    Here is a typical use case: as the demand arises for YANG-based
    telemetry [RFC8641], there is a need for real-time knowledge of a
@@ -241,7 +241,7 @@ module: ietf-yang-library-augmentatedby
 3.1.2.  Full Tree View
 
    The following is the YANG tree diagram[RFC8340] for the ietf-yang-
-   library with the augmentation of module ietf-yang-library-
+   library with the augmentation defined in module ietf-yang-library-
    augmentedby, including the RPCs and notifications.
 
 module: ietf-yang-library
@@ -409,11 +409,11 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG   February 2024
          }
 
          description
-           "List of all YANG augmented-by modules used by this server to
-            modify the conformance of the module associated with this
-            entry.  Note that the same module can be used for augmented-by
-            for multiple modules, so the same entry MAY appear within
-            multiple 'module' entries.
+           "List of all modules by which the current is being augmented
+            used by this server to modify the conformance of the module
+            associated with this entry.  Note that the same module can
+            be used for augmented-by for multiple modules, so the same
+            entry MAY appear within multiple 'module' entries.
 
             This reference MUST NOT (directly or indirectly)
             refer to the module being augmented.
@@ -529,8 +529,8 @@ A.1.  Tree View for YANG module augmenting RFC7895
 
 A.2.  Full Tree View for ietf-yang-library with augmentation to RFC7895
 
-   The following is the full YANG tree diagram for ietf-yang-library
-   with augmentation to RFC7895.
+   The following is the full YANG tree diagram module augmenting ietf-
+   yang-library defined in RFC7895.
 
 
 
@@ -687,7 +687,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG   February 2024
          status deprecated;
 
          description
-           "List of YANG augmented module names and revisions
+           "List of YANG augmented-by module names and revisions
             used by this server to modify the conformance of
             the module associated with this entry.  Note that
             the same module can be used for augmented-by for

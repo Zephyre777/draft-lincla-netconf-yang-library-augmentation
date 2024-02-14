@@ -78,11 +78,11 @@ module ietf-yang-library-augmentedby {
       }
 
       description
-        "List of all YANG augmented-by modules used by this server to
-         modify the conformance of the module associated with this
-         entry.  Note that the same module can be used for augmented-by
-         for multiple modules, so the same entry MAY appear within
-         multiple 'module' entries.
+        "List of all modules by which the current is being augmented 
+         used by this server to modify the conformance of the module 
+         associated with this entry.  Note that the same module can 
+         be used for augmented-by for multiple modules, so the same 
+         entry MAY appear within multiple 'module' entries.
 
          This reference MUST NOT (directly or indirectly)
          refer to the module being augmented.

@@ -77,7 +77,7 @@ module ietf-yang-library-rfc7895-augmentedby {
       status deprecated;
 
       description
-        "List of YANG augmented module names and revisions
+        "List of YANG augmented-by module names and revisions
          used by this server to modify the conformance of
          the module associated with this entry.  Note that
          the same module can be used for augmented-by for
