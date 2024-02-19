@@ -89,7 +89,7 @@ Table of Contents
    Appendix A.  YANG Module augmenting RFC7895 . . . . . . . . . . .  10
      A.1.  Tree View for YANG module augmenting RFC7895  . . . . . .  10
      A.2.  Full Tree View for ietf-yang-library with augmentation to
-           RFC7895 . . . . . . . . . . . . . . . . . . . . . . . . .  10
+           RFC7895 . . . . . . . . . . . . . . . . . . . . . . . . .  11
      A.3.  YANG module augmenting RFC7895  . . . . . . . . . . . . .  11
    Contributors  . . . . . . . . . . . . . . . . . . . . . . . . . .  14
    Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  14
@@ -469,7 +469,11 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG   February 2024
 
    Here is the github repository for the YANG source code of this draft:
    https://github.com/Zephyre777/draft-lincla-netconf-yang-library-
-   augmentation.git
+   augmentation.git.
+
+   For the demo please refer to the demo folder in this repository.
+   There is a netopeer2 instance running with updated version of libyang
+   and sysrepo(links are listed in the demo instruction).
 
 7.  IANA Considerations
 
@@ -492,10 +496,6 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG   February 2024
               RFC 7950, DOI 10.17487/RFC7950, August 2016,
               <https://www.rfc-editor.org/info/rfc7950>.
 
-   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
-              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
-              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
-
 
 
 
@@ -505,6 +505,10 @@ Lin & Claise             Expires 15 August 2024                 [Page 9]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG   February 2024
 
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
    [RFC8340]  Bjorklund, M. and L. Berger, Ed., "YANG Tree Diagrams",
               BCP 215, RFC 8340, DOI 10.17487/RFC8340, March 2018,
@@ -550,10 +554,6 @@ A.1.  Tree View for YANG module augmenting RFC7895
           +--ro name        -> /yanglib:modules-state/module/name
           +--ro revision    -> /yanglib:modules-state/module/revision
 
-A.2.  Full Tree View for ietf-yang-library with augmentation to RFC7895
-
-   The following is the full YANG tree diagram module augmenting ietf-
-   yang-library defined in RFC7895.
 
 
 
@@ -561,6 +561,11 @@ Lin & Claise             Expires 15 August 2024                [Page 10]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG   February 2024
 
+
+A.2.  Full Tree View for ietf-yang-library with augmentation to RFC7895
+
+   The following is the full YANG tree diagram module augmenting ietf-
+   yang-library defined in RFC7895.
 
 module: ietf-yang-library
   +--ro modules-state
@@ -605,11 +610,6 @@ A.3.  YANG module augmenting RFC7895
          "RFC 7895: YANG Module Library.";
      }
 
-     organization
-       "IETF NETCONF (Network Configuration) Working Group";
-     contact
-       "WG Web:   <https://datatracker.ietf.org/wg/netconf/>
-        WG List:  <mailto:netconf@ietf.org>
 
 
 
@@ -617,6 +617,12 @@ Lin & Claise             Expires 15 August 2024                [Page 11]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG   February 2024
 
+
+     organization
+       "IETF NETCONF (Network Configuration) Working Group";
+     contact
+       "WG Web:   <https://datatracker.ietf.org/wg/netconf/>
+        WG List:  <mailto:netconf@ietf.org>
 
         Author:   Zhuoyao Lin
                   <mailto:zephyre888@gmail.com>
@@ -660,12 +666,6 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG   February 2024
      }
 
      augment "/yanglib:modules-state/yanglib:module" {
-       description
-         "Augment the augmentedby from module info with the module-augmented-by grouping" ;
-       uses yanglib-aug:module-state-augmented-by;
-     }
-
-     /*
 
 
 
@@ -674,6 +674,12 @@ Lin & Claise             Expires 15 August 2024                [Page 12]
 Internet-Draft  Augmented-by Addition into the IETF-YANG   February 2024
 
 
+       description
+         "Augment the augmentedby from module info with the module-augmented-by grouping" ;
+       uses yanglib-aug:module-state-augmented-by;
+     }
+
+     /*
       * Groupings
       */
 
@@ -716,12 +722,6 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG   February 2024
              "Revision of the module";
          }
        }
-     }
-   }
-   <CODE ENDS>
-
-
-
 
 
 
@@ -729,6 +729,10 @@ Lin & Claise             Expires 15 August 2024                [Page 13]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG   February 2024
 
+
+     }
+   }
+   <CODE ENDS>
 
 Contributors
 
@@ -751,10 +755,6 @@ Authors' Addresses
    Benoit Claise
    Huawei
    Email: benoit.claise@huawei.com
-
-
-
-
 
 
 

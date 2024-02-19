@@ -422,7 +422,10 @@ module ietf-yang-library-augmentedby {
       <section anchor="draft repository" title="draft repository">
         <t>
         Here is the github repository for the YANG source code of this draft:
-        https://github.com/Zephyre777/draft-lincla-netconf-yang-library-augmentation.git
+        https://github.com/Zephyre777/draft-lincla-netconf-yang-library-augmentation.git.
+        </t>
+        <t>
+        For the demo please refer to the demo folder in this repository. There is a netopeer2 instance running with updated version of libyang and sysrepo(links are listed in the demo instruction).
         </t>
       </section>
     </section>
