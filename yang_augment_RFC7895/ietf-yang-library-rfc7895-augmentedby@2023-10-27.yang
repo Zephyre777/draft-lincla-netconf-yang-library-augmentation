@@ -19,7 +19,9 @@ module ietf-yang-library-rfc7895-augmentedby {
      Author:   Zhuoyao Lin
                <mailto:zephyre888@gmail.com>
      Author:   Benoit Claise
-               <mailto:benoit.claise@huawei.com>";
+               <mailto:benoit.claise@huawei.com>
+     Author:   IGNACIO DOMINGUEZ MARTINEZ-CASANUEVA
+               <matilto:ignacio.dominguezmartinez@telefonica.com>";
 
   description
     "This module augments the ietf-yang-library defined in [RFC7895]

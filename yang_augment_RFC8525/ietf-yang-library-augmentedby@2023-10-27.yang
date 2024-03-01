@@ -18,7 +18,9 @@ module ietf-yang-library-augmentedby {
      Author:   Zhuoyao Lin
                <mailto:zephyre888@gmail.com>
                Benoit Claise
-               <mailto:benoit.claise@huawei.com>";
+               <mailto:benoit.claise@huawei.com>
+               IGNACIO DOMINGUEZ MARTINEZ-CASANUEVA
+               <matilto:ignacio.dominguezmartinez@telefonica.com>";
 
   description
     "This module augments the ietf-yang-library defined in 
@@ -60,28 +62,17 @@ module ietf-yang-library-augmentedby {
     description
       "Augment the augmented-by list from module info with the 
       module-augmented-by grouping" ;
-    uses yanglib-aug:module-augmented-by;
-  }
-
-  /*
-   * Groupings
-   */
-
-
-  grouping module-augmented-by {
-    description
-      "This grouping defines a leaf-list that contains the augmented-by list.";
 
     leaf-list augmented-by {
       type leafref {
-        path "/yanglib:yang-library/yanglib:module-set/yanglib:module/yanglib:name";
+        path "../../yanglib:module/yanglib:name";
       }
 
       description
-        "List of all modules by which the current is being augmented 
-         used by this server to modify the conformance of the module 
-         associated with this entry.  Note that the same module can 
-         be used for augmented-by for multiple modules, so the same 
+        "Leaf-list of the augmentation used by this server to 
+         modify the conformance of the module associated with 
+         this entry.  Note that the same module can be used for 
+         augmented-by for multiple modules, so the same 
          entry MAY appear within multiple 'module' entries.
 
          This reference MUST NOT (directly or indirectly)
