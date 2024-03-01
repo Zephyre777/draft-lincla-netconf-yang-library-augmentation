@@ -347,7 +347,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG   February 2024
    library defined in [RFC8525].  At the time of writing this document,
    most router vendors support [RFC7895], a previous revision of the
    IETF-YANG-LIBRARY YANG module; The module that augments [RFC7895] is
-   provided in the appendix A.
+   provided in the appendix B.
 
 4.1.  Data Model Overview
 

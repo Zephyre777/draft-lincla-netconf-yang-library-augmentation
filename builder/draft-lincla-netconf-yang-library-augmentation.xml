@@ -297,7 +297,7 @@
       <xref target="RFC8525"/>.   At the time of writing this document,
       most router vendors support <xref target="RFC7895" />, a previous
       revision of the IETF-YANG-LIBRARY YANG module; The module that
-      augments <xref target="RFC7895" /> is provided in the appendix A.
+      augments <xref target="RFC7895" /> is provided in the appendix B.
       </t>
 
   <section anchor="data-model-overview" title="Data Model Overview">
