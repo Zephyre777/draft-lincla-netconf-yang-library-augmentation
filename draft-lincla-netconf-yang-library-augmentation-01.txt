@@ -242,7 +242,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
    [I-D.ietf-netconf-yang-notifications-versioning], Support of Network
    Observation Timestamping in YANG Notifications
    [I-D.netconf-tgraf-yang-push-observation-time], among others, the
-   purpose is to provide adequate information in the YANG push
+   purpose is to provide adequate information in the YANG-Push
    notification so that when it is received, the model and its
    dependency can be parsed and found automatically from the vantage
    point.  The architecture relies on the information of YANG model and
@@ -364,7 +364,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
    being augmented.  Note that this module only augments the ietf-yang-
    library defined in [RFC8525].  At the time of writing this document,
    most router vendors support [RFC7895], a previous revision of the
-   IETF-YANG-LIBRARY YANG module; The module that augments [RFC7895] is
+   ietf-yang-library YANG module; The module that augments [RFC7895] is
    provided in the appendix B.
 
 4.1.  Data Model Overview
