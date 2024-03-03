@@ -46,7 +46,7 @@
       </address>
     </author>
 
-    <date day="12" month="February" year="2024"/>
+    <date day="3" month="March" year="2024"/>
 
     <area>OPS</area>
 
@@ -171,20 +171,33 @@
       for understanding the network, too.
     </t>
 
-    <t>
-      Here is a typical use case: as the demand arises for
-      YANG-based telemetry <xref target="RFC8641"/>, there is
-      a need for real-time knowledge of a specific YANG model's
-      dependency list when a specific YANG-Push message is
-      received. The alternative, for a YANG-push receiver, to
-      collect and store the entire module set for every single
-      server who could be streaming data, is not always practical.
-      Indeed, it's time consuming to request all YANG modules
-      from the server. See section 3.1.</t>
-
   </section>
 
   <section anchor="Use Cases" title="Use Cases">
+  <t>
+  As the demand arises for
+  YANG-based telemetry <xref target="RFC8641"/>, there is
+  a need for real-time knowledge of a specific YANG model's
+  dependency list when a specific YANG-Push message is
+  received. </t>
+  <t>The alternative, for a YANG-push receiver, to
+  collect and store the entire module set for every single
+  server who could be streaming data, is not always practical. 
+  See the following reasons:
+  </t>
+  <t>
+    <ul>
+      <li>For a YANG-push collector =&gt; we never know in advance which 
+    telemetry content will be received and from whom.</li>
+      <li>Querying all the YANG modules is time consuming =&gt;
+    we lose the real-time.</li>
+    </ul>
+  </t>
+  <t>With similar central idea, two use cases are introduced
+  in this section. One target solving the dependencies problems in
+  a Data Mesh Telemetry System while the other aims at building a 
+  data catalog which makes YANG model inforamtion easily accessible.
+  </t>
     <section anchor="Data Mesh Telemetry Architecture" title="Data Mesh Telemetry Architecture">
     <t>
       A network analytics architecture that integrates YANG-push and
@@ -212,19 +225,33 @@
       dependency is get-all-schemas, that is to retrieve all YANG
       modules from the device to the client's disk, enabling the
       client to fully understand the YANG model relationship. This
-      process is heavy because dependencies are recursive;
-      each dependency module could have another set of
-      dependencies which means one query could trigger tens or even 
-      hundreds of other queries. Considering the telemetry 
-      real-time aspects, this extra delay in processing the 
-      dependencies through get-all-schemas is a burden.
+      process is heavy because in real situation, each device may
+      have few thousands or even more YANG module implemented. 
+      Besides, pressure is also introduced due to the need of parsing 
+      modules and find all the dependencies. 
+      </t>
+      <t>
+      Considering the telemetry real-time aspects, this extra 
+      delay in processing the dependencies through get-all-schemas 
+      is not ideal.
       </t>
 
-      <t>The YANG model proposed in this draft can be used in this
-      architecture to release the stress of get-all-schemas. By
-      providing the augmentation information, it enables the collector
+      <t>The YANG model proposed in the draft can be used in this
+      architecture to release the stress of get-all-schemas and bring 
+      some extra benefits. 
+      </t>
+      <t>
+      By providing the augmentation information, it enables the collector
       to get the YANG reverse dependencies by simply sending one
-      query.
+      &lt;get&gt; query to ietf-yang-library. In this regard, the 
+      process of acquiring full dependency 
+      becomes real-time action. </t>
+      <t>Compared with get-all-schemas, it enables 
+      collector to fetch up-to-date data since the queries are sent 
+      at run time, while the old approach forces collector to always 
+      work with never updated data. On another hand, user do not bother
+      waiting for ten minutes every time when starting collector to either
+      get data updated or to obtain YANG relationship.
       </t>
     </section>
     <section anchor="Data Catalog" title="Data Catalog">
@@ -315,14 +342,14 @@ module: ietf-yang-library-augmentedby
     </section>
 
   <section anchor="Full-Tree-View" title="Full Tree View">
-       <t>
-       The following is the YANG tree diagram<xref target="RFC8340" />
-       for the ietf-yang-library with the augmentation defined in
-       module ietf-yang-library-augmentedby, including the RPCs and
-       notifications.
-       </t>
-        <t><figure>
-              <artwork><![CDATA[
+    <t>
+    The following is the YANG tree diagram<xref target="RFC8340" />
+    for the ietf-yang-library with the augmentation defined in
+    module ietf-yang-library-augmentedby, including the RPCs and
+    notifications.
+    </t>
+    <t><figure>
+      <artwork><![CDATA[
 module: ietf-yang-library
   +--ro yang-library
   |  +--ro module-set* [name]
@@ -338,7 +365,8 @@ module: ietf-yang-library
   |  |  |  |  +--ro location*   inet:uri
   |  |  |  +--ro feature*                    yang:yang-identifier
   |  |  |  +--ro deviation*                  -> ../../module/name
-  |  |  |  +--ro yanglib-aug:augmented-by*   -> ../../yanglib:module/name
+  |  |  |  +--ro yanglib-aug:augmented-by*   
+                                     -> ../../yanglib:module/name
   |  |  +--ro import-only-module* [name revision]
   |  |     +--ro name         yang:yang-identifier
   |  |     +--ro revision     union
@@ -392,7 +420,8 @@ module: ietf-yang-library
 <CODE BEGINS> file "ietf-yang-library-augmentedby@2023-10-27.yang"
 module ietf-yang-library-augmentedby {
   yang-version 1.1;
-  namespace "urn:ietf:params:xml:ns:yang:ietf-yang-library-augmentedby";
+  namespace "urn:ietf:params:xml:ns:yang:
+                  ietf-yang-library-augmentedby";
   prefix yanglib-aug;
 
   import ietf-yang-library {
@@ -484,11 +513,6 @@ module ietf-yang-library-augmentedby {
   </section>
   </section>
 
-    <section anchor="security-considerations" title="Security Considerations">
-
-      <t>TBC</t>
-    </section>
-
     <section anchor="Implementation" title="Implementation Status">
       <t>
       Note to the RFC-Editor: Please remove this section before
@@ -517,10 +541,14 @@ module ietf-yang-library-augmentedby {
         The YANG validation in the appendix A shows that this path
         can work as expected.
         </t>
-        <t>Section 6 Implementation and section 7 Changes has been added.</t>
+        <t>Section 5 Implementation and section 6 Changes has been added.</t>
       </section>
     </section>
 
+      <section anchor="security-considerations" title="Security Considerations">
+
+      <t>TBC</t>
+    </section>
     <section anchor="iana-considerations" title="IANA Considerations">
 
       <t>This document has no actions for IANA.</t>
@@ -603,9 +631,11 @@ module ietf-yang-library-augmentedby {
       <revision>2024-02-29</revision> 
       <namespace>urn:ietf:params:xml:ns:yang:module1</namespace>
       <augmented-by 
-      xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library-augmentedby">module2</augmented-by>
+      xmlns="urn:ietf:params:xml:ns:yang:
+      ietf-yang-library-augmentedby">module2</augmented-by>
       <augmented-by 
-      xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library-augmentedby">module3</augmented-by>
+      xmlns="urn:ietf:params:xml:ns:yang:
+      ietf-yang-library-augmentedby">module3</augmented-by>
     </module>
     <module>
       <name>module2</name>
@@ -640,9 +670,11 @@ module ietf-yang-library-augmentedby {
       <revision>2024-02-29</revision> 
       <namespace>urn:ietf:params:xml:ns:yang:module1</namespace>
       <augmented-by 
-      xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library-augmentedby">module2</augmented-by>
+      xmlns="urn:ietf:params:xml:ns:yang:
+      ietf-yang-library-augmentedby">module2</augmented-by>
       <augmented-by 
-      xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library-augmentedby">module3</augmented-by>
+      xmlns="urn:ietf:params:xml:ns:yang:
+      ietf-yang-library-augmentedby">module3</augmented-by>
     </module>
     <module>
       <name>module2</name>
@@ -669,7 +701,9 @@ module ietf-yang-library-augmentedby {
 
       <t>
         This section defines the ietf-yang-library-rfc7895-augmentedby that augments 
-        the ietf-yang-library defined in <xref target="RFC7895"/>. The module-state/module list of this YANG module version is also defined in the <xref target="RFC8525"/> version though deprecated.
+        the ietf-yang-library defined in <xref target="RFC7895"/>. The module-state/module 
+        list of this YANG module version is also defined in the <xref target="RFC8525"/> 
+        version though deprecated.
       </t>
       <section anchor="Tree-View-7895" title="Tree View for YANG module augmenting RFC7895">
         <t>The following is the YANG tree diagram for ietf-yang-library-rfc7895-augmentedby
@@ -711,8 +745,10 @@ module: ietf-yang-library
         |  +--ro revision    union
         |  +--ro schema?     inet:uri
         x--ro yanglib-aug:augmented-by* [name revision]
-           +--ro yanglib-aug:name        -> /yanglib:modules-state/module/name
-           +--ro yanglib-aug:revision    -> /yanglib:modules-state/module/revision
+           +--ro yanglib-aug:name        
+                        -> /yanglib:modules-state/module/name
+           +--ro yanglib-aug:revision    
+                        -> /yanglib:modules-state/module/revision
 
   notifications:
     +---n yang-library-change
@@ -730,7 +766,8 @@ module: ietf-yang-library
 <CODE BEGINS> file "ietf-yang-library-rfc7895-augmentedby@2023-10-27.yang"
 module ietf-yang-library-rfc7895-augmentedby {
   yang-version 1.1;
-  namespace "urn:ietf:params:xml:ns:yang:ietf-yang-library-rfc7895-augmentedby";
+  namespace "urn:ietf:params:xml:ns:yang:
+            ietf-yang-library-rfc7895-augmentedby";
   prefix yanglib-aug;
 
   import ietf-yang-library {
@@ -786,12 +823,14 @@ module ietf-yang-library-rfc7895-augmentedby {
       make the module store the entire reverse dependency information
       (augmentedby and deviation).";
     reference
-      "RFC XXXX: Support of augmentedby in ietf-yang-library defined in RFC7895";
+      "RFC XXXX: Support of augmentedby in ietf-yang-library 
+          defined in RFC7895";
   }
 
   augment "/yanglib:modules-state/yanglib:module" {
     description
-      "Augment the augmentedby from module info with the module-augmented-by grouping" ;
+      "Augment the augmentedby from module info with the 
+      module-augmented-by grouping" ;
     uses yanglib-aug:module-state-augmented-by;
   }
 
@@ -832,7 +871,8 @@ module ietf-yang-library-rfc7895-augmentedby {
 
       leaf revision {
         type leafref {
-          path "/yanglib:modules-state/yanglib:module/yanglib:revision";
+          path "/yanglib:modules-state/yanglib:module
+                                              /yanglib:revision";
         }
         description
           "Revision of the module";
