@@ -235,7 +235,8 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
 
    A network analytics architecture that integrates YANG-push and Kafka
    is proposed in 2022 and is continuously growing and gaining
-   influence.
+   influence, refer to the draft: An Architecture for YANG-Push to
+   Apache Kafka Integration [I-D.netana-nmop-yang-kafka-integration].
 
    In this open-sourced project covering Support of Versioning in YANG
    Notifications Subscription
@@ -271,7 +272,6 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
    to get the YANG reverse dependencies by simply sending one <get>
    query to ietf-yang-library.  In this regard, the process of acquiring
    full dependency becomes real-time action.
-
 
 
 
@@ -662,10 +662,10 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
               <https://datatracker.ietf.org/doc/html/draft-ietf-netconf-
               yang-notifications-versioning-03>.
 
-   [I-D.netconf-tgraf-yang-push-observation-time]
-              Graf, T., Claise, B., and A. H. Feng, "Support of Network
-              Observation Timestamping in YANG Notifications", Work in
-              Progress, Internet-Draft, draft-netconf-tgraf-yang-push-
+
+
+
+
 
 
 
@@ -674,6 +674,17 @@ Lin, et al.             Expires 4 September 2024               [Page 12]
 Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
 
 
+   [I-D.netana-nmop-yang-kafka-integration]
+              Graf, T., "An Architecture for YANG-Push to Apache Kafka
+              Integration", Work in Progress, Internet-Draft, draft-
+              netana-nmop-yang-kafka-integration-00, 24 February 2024,
+              <https://datatracker.ietf.org/doc/html/draft-netana-nmop-
+              yang-kafka-integration-00>.
+
+   [I-D.netconf-tgraf-yang-push-observation-time]
+              Graf, T., Claise, B., and A. H. Feng, "Support of Network
+              Observation Timestamping in YANG Notifications", Work in
+              Progress, Internet-Draft, draft-netconf-tgraf-yang-push-
               observation-time-00, 6 July 2023,
               <https://datatracker.ietf.org/doc/html/draft-netconf-
               tgraf-yang-push-observation-time-00>.
@@ -700,17 +711,6 @@ Appendix A.  YANG module validation with yanglint
    module-set, which is illegal according to the YANG source code.
 
 A.1.  A valid ietf-yang-library data example
-
-
-
-
-
-
-
-
-
-
-
 
 
 

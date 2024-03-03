@@ -202,7 +202,9 @@
     <t>
       A network analytics architecture that integrates YANG-push and
       Kafka is proposed in 2022 and is continuously growing and gaining
-      influence.
+      influence, refer to the draft:
+      <xref target="I-D.netana-nmop-yang-kafka-integration">An 
+      Architecture for YANG-Push to Apache Kafka Integration</xref>.
     </t>
 
     <t>In this open-sourced project covering
@@ -583,7 +585,19 @@ module ietf-yang-library-augmentedby {
 
       <?rfc include='reference.I-D.netconf-tgraf-yang-push-observation-time'?>
 
-      , , Luis Bellido, David Fernandez, and Diego R. Lopez
+      <reference anchor="I-D.netana-nmop-yang-kafka-integration" target="https://datatracker.ietf.org/doc/html/draft-netana-nmop-yang-kafka-integration-00">
+        <front>
+          <title>An Architecture for YANG-Push to Apache Kafka Integration</title>
+          <author initials="T." surname="Graf" fullname="Thomas Graf">
+            <organization>Swisscom</organization>
+          </author>
+          <date month="February" day="24" year="2024"/>
+          <abstract>
+            <t> This document describes the motivation and architecture of a native YANG-Push notifications and YANG Schema integration into Apache Kafka Message Broker and YANG Schema Registry. </t>
+          </abstract>
+        </front>
+        <seriesInfo name="Internet-Draft" value="draft-netana-nmop-yang-kafka-integration-00"/>
+      </reference>
 
       <reference anchor="Martinez-Casanueva2023" >
         <front>
