@@ -422,8 +422,7 @@ module: ietf-yang-library
 <CODE BEGINS> file "ietf-yang-library-augmentedby@2023-10-27.yang"
 module ietf-yang-library-augmentedby {
   yang-version 1.1;
-  namespace "urn:ietf:params:xml:ns:yang:
-                  ietf-yang-library-augmentedby";
+  namespace "urn:ietf:params:xml:ns:yang:ietf-yang-library-augmentedby";
   prefix yanglib-aug;
 
   import ietf-yang-library {
@@ -780,8 +779,7 @@ module: ietf-yang-library
 <CODE BEGINS> file "ietf-yang-library-rfc7895-augmentedby@2023-10-27.yang"
 module ietf-yang-library-rfc7895-augmentedby {
   yang-version 1.1;
-  namespace "urn:ietf:params:xml:ns:yang:
-            ietf-yang-library-rfc7895-augmentedby";
+  namespace "urn:ietf:params:xml:ns:yang:ietf-yang-library-rfc7895-augmentedby";
   prefix yanglib-aug;
 
   import ietf-yang-library {
@@ -885,8 +883,7 @@ module ietf-yang-library-rfc7895-augmentedby {
 
       leaf revision {
         type leafref {
-          path "/yanglib:modules-state/yanglib:module
-                                              /yanglib:revision";
+          path "/yanglib:modules-state/yanglib:module/yanglib:revision";
         }
         description
           "Revision of the module";
