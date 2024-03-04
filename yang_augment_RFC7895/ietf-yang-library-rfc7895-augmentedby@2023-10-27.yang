@@ -1,6 +1,6 @@
-module ietf-yang-library-rfc7895-augmentation {
+module ietf-yang-library-rfc7895-augmentedby {
   yang-version 1.1;
-  namespace "urn:ietf:params:xml:ns:yang:ietf-yang-library-rfc7895-augmentation";
+  namespace "urn:ietf:params:xml:ns:yang:ietf-yang-library-rfc7895-augmentedby";
   prefix yanglib-aug;
 
   import ietf-yang-library {
@@ -19,12 +19,14 @@ module ietf-yang-library-rfc7895-augmentation {
      Author:   Zhuoyao Lin
                <mailto:zephyre888@gmail.com>
      Author:   Benoit Claise
-               <mailto:benoit.claise@huawei.com>";
+               <mailto:benoit.claise@huawei.com>
+     Author:   IGNACIO DOMINGUEZ MARTINEZ-CASANUEVA
+               <matilto:ignacio.dominguezmartinez@telefonica.com>";
 
   description
     "This module augments the ietf-yang-library defined in [RFC7895]
      to provide not only the deviation list, but also the 
-     augmentation list, in order to give sufficient information 
+     augmentedby list, in order to give sufficient information 
      about the YANG models reverse dependency. It facilitates 
      the process of obtaining the entire dependencies of YANG model.
 
@@ -50,44 +52,44 @@ module ietf-yang-library-rfc7895-augmentation {
 
   revision 2023-10-27 {
     description
-      "Added list augmentation in yang-library/modules-state/module to
+      "Added list augmentedby in yang-library/modules-state/module to
       make the module store the entire reverse dependency information
-      (augmentation and deviation).";
+      (augmentedby and deviation).";
     reference
-      "RFC XXXX: Support of augmentation in ietf-yang-library defined in RFC7895";
+      "RFC XXXX: Support of augmentedby in ietf-yang-library defined in RFC7895";
   }
 
   augment "/yanglib:modules-state/yanglib:module" {
     description
-      "Augment the augmentation from module info with the module-augmentation grouping" ;
-    uses yanglib-aug:module-state-augmentation;
+      "Augment the augmentedby from module info with the module-augmented-by grouping" ;
+    uses yanglib-aug:module-state-augmented-by;
   }
 
   /*
    * Groupings
    */
 
-  grouping module-state-augmentation {
+  grouping module-state-augmented-by {
     description
       "This grouping defines a list with keys being the module 
-      name and revison. The list contains the augmentation list.";
+      name and revison. The list contains the augmented-by list.";
  
-    list augmentation {
+    list augmented-by {
       key "name revision";
       status deprecated;
 
       description
-        "List of YANG augmentation module names and revisions
+        "List of YANG augmented-by module names and revisions
          used by this server to modify the conformance of
          the module associated with this entry.  Note that
-         the same module can be used for augmentations for
+         the same module can be used for augmented-by for
          multiple modules, so the same entry MAY appear
          within multiple 'module' entries.
 
-         The augmentation module MUST be present in the 'module'
+         The augment module MUST be present in the 'module'
          list, with the same name and revision values.
          The 'conformance-type' value will be 'implement' for
-         the augmentation module.";
+         the augment module.";
 
       leaf name {
         type leafref {
