@@ -8,7 +8,6 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 BUILDER_DIR = os.path.dirname(os.path.abspath(__file__))
 YANG_DIR_RFC7895 = os.path.join(os.path.dirname(BUILDER_DIR), "yang_augment_RFC7895")
 YANG_DIR_RFC8525 = os.path.join(os.path.dirname(BUILDER_DIR), "yang_augment_RFC8525")
-# JSON_DIR = os.path.join(os.path.dirname(BUILDER_DIR), "json")
 
 
 env = Environment(
@@ -51,17 +50,8 @@ def _find_yang_file(prefix: str, yang_dir):
     raise Exception(f"Yang file with prefix {prefix} not found.")
 
 
-# def _format_json(filename):
-#     try:
-#         #return "", json.dumps(json.load(open(filename)), indent=2)
-#         return "", open(filename).read()
-#     except Exception as e:
-#         return str(e), ""
-
-
-YANGLIB_AUGMENT_RFC7895 = _find_yang_file("ietf-yang-library-rfc7895-augmentation", YANG_DIR_RFC7895)
-YANGLIB_AUGMENT_RFC8525 = _find_yang_file("ietf-yang-library-augmentation", YANG_DIR_RFC8525)
-# DATA_COLLECTION_MANIFEST_EXAMPLE = os.path.join(JSON_DIR, "manifests-example.json")
+YANGLIB_AUGMENT_RFC7895 = _find_yang_file("ietf-yang-library-rfc7895-augmentedby", YANG_DIR_RFC7895)
+YANGLIB_AUGMENT_RFC8525 = _find_yang_file("ietf-yang-library-augmentedby", YANG_DIR_RFC8525)
 
 
 def draft_content():
@@ -86,7 +76,7 @@ def draft_content():
 
 
 if __name__ == '__main__':
-    output = os.path.join(os.path.dirname(BUILDER_DIR), "draft-lincla-netconf-yang-library-augmentation-00.xml")
+    output = os.path.join(os.path.dirname(BUILDER_DIR), "draft-lincla-netconf-yang-library-augmentation-01.xml")
     draft_text = env.get_template("draft-lincla-netconf-yang-library-augmentation.xml")
     with open(output, 'w') as xml_generated:
         xml_generated.write(draft_text.render(**draft_content()))
