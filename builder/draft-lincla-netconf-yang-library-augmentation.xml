@@ -196,7 +196,7 @@
   <t>With similar central idea, two use cases are introduced
   in this section. One target solving the dependencies problems in
   a Data Mesh Telemetry System while the other aims at building a 
-  data catalog which makes YANG model inforamtion easily accessible.
+  data catalog which makes YANG model information easily accessible.
   </t>
     <section anchor="Data Mesh Telemetry Architecture" title="Data Mesh Telemetry Architecture">
     <t>
@@ -229,8 +229,8 @@
       installed via configuration by any client with proper permission to any
       proper receiver, happened through different sessions most of the time. In
       that scenario, once the subscription is set up, the notification message
-      (or event record) are sent over the connections specified by the 
-      transport and receiver of the configured subscritpion. Different from the
+      (or event record) is sent over the connections specified by the 
+      transport and receiver of the configured subscription. Different from the
       dynamic subscription, the notification messages are sent over the session
       which is used to establish the subscription. </t>
       <t>
