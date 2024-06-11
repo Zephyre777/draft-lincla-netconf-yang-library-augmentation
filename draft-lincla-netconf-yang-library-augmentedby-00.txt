@@ -5,9 +5,9 @@
 NETCONF                                                           Z. Lin
 Internet-Draft                                                 B. Claise
 Intended status: Standards Track                                  Huawei
-Expires: 4 September 2024                       I. D. Martinez-Casanueva
+Expires: 13 December 2024                       I. D. Martinez-Casanueva
                                            Telefonica Innovacion Digital
-                                                            3 March 2024
+                                                            11 June 2024
 
 
             Augmented-by Addition into the IETF-YANG-Library
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 September 2024.
+   This Internet-Draft will expire on 13 December 2024.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Lin, et al.             Expires 4 September 2024                [Page 1]
+Lin, et al.             Expires 13 December 2024                [Page 1]
 
-Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
+Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Lin, et al.             Expires 4 September 2024                [Page 2]
+Lin, et al.             Expires 13 December 2024                [Page 2]
 
-Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
+Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
 
 1.  Introduction
@@ -165,9 +165,9 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
 
 
 
-Lin, et al.             Expires 4 September 2024                [Page 3]
+Lin, et al.             Expires 13 December 2024                [Page 3]
 
-Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
+Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
 
    *  Import: the "import" statement allows a module or submodule to
@@ -221,9 +221,9 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
 
 
 
-Lin, et al.             Expires 4 September 2024                [Page 4]
+Lin, et al.             Expires 13 December 2024                [Page 4]
 
-Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
+Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
 
    With similar central idea, two use cases are introduced in this
@@ -277,9 +277,9 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
 
 
 
-Lin, et al.             Expires 4 September 2024                [Page 5]
+Lin, et al.             Expires 13 December 2024                [Page 5]
 
-Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
+Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
 
    Currently, the method used for finding model's reverse dependency is
@@ -333,9 +333,9 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
 
 
 
-Lin, et al.             Expires 4 September 2024                [Page 6]
+Lin, et al.             Expires 13 December 2024                [Page 6]
 
-Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
+Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
 
    Data catalog solutions typically implement collectors that ingest
@@ -389,9 +389,9 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
 
 
 
-Lin, et al.             Expires 4 September 2024                [Page 7]
+Lin, et al.             Expires 13 December 2024                [Page 7]
 
-Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
+Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
 
    ietf-yang-library YANG module; The module that augments [RFC7895] is
@@ -445,9 +445,9 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
 
 
 
-Lin, et al.             Expires 4 September 2024                [Page 8]
+Lin, et al.             Expires 13 December 2024                [Page 8]
 
-Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
+Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
 
      |  |  +--ro name          string
@@ -501,9 +501,9 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
 
 
 
-Lin, et al.             Expires 4 September 2024                [Page 9]
+Lin, et al.             Expires 13 December 2024                [Page 9]
 
-Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
+Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
 
      contact
@@ -557,9 +557,9 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
 
 
 
-Lin, et al.             Expires 4 September 2024               [Page 10]
+Lin, et al.             Expires 13 December 2024               [Page 10]
 
-Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
+Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
 
        description
@@ -613,9 +613,9 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
 
 
 
-Lin, et al.             Expires 4 September 2024               [Page 11]
+Lin, et al.             Expires 13 December 2024               [Page 11]
 
-Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
+Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
 
 6.1.  Changes from 00 to 01
@@ -669,9 +669,9 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
 
 
 
-Lin, et al.             Expires 4 September 2024               [Page 12]
+Lin, et al.             Expires 13 December 2024               [Page 12]
 
-Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
+Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
 
    [RFC7950]  Bjorklund, M., Ed., "The YANG 1.1 Data Modeling Language",
@@ -725,9 +725,9 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
 
 
 
-Lin, et al.             Expires 4 September 2024               [Page 13]
+Lin, et al.             Expires 13 December 2024               [Page 13]
 
-Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
+Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
 
    [I-D.netana-nmop-yang-kafka-integration]
@@ -781,9 +781,9 @@ A.1.  A valid ietf-yang-library data example
 
 
 
-Lin, et al.             Expires 4 September 2024               [Page 14]
+Lin, et al.             Expires 13 December 2024               [Page 14]
 
-Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
+Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
 
    <CODE BEGINS> file "example_valid.xml"
@@ -837,9 +837,9 @@ A.2.  An invalid ietf-yang-library data example
 
 
 
-Lin, et al.             Expires 4 September 2024               [Page 15]
+Lin, et al.             Expires 13 December 2024               [Page 15]
 
-Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
+Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
 
    <CODE BEGINS> file "example_invalid.xml"
@@ -893,9 +893,9 @@ B.1.  Tree View for YANG module augmenting RFC7895
 
 
 
-Lin, et al.             Expires 4 September 2024               [Page 16]
+Lin, et al.             Expires 13 December 2024               [Page 16]
 
-Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
+Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
 
    module: ietf-yang-library-rfc7895-augmentedby
@@ -949,9 +949,9 @@ B.3.  YANG module augmenting RFC7895
 
 
 
-Lin, et al.             Expires 4 September 2024               [Page 17]
+Lin, et al.             Expires 13 December 2024               [Page 17]
 
-Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
+Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
 
    <CODE BEGINS>
@@ -1005,9 +1005,9 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
 
 
 
-Lin, et al.             Expires 4 September 2024               [Page 18]
+Lin, et al.             Expires 13 December 2024               [Page 18]
 
-Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
+Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
 
         Relating to IETF Documents
@@ -1061,9 +1061,9 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
 
 
 
-Lin, et al.             Expires 4 September 2024               [Page 19]
+Lin, et al.             Expires 13 December 2024               [Page 19]
 
-Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
+Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
 
          leaf name {
@@ -1117,9 +1117,9 @@ Authors' Addresses
 
 
 
-Lin, et al.             Expires 4 September 2024               [Page 20]
+Lin, et al.             Expires 13 December 2024               [Page 20]
 
-Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
+Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
 
    Ignacio Dominguez Martinez-Casanueva
@@ -1173,4 +1173,4 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
 
 
 
-Lin, et al.             Expires 4 September 2024               [Page 21]
+Lin, et al.             Expires 13 December 2024               [Page 21]
