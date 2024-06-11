@@ -11,7 +11,7 @@ Expires: 4 September 2024                       I. D. Martinez-Casanueva
 
 
             Augmented-by Addition into the IETF-YANG-Library
-           draft-lincla-netconf-yang-library-augmentation-02
+            draft-lincla-netconf-yang-library-augmentedby-00
 
 Abstract
 
