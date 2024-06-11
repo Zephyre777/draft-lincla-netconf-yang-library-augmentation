@@ -229,7 +229,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
    With similar central idea, two use cases are introduced in this
    section.  One target solving the dependencies problems in a Data Mesh
    Telemetry System while the other aims at building a data catalog
-   which makes YANG model inforamtion easily accessible.
+   which makes YANG model information easily accessible.
 
 3.1.  Data Mesh Telemetry Architecture
 
@@ -258,19 +258,19 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2024
    via configuration by any client with proper permission to any proper
    receiver, happened through different sessions most of the time.  In
    that scenario, once the subscription is set up, the notification
-   message (or event record) are sent over the connections specified by
-   the transport and receiver of the configured subscritpion.  Different
+   message (or event record) is sent over the connections specified by
+   the transport and receiver of the configured subscription.  Different
    from the dynamic subscription, the notification messages are sent
    over the session which is used to establish the subscription.
 
    In the section 3 of draft [I-D.netana-nmop-yang-kafka-integration],
-   it has defined seperate network orchestrator and data collector in
+   it has defined seperated network orchestrator and data collector in
    its architecture.  That highly matches with the real scenarios and it
    also allow greater flexibilities when using it.  However, to aline
    with that, only configured subscription could provide such
-   flexibility, that subscription is rather defined in with a
-   configurable approach, where user can configure it from any legal
-   client and receive it in another client that they assign.
+   flexibility, that subscription is rather defined with a configurable
+   approach, where user can configure it from any legal client and
+   receive it in another client that they assign.
 
 
 

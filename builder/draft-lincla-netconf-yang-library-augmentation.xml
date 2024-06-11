@@ -240,7 +240,7 @@
       architecture. That highly matches with the real scenarios and it also
       allow greater flexibilities when using it. However, to aline with that,
       only configured subscription could provide such flexibility, that
-      subscription is rather defined in with a configurable approach, where 
+      subscription is rather defined with a configurable approach, where 
       user can configure it from any legal client and receive it in another 
       client that they assign.
       </t>
