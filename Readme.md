@@ -1,7 +1,7 @@
 # Augmentation to ietf-yang-library
 
 This repo contains the draft for the next version of
-[draft-lincla-netconf-yang-library-augmentation](https://datatracker.ietf.org/doc/draft-lincla-netconf-yang-library-augmentation/)
+[draft-lincla-netconf-yang-library-augmentation](https://datatracker.ietf.org/doc/draft-lincla-netconf-yang-library-augmentedby/)
 
 ## Diff between the current working draft and latest ietf version
 
