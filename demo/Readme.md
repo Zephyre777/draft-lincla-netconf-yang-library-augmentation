@@ -18,5 +18,5 @@ make install
 ```
 
 ## Augmentation list
-By running a netopeer2 server and client, send the query ```get --filter-xpath /ietf-yang-library:yang-library/module-set/module/augmentation``` and the augmentation information of each module will be printed. See the picture attached.
+By running a netopeer2 server and client, send the query ```get --filter-xpath /ietf-yang-library:yang-library/module-set/module/augmented-by``` and the augmentation information of each module will be printed. See the picture attached.
  
