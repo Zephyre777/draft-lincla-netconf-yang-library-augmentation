@@ -30,7 +30,7 @@ commit the corresponding .txt so that diff with current version is correct.
  * iddiff
  * pip
 
-The YANG modules are in the [yang_augment_RFC7895] and the [yang_augment_RFC85435] directories, each contains one set of modules that augment different version of ietf-yang-library.
+The YANG modules are in the [yang_augment_RFC7895](./yang_augment_RFC7895/) and the [yang_augment_RFC85435](./yang_augment_RFC8525/) directories, each containining a set of modules that augment different version of ietf-yang-library.
 
 
 

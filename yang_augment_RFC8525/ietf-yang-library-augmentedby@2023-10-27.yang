@@ -6,7 +6,7 @@ module ietf-yang-library-augmentedby {
   import ietf-yang-library {
     prefix yanglib;
     reference
-      "RFC 8525: YANG library";
+      "RFC 8525: YANG Library";
   }
 
   organization
@@ -14,7 +14,7 @@ module ietf-yang-library-augmentedby {
   contact
     "WG Web:   <https://datatracker.ietf.org/wg/netconf/>
      WG List:  <mailto:netconf@ietf.org>
-
+     
      Author:   Zhuoyao Lin
                <mailto:zephyre888@gmail.com>
                Benoit Claise
@@ -29,17 +29,17 @@ module ietf-yang-library-augmentedby {
      information about the YANG models reverse dependency. It 
      facilitates the process of obtaining the entire 
      dependencies of YANG model.
-
+     
      The key words 'MUST', 'MUST NOT', 'REQUIRED', 'SHALL',
      'SHALL NOT', 'SHOULD', 'SHOULD NOT', 'RECOMMENDED',
      'NOT RECOMMENDED', 'MAY', and 'OPTIONAL' in this document
      are to be interpreted as described in BCP 14 (RFC 2119)
      (RFC 8174) when, and only when, they appear in all
      capitals, as shown here.
-
+     
      Copyright (c) 2022 IETF Trust and the persons identified as
      authors of the code.  All rights reserved.
-
+     
      Redistribution and use in source and binary forms, with or
      without modification, is permitted pursuant to, and subject
      to the license terms contained in, the Revised BSD License
@@ -52,8 +52,8 @@ module ietf-yang-library-augmentedby {
   revision 2023-10-27 {
     description
       "Added list augmented-by in yang-library/module-set/module to
-      make the module store the entire reverse dependency information
-      (augmented-by and deviation).";
+       make the module store the entire reverse dependency information
+       (augmented-by and deviation).";
     reference
       "RFC XXXX: Support of augmentedby in ietf-yang-library";
   }
@@ -61,7 +61,7 @@ module ietf-yang-library-augmentedby {
   augment "/yanglib:yang-library/yanglib:module-set/yanglib:module" {
     description
       "Augment the augmented-by list from module info with the 
-      module-augmented-by grouping" ;
+       module-augmented-by grouping";
 
     leaf-list augmented-by {
       type leafref {
@@ -74,10 +74,10 @@ module ietf-yang-library-augmentedby {
          this entry.  Note that the same module can be used for 
          augmented-by for multiple modules, so the same 
          entry MAY appear within multiple 'module' entries.
-
+         
          This reference MUST NOT (directly or indirectly)
          refer to the module being augmented.
-
+         
          Robust clients may want to make sure that they handle a
          situation where a module augments itself (directly or
          indirectly) gracefully.";
