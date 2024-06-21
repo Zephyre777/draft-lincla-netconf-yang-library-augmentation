@@ -9,7 +9,7 @@
 <?rfc inline="yes"?>
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
-<rfc category="std" docName="draft-lincla-netconf-yang-library-augmentation-01"
+<rfc category="std" docName="draft-lincla-netconf-yang-library-augmentedby-00"
      ipr="trust200902">
   <front>
     <title abbrev="Augmented-by Addition into the IETF-YANG-Library">
@@ -23,7 +23,7 @@
           <city>Dublin</city>
           <country>Ireland</country>
         </postal>
-        <email>zephyre888@gmail.com</email>
+        <email>zhuoyao.lin1@huawei-partners.com</email>
       </address>
     </author>
 
@@ -46,7 +46,7 @@
       </address>
     </author>
 
-    <date day="3" month="March" year="2024"/>
+    <date day="11" month="June" year="2024"/>
 
     <area>OPS</area>
 
@@ -196,7 +196,7 @@
   <t>With similar central idea, two use cases are introduced
   in this section. One target solving the dependencies problems in
   a Data Mesh Telemetry System while the other aims at building a 
-  data catalog which makes YANG model inforamtion easily accessible.
+  data catalog which makes YANG model information easily accessible.
   </t>
     <section anchor="Data Mesh Telemetry Architecture" title="Data Mesh Telemetry Architecture">
     <t>
@@ -222,6 +222,27 @@
       To solve the problem, a schema registry is introduced to store
       YANG models and all their relationship (direct dependency and
       reverse dependency).
+      </t>
+      <t>
+      The scope of this draft is limited to configured subscription defined in 
+      <xref target="RFC8639"/> in Section 2.5. Configured subscription is 
+      installed via configuration by any client with proper permission to any
+      proper receiver, happened through different sessions most of the time. In
+      that scenario, once the subscription is set up, the notification message
+      (or event record) is sent over the connections specified by the 
+      transport and receiver of the configured subscription. Different from the
+      dynamic subscription, the notification messages are sent over the session
+      which is used to establish the subscription. </t>
+      <t>
+      In the section 3 of draft
+       <xref target="I-D.netana-nmop-yang-kafka-integration"></xref>, 
+      it has defined seperated network orchestrator and data collector in its 
+      architecture. That highly matches with the real scenarios and it also
+      allow greater flexibilities when using it. However, to aline with that,
+      only configured subscription could provide such flexibility, that
+      subscription is rather defined with a configurable approach, where 
+      user can configure it from any legal client and receive it in another 
+      client that they assign.
       </t>
       <t>Currently, the method used for finding model's reverse
       dependency is get-all-schemas, that is to retrieve all YANG
@@ -517,15 +538,19 @@ module ietf-yang-library-augmentedby {
     <section anchor="Implementation" title="Implementation Status">
       <t>
       Note to the RFC-Editor: Please remove this section before
-      publishing.
+      publishing (This follows the template in RFC7942).
       </t>
-      <section anchor="draft repository" title="draft repository">
+      <section anchor="Netopeer2" title="Netopeer2">
+        <t>Zhuoyao Lin did the prototype implementation of the augmented-by 
+          list feature of this draft and demonstrated it based on Netopeer2
+          in IETF 119 Hackathon. </t>
         <t>
-        Here is the github repository for the YANG source code of this draft:
-        https://github.com/Zephyre777/draft-lincla-netconf-yang-library-augmentation.git.
-        </t>
-        <t>
-        For the demo, please refer to the demo folder in this repository. There is a netopeer2 instance running with updated version of libyang and sysrepo(links are listed in the demo instruction).
+        Netopeer2 is a NETCONF server &amp; client implementation developed by 
+        CESNET. Source code is here: <xref target="NTP17"/>. 
+        The actual feature is implemented by extending the libyang
+        <xref target="LY16"/> and sysrepo <xref target="SR16"/> which are the 
+        base libraries for Netopeer2 to support populating the augmented-by 
+        list.
         </t>
       </section>
     </section>
@@ -543,6 +568,16 @@ module ietf-yang-library-augmentedby {
         can work as expected.
         </t>
         <t>Section 5 Implementation and section 6 Changes has been added.</t>
+      </section>
+      <section anchor="Changes from 01 to 02" title="Changes from 01 to 02">
+        <t>
+          Updated the Use case content in Section 3.1. Add explanation: the 
+          scope of use case "Data Mesh Architecture" is limited to configured
+          subscription.
+        </t>
+        <t>
+          Updated Implementation status content.
+        </t>
       </section>
     </section>
 
@@ -573,6 +608,41 @@ module ietf-yang-library-augmentedby {
       <?rfc include='reference.RFC.8343'?>
 
       <?rfc include='reference.RFC.8344'?>
+
+      <?rfc include='reference.RFC.8639'?>
+
+      <reference anchor="NTP17"
+      target="https://github.com/CESNET/netopeer2">
+        <front>
+          <title>Netopeer2</title>
+          <author fullname="Michal Vasko" initials="M." surname="Vasko"/>
+          <date month="May" year="2017"/>
+        </front>
+        <refcontent>BSD-3-Clause license</refcontent>
+      </reference>
+
+      <reference anchor="LY16"
+      target="https://github.com/CESNET/libyang.git">
+        <front>
+          <title>libyang</title>
+          <author fullname="Michal Vasko" initials="M." surname="Vasko"/>
+          <date month="November" year="2016"/>
+        </front>
+
+        <refcontent>BSD-3-Clause license</refcontent>
+      </reference>
+
+      <reference anchor="SR16"
+      target="https://github.com/sysrepo/sysrepo.git">
+        <front>
+          <title>sysrepo</title>
+
+          <author fullname="Michal Vasko" initials="M." surname="Vasko"/>
+
+          <date month="January" year="2016"/>
+        </front>
+        <refcontent>BSD-3-Clause license</refcontent>
+      </reference>
 
     </references>
 

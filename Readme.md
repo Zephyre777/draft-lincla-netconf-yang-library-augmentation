@@ -1,7 +1,7 @@
 # Augmentation to ietf-yang-library
 
 This repo contains the draft for the next version of
-[draft-lincla-netconf-yang-library-augmentation](https://datatracker.ietf.org/doc/draft-lincla-netconf-yang-library-augmentation/)
+[draft-lincla-netconf-yang-library-augmentedby](https://datatracker.ietf.org/doc/draft-lincla-netconf-yang-library-augmentedby/)
 
 ## Diff between the current working draft and latest ietf version
 
@@ -13,7 +13,7 @@ The .html file will be generated under the main directory.
 
 ### Quick way
 
-The text of the draft can be modified in [builder/draft-lincla-netconf-yang-library-augmentation.xml](builder/draft-lincla-netconf-yang-library-augmentation.xml)
+The text of the draft can be modified in [builder/draft-lincla-netconf-yang-library-augmentedby.xml](builder/draft-lincla-netconf-yang-library-augmentedby.xml)
 
 For the current draft version that the user is working on, execute the ```make``` to generate .xml and .txt file for the draft.
 Modify the .xml corresponding to the current version. Make sure to 
