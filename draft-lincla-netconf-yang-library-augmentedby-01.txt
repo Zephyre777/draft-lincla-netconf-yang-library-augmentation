@@ -15,10 +15,10 @@ Expires: 23 December 2024                       I. D. Martinez-Casanueva
 
 Abstract
 
-   This document augments the ietf-yang-library in [RFC8525] to provide
-   the augmented-by list.  It facilitates the process of obtaining the
-   entire dependencies of YANG model, by directly querying the server's
-   YANG module.
+   This document augments the ietf-yang-library to provide the
+   augmented-by list.  It facilitates the process of obtaining the
+   entire dependencies between YANG modules, by directly querying the
+   server's YANG module.
 
 Discussion Venues
 
@@ -117,7 +117,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 1.  Introduction
 
    The YANG Library [RFC8525] specifies a YANG module that provides the
-   information about the YANG models and datastores to facilitate a
+   information about the YANG modules and datastores to facilitate a
    client application to fully utilize and understand the YANG data
    modelling language.  To know the YANG dependencies, [RFC8525] has
    defined and provided the submodule list and the YANG modules
@@ -127,9 +127,9 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
    According to [RFC7950], both augmentations and deviations are
    defining contents external to the model, but applying internally for
    the model.  It is important to know the augmentation and deviation as
-   they are dependencies of the model, but it is also difficult because
-   they are defined externally.  When we try to use the ietf-yang-
-   library in [RFC8525] to obtain the reverse dependencies (i.e.,
+   they are dependencies between modules, but it is also difficult
+   because they are defined externally.  When we try to use the ietf-
+   yang-library in [RFC8525] to obtain the reverse dependencies (i.e.,
    augmentations and deviations), the augmentations are not defined in
    it.
 
@@ -232,7 +232,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
    This section introduces two use cases that reflect the motivation for
    extending YANG Library.  One targets solving dependency problems in a
    data mesh telemetry system while the other aims at building a data
-   catalog that makes YANG model information easily accessible.
+   catalog that makes YANG module information easily accessible.
 
 3.1.  Data Mesh Telemetry Architecture
 
@@ -285,7 +285,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
    Currently, the method used for finding the reverse dependencies of a
    YANG module is "get-all-schemas", where the YANG client retrieves all
    YANG modules from the network device, enabling the client to fully
-   understand the resulting YANG model.  This process is heavy because
+   understand the resulting YANG module.  This process is heavy because
    in a real situation, each device may implement hundreds of YANG
    modules.  Besides, the need of parsing all YANG modules and finding
    all the dependencies adds extra delay.
@@ -304,19 +304,19 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
    dependency enables real-time action.
 
    Compared with get-all-schemas, the proposed approach enables the YANG
-   collector to fetch up-to-date data since the queries to are sent at
-   run time, while the former approach forces the collector to always
-   work with never updated data.  On the another hand, YANG clients do
-   not bother waiting for ten minutes every time when starting collector
-   to either get data updated or to obtain YANG relationship.
+   collector to fetch up-to-date data since the queries are sent at run
+   time, while the former approach forces the collector to always work
+   with never updated data.  On the another hand, YANG clients do not
+   bother waiting for ten minutes every time when starting collector to
+   either get data updated or to obtain YANG relationship.
 
 3.2.  Data Catalog
 
-   Finding the YANG models implemented by a network device is paramount
+   Finding the YANG modules implemented by a network device is paramount
    for configuring and monitoring the status of a network.  However,
    since the inception of YANG the network industry has experienced a
-   tsunami of YANG models developed by SDOs, open-source communities,
-   and network vendors.  This heterogeneity of YANG models, that vary
+   tsunami of YANG modules developed by SDOs, open-source communities,
+   and network vendors.  This heterogeneity of YANG modules, that vary
    from one network device model to another, makes the management of a
    multi-vendor network a big challenge for operators.
    [Martinez-Casanueva2023]
@@ -347,7 +347,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
    In this sense, a YANG-enabled network device can be considered as
    another kind of data source, which the Data Catalog can pull metadata
    from.  For instance, the data catalog can include a connector that
-   fetches metadata about the YANG models implemented by the network
+   fetches metadata about the YANG modules implemented by the network
    device.  Combining these metadata with other such as the business
    concept "interface", would enable data consumers to discover which
    datasets related to the concept "interface" are exposed by the
@@ -355,7 +355,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
    Network devices that implement YANG Library expose metadata about
    which YANG modules are implemented, and which are only imported.
-   However, what a data consumer needs at the end are the YANG models
+   However, what a data consumer needs at the end are the YANG modules
    implemented by the device, hence, the combination of implemented YANG
    modules with other YANG modules that might deviate or augment the
    formers.
@@ -521,9 +521,9 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
        "This module augments the ietf-yang-library defined in
         [RFC8525] to provide not only the deviation list, but also
         the augmented-by list, in order to give sufficient
-        information about the YANG models reverse dependency. It
+        information about the YANG modules reverse dependency. It
         facilitates the process of obtaining the entire
-        dependencies of YANG model.
+        dependencies of YANG module.
 
         The key words 'MUST', 'MUST NOT', 'REQUIRED', 'SHALL',
         'SHALL NOT', 'SHOULD', 'SHOULD NOT', 'RECOMMENDED',
@@ -982,11 +982,10 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
                   <matilto:ignacio.dominguezmartinez@telefonica.com>";
 
      description
-       "This module augments the ietf-yang-library defined in [RFC7895]
-        to provide not only the deviation list, but also the
-        augmentedby list, in order to give sufficient information
-        about the YANG models reverse dependency. It facilitates
-        the process of obtaining the entire dependencies of YANG model.
+        This document augments the ietf-yang-library to provide the
+        augmented-by list. It facilitates the process of obtaining
+        the entire dependencies between YANG modules, by directly
+        querying the server's YANG module.
 
         The key words 'MUST', 'MUST NOT', 'REQUIRED', 'SHALL',
         'SHALL NOT', 'SHOULD', 'SHOULD NOT', 'RECOMMENDED',
@@ -1002,6 +1001,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
         without modification, is permitted pursuant to, and subject
         to the license terms contained in, the Revised BSD License
         set forth in Section 4.c of the IETF Trust's Legal Provisions
+        Relating to IETF Documents
 
 
 
@@ -1010,7 +1010,6 @@ Lin, et al.             Expires 23 December 2024               [Page 18]
 Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
 
-        Relating to IETF Documents
         (https://trustee.ietf.org/license-info).
         This version of this YANG module is part of RFC XXXX; see the
         RFC itself for full legal notices.  ";
@@ -1058,6 +1057,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
             list, with the same name and revision values.
             The 'conformance-type' value will be 'implement' for
             the augment module.";
+
 
 
 

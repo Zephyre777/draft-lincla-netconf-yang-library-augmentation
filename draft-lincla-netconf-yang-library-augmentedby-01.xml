@@ -54,10 +54,9 @@
 
     <abstract>
       <t>
-      This document augments the ietf-yang-library in [RFC8525] to
-       provide the augmented-by list. It facilitates the process of
-       obtaining the entire dependencies of YANG model, by directly
-       querying the server's YANG module.
+      This document augments the ietf-yang-library to provide the augmented-by 
+      list. It facilitates the process of obtaining the entire dependencies 
+      between YANG modules, by directly querying the server's YANG module.
       </t>
     </abstract>
 
@@ -74,7 +73,7 @@
 
     <t>
     The YANG Library <xref target="RFC8525" /> specifies a YANG
-    module that provides the information about the YANG models and
+    module that provides the information about the YANG modules and
     datastores to facilitate a client application to fully utilize
     and understand the YANG data modelling language. To know the
     YANG dependencies, <xref target="RFC8525" /> has defined and
@@ -87,7 +86,7 @@
     and deviations are defining contents external to the model,
     but applying internally for the model. It is
     important to know the augmentation and deviation as they are
-    dependencies of the model, but it is also difficult because
+    dependencies between modules, but it is also difficult because
     they are defined externally.
     When we try to use the ietf-yang-library in
     <xref target="RFC8525" /> to obtain the reverse dependencies
@@ -194,7 +193,7 @@
   <t>This section introduces two use cases that reflect the motivation
   for extending YANG Library. One targets solving dependency problems in
   a data mesh telemetry system while the other aims at building a
-  data catalog that makes YANG model information easily accessible.
+  data catalog that makes YANG module information easily accessible.
   </t>
     <section anchor="Data Mesh Telemetry Architecture" title="Data Mesh Telemetry Architecture">
     <t>
@@ -246,7 +245,7 @@
       <t>Currently, the method used for finding the reverse dependencies
       of a YANG module is "get-all-schemas", where the YANG client retrieves
       all YANG modules from the network device, enabling the
-      client to fully understand the resulting YANG model. This
+      client to fully understand the resulting YANG module. This
       process is heavy because in a real situation, each device may implement
       hundreds of YANG modules.
       Besides, the need of parsing all YANG modules and finding all
@@ -268,7 +267,7 @@
       YANG Library. In this regard, the process of acquiring full dependency
       enables real-time action. </t>
       <t>Compared with get-all-schemas, the proposed approach enables the YANG
-      collector to fetch up-to-date data since the queries to are sent
+      collector to fetch up-to-date data since the queries are sent
       at run time, while the former approach forces the collector to always
       work with never updated data. On the another hand, YANG clients do not bother
       waiting for ten minutes every time when starting collector to either
@@ -277,11 +276,11 @@
     </section>
     <section anchor="Data Catalog" title="Data Catalog">
 
-      <t>Finding the YANG models implemented by a network device is paramount for
+      <t>Finding the YANG modules implemented by a network device is paramount for
       configuring and monitoring the status of a network. However, since the
       inception of YANG the network industry has experienced a tsunami of
-      YANG models developed by SDOs, open-source communities,
-      and network vendors. This heterogeneity of YANG models, that vary
+      YANG modules developed by SDOs, open-source communities,
+      and network vendors. This heterogeneity of YANG modules, that vary
       from one network device model to another, makes the management of a
       multi-vendor network a big challenge
       for operators. <xref target="Martinez-Casanueva2023"></xref></t>
@@ -302,7 +301,7 @@
       <t>In this sense, a YANG-enabled network device can be considered
       as another kind of data source, which the Data Catalog can
       pull metadata from. For instance, the data catalog can include a
-      connector that fetches metadata about the YANG models implemented
+      connector that fetches metadata about the YANG modules implemented
       by the network device. Combining these metadata with other such as
       the business concept "interface", would enable data consumers to
       discover which datasets related to the concept "interface"
@@ -310,7 +309,7 @@
 
       <t>Network devices that implement YANG Library expose metadata
       about which YANG modules are implemented, and which are only imported.
-      However, what a data consumer needs at the end are the YANG models
+      However, what a data consumer needs at the end are the YANG modules
       implemented by the device, hence, the combination of implemented YANG
       modules with other YANG modules that might deviate or augment the formers.</t>
 
@@ -467,9 +466,9 @@ module ietf-yang-library-augmentedby {
     "This module augments the ietf-yang-library defined in
      [RFC8525] to provide not only the deviation list, but also
      the augmented-by list, in order to give sufficient
-     information about the YANG models reverse dependency. It
+     information about the YANG modules reverse dependency. It
      facilitates the process of obtaining the entire
-     dependencies of YANG model.
+     dependencies of YANG module.
 
      The key words 'MUST', 'MUST NOT', 'REQUIRED', 'SHALL',
      'SHALL NOT', 'SHOULD', 'SHOULD NOT', 'RECOMMENDED',
@@ -879,11 +878,10 @@ module ietf-yang-library-rfc7895-augmentedby {
                <matilto:ignacio.dominguezmartinez@telefonica.com>";
 
   description
-    "This module augments the ietf-yang-library defined in [RFC7895]
-     to provide not only the deviation list, but also the
-     augmentedby list, in order to give sufficient information
-     about the YANG models reverse dependency. It facilitates
-     the process of obtaining the entire dependencies of YANG model.
+     This document augments the ietf-yang-library to provide the 
+     augmented-by list. It facilitates the process of obtaining 
+     the entire dependencies between YANG modules, by directly 
+     querying the server's YANG module.
 
      The key words 'MUST', 'MUST NOT', 'REQUIRED', 'SHALL',
      'SHALL NOT', 'SHOULD', 'SHOULD NOT', 'RECOMMENDED',
