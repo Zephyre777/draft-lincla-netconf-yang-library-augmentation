@@ -266,12 +266,16 @@
       obtain the YANG reverse dependencies by fetching the contents of the
       YANG Library. In this regard, the process of acquiring full dependency
       enables real-time action. </t>
-      <t>Compared with get-all-schemas, the proposed approach enables the YANG
-      collector to fetch up-to-date data since the queries are sent
-      at run time, while the former approach forces the collector to always
-      work with never updated data. On the another hand, YANG clients do not bother
-      waiting for ten minutes every time when starting collector to either
-      get data updated or to obtain YANG relationship.
+      <t>Compared with the get-all-schemas approach, the above proposed 
+      approach of finding YANG dependencies enables the YANG collector to fetch
+      up-to-date denpendency list since the NETCONF &gt;get&gt; query is 
+      sent at run-time, while the get-all-schemas apporach is risk of letting 
+      client works with not updated yanglib content, unless get-all-schema 
+      is periodically redone. On the another hand, YANG clients can avoid 
+      waiting for tens of minutes, which is a normal situation when 
+      using the get-all-schema approach, every time when starting collector to 
+      either get yanglib content updated or to obtain YANG relationship 
+      because of having to store all YANG modules in disk first.
       </t>
     </section>
     <section anchor="Data Catalog" title="Data Catalog">
