@@ -305,7 +305,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
    Compared with the get-all-schemas approach, the above proposed
    approach of finding YANG dependencies enables the YANG collector to
-   fetch up-to-date denpendency list since the NETCONF >get> query is
+   fetch up-to-date dependency list since the NETCONF <get> query is
    sent at run-time, while the get-all-schemas apporach is risk of
    letting client works with not updated yanglib content, unless get-
    all-schema is periodically redone.  On the another hand, YANG clients
@@ -734,9 +734,9 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
               Graf, T., Claise, B., and A. H. Feng, "Support of
               Versioning in YANG Notifications Subscription", Work in
               Progress, Internet-Draft, draft-ietf-netconf-yang-
-              notifications-versioning-04, 14 April 2024,
+              notifications-versioning-05, 16 June 2024,
               <https://datatracker.ietf.org/doc/html/draft-ietf-netconf-
-              yang-notifications-versioning-04>.
+              yang-notifications-versioning-05>.
 
    [I-D.netana-nmop-yang-kafka-integration]
               Graf, T., "An Architecture for YANG-Push to Apache Kafka

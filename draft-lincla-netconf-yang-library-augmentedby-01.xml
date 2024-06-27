@@ -268,7 +268,7 @@
       enables real-time action. </t>
       <t>Compared with the get-all-schemas approach, the above proposed 
       approach of finding YANG dependencies enables the YANG collector to fetch
-      up-to-date denpendency list since the NETCONF &gt;get&gt; query is 
+      up-to-date dependency list since the NETCONF &lt;get&gt; query is 
       sent at run-time, while the get-all-schemas apporach is risk of letting 
       client works with not updated yanglib content, unless get-all-schema 
       is periodically redone. On the another hand, YANG clients can avoid 
