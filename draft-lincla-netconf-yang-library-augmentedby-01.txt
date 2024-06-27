@@ -519,7 +519,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
         WG List:  <mailto:netconf@ietf.org>
 
         Author:   Zhuoyao Lin
-                  <mailto:zephyre888@gmail.com>
+                  <mailto:zhuoyao.lin1@huawei-parteners.com>
                   Benoit Claise
                   <mailto:benoit.claise@huawei.com>
                   IGNACIO DOMINGUEZ MARTINEZ-CASANUEVA
@@ -975,7 +975,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
         WG List:  <mailto:netconf@ietf.org>
 
         Author:   Zhuoyao Lin
-                  <mailto:zephyre888@gmail.com>
+                  <mailto:zhuoyao.lin1@huawei-partners.com>
         Author:   Benoit Claise
                   <mailto:benoit.claise@huawei.com>
         Author:   IGNACIO DOMINGUEZ MARTINEZ-CASANUEVA
