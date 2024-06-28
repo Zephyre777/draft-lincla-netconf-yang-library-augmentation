@@ -269,13 +269,16 @@
       <t>Compared with the get-all-schemas approach, the above proposed 
       approach of finding YANG dependencies enables the YANG collector to fetch
       up-to-date dependency list since the NETCONF &lt;get&gt; query is 
-      sent at run-time, while the get-all-schemas apporach is risk of letting 
-      client works with not updated yanglib content, unless get-all-schema 
-      is periodically redone. On the another hand, YANG clients can avoid 
-      waiting for tens of minutes, which is a normal situation when 
-      using the get-all-schema approach, every time when starting collector to 
-      either get yanglib content updated or to obtain YANG relationship 
-      because of having to store all YANG modules in disk first.
+      sent at run-time. However for the get-all-schemas approach, 
+      all modules are fetched and stored at the beginning, when all dependecy 
+      and relation of YANG module are calculated according to the initial 
+      modules, which put collector at risk of working with non-updated data. 
+      </t>
+      <t>
+      On the another hand, this approach can improve the application efficiency
+      by shrinking the processing time for finding reverse dependency, 
+      avoiding the client waiting for minutes to download all YANG modules 
+      because of using get-all-schemas approach.
       </t>
     </section>
     <section anchor="Data Catalog" title="Data Catalog">
