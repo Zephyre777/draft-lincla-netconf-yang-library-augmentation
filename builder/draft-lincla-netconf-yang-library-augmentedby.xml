@@ -246,7 +246,7 @@
       </t>
 
       <t>
-      As method for massively streaming telemetry data, the UDP-based Transport
+      As a method for massively streaming telemetry data, the UDP-based Transport
       for configured Subscription defined in draft 
       <xref target="I-D.ietf-netconf-udp-notif"></xref>(UDP-notif) has been 
       applied in <xref target="I-D.netana-nmop-yang-kafka-integration"></xref> 
@@ -264,7 +264,7 @@
       by NETCONF &lt;get-schema&gt; operation. UDP-notif has provided the 
       ability to know the publisher of message. Therefore, an independent 
       process containing multiple &lt;get-schema&gt; operations is launched
-      after each new YANG push subscription module has been realized. 
+      after each new YANG push subscription module has been known. 
       However, the complexity still remains at:
       </t>
       <t>
@@ -289,9 +289,8 @@
       Besides, the need of parsing all YANG modules 
       and finding all the dependencies adds extra delay. Applying this method
       to obtain YANG module will make the operation very costly, since after
-      each subscribed module is known we need to get that module and its
-      dependency, "get-all-schemas" needs to be performed every time
-      a new subscription is made. 
+      each subscribed module is known, "get-all-schemas" needs to be 
+      re-performed. 
       </t>
       <t>
       Therefore, considering the telemetry real-time aspects, this extra

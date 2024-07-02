@@ -290,7 +290,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
    telemetry data in another YANG collector indicated in the
    subscription, could work with this architecture.
 
-   As method for massively streaming telemetry data, the UDP-based
+   As a method for massively streaming telemetry data, the UDP-based
    Transport for configured Subscription defined in draft
    [I-D.ietf-netconf-udp-notif](UDP-notif) has been applied in
    [I-D.netana-nmop-yang-kafka-integration] as the transport method and
@@ -307,8 +307,8 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
    obtained by NETCONF <get-schema> operation.  UDP-notif has provided
    the ability to know the publisher of message.  Therefore, an
    independent process containing multiple <get-schema> operations is
-   launched after each new YANG push subscription module has been
-   realized.  However, the complexity still remains at:
+   launched after each new YANG push subscription module has been known.
+   However, the complexity still remains at:
 
    *  How we are going to find dependency of the YANG module(so that the
       YANG push subscription message has complete module dependency).
@@ -325,9 +325,9 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
    to complete.  Besides, the need of parsing all YANG modules and
    finding all the dependencies adds extra delay.  Applying this method
    to obtain YANG module will make the operation very costly, since
-   after each subscribed module is known we need to get that module and
-   its dependency, "get-all-schemas" needs to be performed every time a
-   new subscription is made.
+   after each subscribed module is known, "get-all-schemas" needs to be
+   re-performed.
+
 
 
 
