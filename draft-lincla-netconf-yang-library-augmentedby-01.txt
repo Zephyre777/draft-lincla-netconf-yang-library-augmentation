@@ -352,13 +352,13 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
    deviation.  The direct dependency can be obtained by parsing the
    module code.  The list of modules concerned in a subscription can be
    known without having all modules present.  The complexity of parsing
-   module relationship is left for device to do, which is already YANG-
-   supported device's feature.
+   module relationship is left for device to handle, which is already
+   YANG-supported device's feature.
 
    Compared with the get-all-schemas approach, the above proposed
    approach has hugely improved the solution by shrinking the time it
-   takes to execute, avoided spending time repeatedly getting the same
-   data.
+   takes to execute, avoided the collector to spend time repeatedly
+   getting the same data.
 
 3.2.  Data Catalog
 
