@@ -220,7 +220,7 @@
       YANG modules and all their relationships
       (direct and reverse dependencies). The schema is obtained by the NETCONF
       &lt;get-schema&gt; of the subscribed YANG module, which is obtained by 
-      parsing the &lt;subscription-started&gt; message of each YANG push 
+      parsing the &lt;subscription-started&gt; message of each YANG-Push 
       subscription.
       </t>
       <t>
@@ -251,7 +251,7 @@
       <xref target="I-D.ietf-netconf-udp-notif"></xref>(UDP-notif) has been 
       applied in <xref target="I-D.netana-nmop-yang-kafka-integration"></xref> 
       as the transport method and streaming message type. With the same spirit 
-      as applying the configured subscription, the UDP-notif has introduce
+      as applying the configured subscription, the UDP-notif has introduced
       more flexibility into the architecture by defining useful metadata in the 
       message content such as the receiver address, port etc. In this way, at 
       the same time when the Data Mesh architecture is handling massive data,
@@ -260,18 +260,19 @@
       <t>
       By explaining the above, we have gone back to the beginning of this 
       section, where we explained the schema registry, that contains the
-      YANG modules concerned in each YANG push subscription which are obtained 
+      YANG modules concerned in each YANG-Push subscription which are obtained 
       by NETCONF &lt;get-schema&gt; operation. UDP-notif has provided the 
       ability to know the publisher of message. Therefore, an independent 
       process containing multiple &lt;get-schema&gt; operations is launched
-      after each new YANG push subscription module has been known. 
+      after each new YANG-Push subscription module has been known. 
       However, the complexity still remains at:
       </t>
       <t>
         <ul>
           <li>
-          How we are going to find dependency of the YANG module(so that 
-          the YANG push subscription message has complete module dependency).
+            How we are going to find dependency of the YANG modules (so that
+            the YANG-Push subscription message has the complete module
+            dependencies for its set of YANG modules).
           </li>
           <li>
           How do we conduct &lt;get-schema&gt;.
@@ -281,39 +282,30 @@
 
       <t>Currently, the method used for obtaining modules and finding module 
       dependencies is "get-all-schemas", where the YANG client retrieves
-      all YANG modules from the network device at the beginning to enable later
-      the client can fully understand and utilize all modules and module 
-      dependencies of device. This process is very heavy because in a real 
-      situation, each device may implement hundreds of YANG modules, because of
-      which performing a "get-all-schemas" requires to minutes to complete. 
-      Besides, the need of parsing all YANG modules 
-      and finding all the dependencies adds extra delay. Applying this method
-      to obtain YANG module will make the operation very costly, since after
-      each subscribed module is known, "get-all-schemas" needs to be 
-      re-performed. 
+      all YANG modules from the network device to enable later the client
+      can fully understand and utilize all modules and module dependencies
+      of device.  This process is very heavy because in a real situation,
+      each device may implement hundreds of YANG modules, requiring up to
+      several minutes to complete, in the worse cases.  Besides, the need
+      of parsing all YANG modules and finding all the dependencies adds a
+      small extra delay.  Applying this method to obtain YANG module will
+      make the operation very costly, since after each subscribed module is
+      learned, "get-all-schemas" needs to be re-performed. 
       </t>
       <t>
       Therefore, considering the telemetry real-time aspects, this extra
-      delay in processing the dependencies through a get-all-schemas approach
-      is not ideal.
+      delay in collecting (and processing) the dependencies through a get-
+      all-schemas approach is not ideal.
       </t>
-      <t>It is more ideal to parse the module dependency and send 
-      &lt;get-schema&gt; request to each required module. The feature proposed 
-      in this draft can make this solution possible to implement.
+      <t>It's more efficient to get dependencies only for the required modules
+        in the telemetry.
       </t>
       <t>
       By using the provided the augmentation information in ietf-yang-library, 
       the collector can directly obtain the YANG reverse dependencies by 
-      fetching the contents of YANG Library, including the deviation. The 
-      direct dependency can be obtained by parsing the module code. The list
-      of modules concerned in a subscription can be known without having all
-      modules present. The complexity of parsing module relationship is left
-      for device to handle, which is already YANG-supported device's feature. 
-      </t>
-      <t>Compared with the get-all-schemas approach, the above proposed 
-      approach has hugely improved the solution by shrinking the time it takes 
-      to execute, avoided the collector to spend time repeatedly getting 
-      the same data.
+      fetching the contents of YANG Library, saving
+      collection (and processing time) at the collector, and therefore
+      helping with the near real-time aspects of the closed loop action.
       </t>
     </section>
     <section anchor="Data Catalog" title="Data Catalog">
