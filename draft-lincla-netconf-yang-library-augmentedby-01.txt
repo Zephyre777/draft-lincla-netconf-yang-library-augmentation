@@ -680,6 +680,11 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
    Updated affiliations
 
+   Update content of Section 3.1 Data Mesh use case.  Explain the
+   limitation of applying get-all-schemas solution under the background
+   of using UDP-notif of configured subscription, and how the feature
+   proposed in the draft can improve the solution.
+
    Full review of document.  Nits and refinement of sections.
 
 7.  Security Considerations
@@ -717,11 +722,6 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
-   [RFC8340]  Bjorklund, M. and L. Berger, Ed., "YANG Tree Diagrams",
-              BCP 215, RFC 8340, DOI 10.17487/RFC8340, March 2018,
-              <https://www.rfc-editor.org/info/rfc8340>.
-
-
 
 
 
@@ -729,6 +729,10 @@ Lin, et al.             Expires 23 December 2024               [Page 13]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
+
+   [RFC8340]  Bjorklund, M. and L. Berger, Ed., "YANG Tree Diagrams",
+              BCP 215, RFC 8340, DOI 10.17487/RFC8340, March 2018,
+              <https://www.rfc-editor.org/info/rfc8340>.
 
    [RFC8343]  Bjorklund, M., "A YANG Data Model for Interface
               Management", RFC 8343, DOI 10.17487/RFC8343, March 2018,
@@ -769,12 +773,8 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
               <https://datatracker.ietf.org/doc/html/draft-ietf-netconf-
               yang-notifications-versioning-05>.
 
-   [I-D.netana-nmop-yang-kafka-integration]
-              Graf, T., "An Architecture for YANG-Push to Apache Kafka
-              Integration", Work in Progress, Internet-Draft, draft-
-              netana-nmop-yang-kafka-integration-00, 24 February 2024,
-              <https://datatracker.ietf.org/doc/html/draft-netana-nmop-
-              yang-kafka-integration-00>.
+
+
 
 
 
@@ -785,6 +785,13 @@ Lin, et al.             Expires 23 December 2024               [Page 14]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
+
+   [I-D.netana-nmop-yang-kafka-integration]
+              Graf, T., "An Architecture for YANG-Push to Apache Kafka
+              Integration", Work in Progress, Internet-Draft, draft-
+              netana-nmop-yang-kafka-integration-00, 24 February 2024,
+              <https://datatracker.ietf.org/doc/html/draft-netana-nmop-
+              yang-kafka-integration-00>.
 
    [I-D.netconf-tgraf-yang-push-observation-time]
               Graf, T., Claise, B., and A. H. Feng, "Support of Network
@@ -816,13 +823,6 @@ Appendix A.  YANG module validation with yanglint
    module-set, which is illegal according to the YANG source code.
 
 A.1.  A valid ietf-yang-library data example
-
-
-
-
-
-
-
 
 
 
