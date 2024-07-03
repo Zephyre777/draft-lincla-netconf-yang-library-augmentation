@@ -280,7 +280,7 @@
       </t>
 
       <t>Currently, the method used for obtaining modules and finding module 
-      dependencies is "get-all-schemas", where the YANG client retrieves
+      dependencies is "get-all-schemas", where the YANG client retrieves 
       all YANG modules from the network device at the beginning to enable later
       the client can fully understand and utilize all modules and module 
       dependencies of device. This process is very heavy because in a real 
