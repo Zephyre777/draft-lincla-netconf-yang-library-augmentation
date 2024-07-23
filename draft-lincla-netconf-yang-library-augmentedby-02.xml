@@ -9,7 +9,7 @@
 <?rfc inline="yes"?>
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
-<rfc category="std" docName="draft-lincla-netconf-yang-library-augmentedby-01"
+<rfc category="std" docName="draft-lincla-netconf-yang-library-augmentedby-02"
      ipr="trust200902">
   <front>
     <title abbrev="Augmented-by Addition into the IETF-YANG-Library">
@@ -46,7 +46,7 @@
       </address>
     </author>
 
-    <date day="21" month="June" year="2024"/>
+    <date day="23" month="July" year="2024"/>
 
     <area>OPS</area>
 
