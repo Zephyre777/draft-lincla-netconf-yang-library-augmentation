@@ -215,7 +215,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
    be learnt by client what has been additionally implemented, and for
    it to better understand the device module relationship.  Thus, the
    YANG Library should be extended to also provide the augmentation
-   information
+   information.
 
 
 
@@ -1138,17 +1138,17 @@ Appendix A.  ietf-yang-library impact analysis
 
    *  ietf-yang-library-semver:
 
-      Defined in [I-D.ietf-netmod-yang-semver] this module augmentes the
-      ietf-yang-library to provide the YANG semantic versioning which is
-      proposed as an extension in module ietf-yang-semver.  The semantic
-      versioning contains information about the version of current
-      module and also info about whether the module is backward
+      Defined in [I-D.ietf-netmod-yang-semver], this module augmentes
+      the ietf-yang-library to provide the YANG semantic versioning
+      which is proposed as an extension in module ietf-yang-semver.  The
+      semantic versioning contains information about the version of
+      current module and also info about whether the module is backward
       compatible or not.
 
    *  ietf-yang-status-conformance:
 
       The module is proposed in
-      [I-D.ietf-netmod-yang-module-versioning-12] . It defines two
+      [I-D.ietf-netmod-yang-module-versioning-12].  It defines two
       nodes: 'deprecated-nodes-implemented' and 'obsolete-nodes-absent'
       under /yanglib:yang-library/yanglib:schema/ to help device report
       the implementation status of nodes.

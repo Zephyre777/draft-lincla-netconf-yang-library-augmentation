@@ -170,8 +170,7 @@
       the requirement of automate network management, the augmentation becomes 
       essential information to be learnt by client what has been additionally 
       implemented, and for it to better understand the device module 
-      relationship. Thus, the YANG Library should be extended to also provide 
-      the augmentation information
+      relationship. Thus, the YANG Library should be extended to also provide the augmentation information.
     </t>
     <t>
       The implementation is not difficult since both augmentation and deviation 
@@ -1164,9 +1163,8 @@ module ietf-yang-library-augmentedby {
         <li>
           ietf-yang-library-semver: 
           <t>
-            Defined in 
-            <xref target="I-D.ietf-netmod-yang-semver"></xref> this module 
-            augmentes the ietf-yang-library to provide the YANG semantic 
+            Defined in <xref target="I-D.ietf-netmod-yang-semver"/>, this 
+            module augmentes the ietf-yang-library to provide the YANG semantic 
             versioning which is proposed as an extension in module 
             ietf-yang-semver. The semantic versioning contains information 
             about the version of current module and also info about whether the 
@@ -1176,8 +1174,8 @@ module ietf-yang-library-augmentedby {
         <li>
           ietf-yang-status-conformance: 
           <t>
-            The module is proposed in <xref target="I-D.ietf-netmod-yang-module-versioning-12"/>
-            . It defines two nodes: 'deprecated-nodes-implemented' and 
+            The module is proposed in <xref target="I-D.ietf-netmod-yang-module-versioning-12"/>.
+            It defines two nodes: 'deprecated-nodes-implemented' and 
             'obsolete-nodes-absent' under /yanglib:yang-library/yanglib:schema/
             to help device report the implementation status of nodes.
           </t>
