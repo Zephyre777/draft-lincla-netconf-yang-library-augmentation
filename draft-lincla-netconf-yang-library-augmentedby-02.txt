@@ -788,11 +788,12 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
    The "augmented-by" node in this YANG module could reveal all modules
    that are augmenting one module.  It could help attacker identify the
-   relationship between modules and server implementations know bugs.
+   relationship between modules and server implementations known bugs.
    Server vulnerabilities may include but not restricted to: 1.  Too
-   many augmented-by records cause buffer overflow. 2.  The augmented-by
-   node help identify through the inter-relation of modules how to cause
-   the server to crash or significantly degrade device performance.
+   many augmented-by records causes buffer overflow. 2.  The augmented-
+   by node help identify through the inter-relation of modules how to
+   cause the server to crash or significantly degrade device
+   performance.
 
 8.  IANA Considerations
 
@@ -830,7 +831,6 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
 
    [NTP17]    Vasko, M., "Netopeer2", BSD-3-Clause license, May 2017,
               <https://github.com/CESNET/netopeer2>.
-
 
 
 
