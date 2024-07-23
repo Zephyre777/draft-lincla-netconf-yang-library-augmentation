@@ -686,7 +686,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
    augmented-by feauture in sysrepo and libyang.  The result is
    presented at IETF 120 hackathon.
 
-   The source code can be obtained here: [NP120]
+   The source code can be obtained here: [NP24]
 
 5.3.  Libyangpush Find-dependency
 
@@ -695,7 +695,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
    parser library libyangpush.  The result is presented in IETF 120
    hackathon.
 
-   The source code can be obtained here: [NP120]
+   The source code can be obtained here: [NP24]
 
 6.  Changes
 
@@ -825,7 +825,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2024
    [LY16]     Vasko, M., "libyang", BSD-3-Clause license, November 2016,
               <https://github.com/CESNET/libyang.git>.
 
-   [NP120]    Lin, Z., "Netopeer2-docker-ietf120", August 2024,
+   [NP24]     Lin, Z., "Netopeer2-docker-ietf120", July 2024,
               <https://github.com/network-
               analytics/libyangpush/tree/feature/draft_augmentedby>.
 

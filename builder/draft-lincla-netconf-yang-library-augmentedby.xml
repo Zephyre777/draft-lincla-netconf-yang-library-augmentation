@@ -600,7 +600,7 @@ module ietf-yang-library-augmentedby {
           at IETF 120 hackathon.
         </t>
         <t>
-          The source code can be obtained here: <xref target="NP120"/> 
+          The source code can be obtained here: <xref target="NP24"/> 
         </t>
       </section>
       <section anchor="libyangpush" title="Libyangpush Find-dependency">
@@ -610,7 +610,7 @@ module ietf-yang-library-augmentedby {
           hackathon.
         </t>
         <t>
-          The source code can be obtained here: <xref target="NP120"/> 
+          The source code can be obtained here: <xref target="NP24"/> 
         </t>
       </section>
     </section>
@@ -760,11 +760,11 @@ module ietf-yang-library-augmentedby {
 
       <?rfc include='reference.RFC.3688'?>
 
-      <reference anchor="NP120" target="https://github.com/network-analytics/libyangpush/tree/feature/draft_augmentedby">
+      <reference anchor="NP24" target="https://github.com/network-analytics/libyangpush/tree/feature/draft_augmentedby">
         <front>
           <title>Netopeer2-docker-ietf120</title>
           <author fullname="Zhuoyao Lin" initials="Z." surname="Lin"/>
-          <date month="August" year="2024"/>
+          <date month="July" year="2024"/>
         </front>
       </reference>
 
