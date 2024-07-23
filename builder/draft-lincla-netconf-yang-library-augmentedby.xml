@@ -157,7 +157,7 @@
     </t>
     <t>
       According to the definition of module ietf-yang-library defined in 
-      <xref target="RFC8525"/>, in the schema of a module in yang library, the
+      <xref target="RFC8525"/>, in the schema of a module in YANG library, the
       deviation is provided to tell this module is deviated by which other 
       modules. If YANG library can directly report all reverse dependencies, 
       it could provide a much easier and light-weight solution to find module
@@ -595,7 +595,7 @@ module ietf-yang-library-augmentedby {
         </t>
       </section>
       <section anchor="Netopeer2 IETF120 hackahon" title="Netopeer2 at IETF120 Hackathon">
-        <t>Zhuoyao Lin did a docker image of netopeer2 that integrate the 
+        <t>Zhuoyao Lin did a docker image of netopeer2 that integrates the 
           augmented-by feauture in sysrepo and libyang. The result is presented
           at IETF 120 hackathon.
         </t>
@@ -659,18 +659,18 @@ module ietf-yang-library-augmentedby {
       <section anchor="draft-lincla-netonf-yang-library-augmentedby: Changes from 01 to 02" 
       title="draft-lincla-netonf-yang-library-augmentedby: Changes from 01 to 02">
         <t>
-          Update Section 6 Changes's subsection title. 
+          Rewrite Section 2 Motivation.
         </t>
         <t>
-          Rewrite Section 2 Motivation.
+          Update Section 6 Changes's subsection title. 
         </t>
         <t>
           Update the Section 7 security consideration and section 8 IANA
           Considerations.
         </t>
         <t>
-          Added in the appendix the impact anaylysis of ietf-yang-library and
-          proposal of the RFC8525bis draft. 
+          Added in the appendix the Impact Analysis of ietf-yang-library and
+          proposal for the RFC8525bis draft. 
         </t>
       </section>
     </section>
@@ -1144,13 +1144,14 @@ module ietf-yang-library-augmentedby {
       <annotation>IEEE Communications Magazine</annotation></reference>
 
     </references>
-    <section anchor="ietf-yang-library impact analysis" title="ietf-yang-library impact analysis">
+    <section anchor="ietf-yang-library impact analysis" title="ietf-yang-library Impact Analysis, as an evaluation for RFC8525bis">
       <t>
         As demand arises for more precises network monitoring, new metadata is 
         required to be reported by ietf-yang-library for client to better 
         understand device's status. According to the impact analysis of module
         ietf-yang-library, there are 15 modules in the yang-catalog that 
-        inter-relate to it. The last update of ietf-yang-library was in 2019. 
+        inter-relate to it (https://www.yangcatalog.org/yang-search/impact_analysis?rfcs=1&amp;show_subm=1&amp;show_dir=both&amp;orgtags=ietf&amp;modtags=ietf-yang-library.yang). 
+        The last update of ietf-yang-library was in 2019. 
         It is worth considering that the ietf-yang-library module be updated to 
         meet current requirements.
       </t>
@@ -1203,7 +1204,7 @@ module ietf-yang-library-augmentedby {
 
       <t>
         Or they have been adopted into RFCs and/or in the RFC the augment 
-        don't exist no more:
+        does not exist any longer:
       </t>
       <ul>
         <li>
