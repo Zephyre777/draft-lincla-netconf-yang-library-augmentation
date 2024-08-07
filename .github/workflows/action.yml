@@ -13,8 +13,8 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build the hello-docker Docker image
+      - name: Build the Docker image
         run: 
-          docker build . --tag ghcr.io/zephyre777/netopeer2-ietf120:v1.0
+          docker build --build-arg HTTP_PROXY=$HTTP_PROXY --build-arg HTTPS_PROXY=$HTTPS_PROXY --build-arg http_proxy=$http_proxy --build-arg https_proxy=$https_proxy --network host -t ghcr.io/zephyre777/netopeer2-ietf120:v1.0 .
           docker run ghcr.io/zephyre777/netopeer2-ietf120:v1.0
           docker push ghcr.io/zephyre777/netopeer2-ietf120:v1.0
