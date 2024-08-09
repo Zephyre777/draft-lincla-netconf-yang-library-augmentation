@@ -1,6 +1,6 @@
 # Yanglint Validation of the YANG module in the draft
 
-### Introduction
+## Introduction
 This is a YANG validation that user can try with **yanglint** by typing the following commands.  
 It is mainly used to prove the syntax correctness of the propsed YANG module. In the YANG module, the augmented list 'augmented-by' has a leafref ```'../../yanglib:module/yanglib:name'```. Only modules under the same module-set can augment each other, or the validation will fail. 
 This targets the situation when vendors are grouping the modules in multiple module-sets.
