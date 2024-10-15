@@ -46,7 +46,7 @@
       </address>
     </author>
 
-    <date day="23" month="July" year="2024"/>
+    <date day="20" month="September" year="2024"/>
 
     <area>OPS</area>
 
@@ -1420,7 +1420,7 @@ module ietf-yang-library-rfc7895-augmentedby {
                <matilto:ignacio.dominguezmartinez@telefonica.com>";
 
   description
-     This document augments the ietf-yang-library to provide the 
+     "This document augments the ietf-yang-library to provide the 
      augmented-by list. It facilitates the process of obtaining 
      the entire dependencies between YANG modules, by directly 
      querying the server's YANG module.
