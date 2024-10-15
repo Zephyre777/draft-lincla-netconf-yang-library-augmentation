@@ -1323,9 +1323,11 @@ module ietf-yang-library-augmentedby {
       <revision>2024-02-29</revision>
       <namespace>urn:ietf:params:xml:ns:yang:module1</namespace>
       <augmented-by
-      xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library-augmentedby">module3</augmented-by>
+      xmlns="urn:ietf:params:xml:ns:yang:
+      ietf-yang-library-augmentedby">module3</augmented-by>
       <augmented-by
-      xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library-augmentedby">module2</augmented-by>
+      xmlns="urn:ietf:params:xml:ns:yang:
+      ietf-yang-library-augmentedby">module2</augmented-by>
     </module>
     <module>
       <name>module3</name>
