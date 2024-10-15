@@ -673,6 +673,25 @@ module ietf-yang-library-augmentedby {
           proposal for the RFC8525bis draft. 
         </t>
       </section>
+      <section anchor="draft-ietf-netonf-yang-library-augmentedby version 00" 
+      title="draft-ietf-netonf-yang-library-augmentedby version 00">
+        <t>
+          Resubmitted the draft name from:
+        </t><t>
+          draft-lincla-netonf-yang-library-augmentedby-02
+        </t><t>
+          to: 
+        </t><t>
+          draft-ietf-netonf-yang-library-augmentedby-00
+        </t>
+      </section>
+      <section anchor="draft-ietf-netonf-yang-library-augmentedby: Changes from 00 to 01" 
+      title="draft-ietf-netonf-yang-library-augmentedby: Changes from 00 to 01">
+        <t>
+          Correct the yanglint validation invalid example. Updated the
+          explaination to the yanglint validation example principle. 
+        </t>
+      </section>
     </section>
 
     <section anchor="security-considerations" title="Security Considerations">
