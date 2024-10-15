@@ -616,8 +616,8 @@ module ietf-yang-library-augmentedby {
     </section>
 
     <section anchor="Changes" title="Changes">
-      <section anchor="draft-lincla-netonf-yang-library-augmentation: Changes from 00 to 01"
-      title="draft-lincla-netonf-yang-library-augmentation: Changes from 00 to 01">
+      <section anchor="draft-lincla-netconf-yang-library-augmentation: Changes from 00 to 01"
+      title="draft-lincla-netconf-yang-library-augmentation: Changes from 00 to 01">
         <t>
         The list name has been updated from "augmentation" to
         "augmented-by", in order to represent the usage clearly.
@@ -630,8 +630,8 @@ module ietf-yang-library-augmentedby {
         </t>
         <t>Section 5 Implementation and section 6 Changes has been added.</t>
       </section>
-      <section anchor="draft-lincla-netonf-yang-library-augmentedby version 00" 
-      title="draft-lincla-netonf-yang-library-augmentedby version 00">
+      <section anchor="draft-lincla-netconf-yang-library-augmentedby version 00" 
+      title="draft-lincla-netconf-yang-library-augmentedby version 00">
         <t>
           Updated the Use case content in Section 3.1. Add explanation: the 
           scope of use case "Data Mesh Architecture" is limited to configured
@@ -641,8 +641,8 @@ module ietf-yang-library-augmentedby {
           Updated Implementation status content.
         </t>
       </section>
-      <section anchor="draft-lincla-netonf-yang-library-augmentedby: Changes from 00 to 01" 
-      title="draft-lincla-netonf-yang-library-augmentedby: Changes from 00 to 01">
+      <section anchor="draft-lincla-netconf-yang-library-augmentedby: Changes from 00 to 01" 
+      title="draft-lincla-netconf-yang-library-augmentedby: Changes from 00 to 01">
         <t>
           Updated affiliations
         </t>
@@ -656,8 +656,8 @@ module ietf-yang-library-augmentedby {
           Full review of document. Nits and refinement of sections.
         </t>
       </section>
-      <section anchor="draft-lincla-netonf-yang-library-augmentedby: Changes from 01 to 02" 
-      title="draft-lincla-netonf-yang-library-augmentedby: Changes from 01 to 02">
+      <section anchor="draft-lincla-netconf-yang-library-augmentedby: Changes from 01 to 02" 
+      title="draft-lincla-netconf-yang-library-augmentedby: Changes from 01 to 02">
         <t>
           Rewrite Section 2 Motivation.
         </t>
@@ -673,20 +673,20 @@ module ietf-yang-library-augmentedby {
           proposal for the RFC8525bis draft. 
         </t>
       </section>
-      <section anchor="draft-ietf-netonf-yang-library-augmentedby version 00" 
-      title="draft-ietf-netonf-yang-library-augmentedby version 00">
+      <section anchor="draft-ietf-netconf-yang-library-augmentedby version 00" 
+      title="draft-ietf-netconf-yang-library-augmentedby version 00">
         <t>
           Resubmitted the draft name from:
         </t><t>
-          draft-lincla-netonf-yang-library-augmentedby-02
+          draft-lincla-netconf-yang-library-augmentedby-02
         </t><t>
           to: 
         </t><t>
-          draft-ietf-netonf-yang-library-augmentedby-00
+          draft-ietf-netconf-yang-library-augmentedby-00
         </t>
       </section>
-      <section anchor="draft-ietf-netonf-yang-library-augmentedby: Changes from 00 to 01" 
-      title="draft-ietf-netonf-yang-library-augmentedby: Changes from 00 to 01">
+      <section anchor="draft-ietf-netconf-yang-library-augmentedby: Changes from 00 to 01" 
+      title="draft-ietf-netconf-yang-library-augmentedby: Changes from 00 to 01">
         <t>
           Correct the yanglint validation invalid example. Updated the
           explaination to the yanglint validation example principle. 

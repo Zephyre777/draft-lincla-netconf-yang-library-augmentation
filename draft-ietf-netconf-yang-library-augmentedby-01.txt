@@ -85,17 +85,17 @@ Table of Contents
      5.2.  Netopeer2 at IETF120 Hackathon  . . . . . . . . . . . . .  13
      5.3.  Libyangpush Find-dependency . . . . . . . . . . . . . . .  13
    6.  Changes . . . . . . . . . . . . . . . . . . . . . . . . . . .  13
-     6.1.  draft-lincla-netonf-yang-library-augmentation: Changes from
-           00 to 01  . . . . . . . . . . . . . . . . . . . . . . . .  13
-     6.2.  draft-lincla-netonf-yang-library-augmentedby version
+     6.1.  draft-lincla-netconf-yang-library-augmentation: Changes
+           from 00 to 01 . . . . . . . . . . . . . . . . . . . . . .  13
+     6.2.  draft-lincla-netconf-yang-library-augmentedby version
            00  . . . . . . . . . . . . . . . . . . . . . . . . . . .  13
-     6.3.  draft-lincla-netonf-yang-library-augmentedby: Changes from
+     6.3.  draft-lincla-netconf-yang-library-augmentedby: Changes from
            00 to 01  . . . . . . . . . . . . . . . . . . . . . . . .  14
-     6.4.  draft-lincla-netonf-yang-library-augmentedby: Changes from
+     6.4.  draft-lincla-netconf-yang-library-augmentedby: Changes from
            01 to 02  . . . . . . . . . . . . . . . . . . . . . . . .  14
-     6.5.  draft-ietf-netonf-yang-library-augmentedby version 00 . .  14
-     6.6.  draft-ietf-netonf-yang-library-augmentedby: Changes from 00
-           to 01 . . . . . . . . . . . . . . . . . . . . . . . . . .  14
+     6.5.  draft-ietf-netconf-yang-library-augmentedby version 00  .  14
+     6.6.  draft-ietf-netconf-yang-library-augmentedby: Changes from
+           00 to 01  . . . . . . . . . . . . . . . . . . . . . . . .  14
    7.  Security Considerations . . . . . . . . . . . . . . . . . . .  14
    8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  15
    9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  15
@@ -699,7 +699,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
 6.  Changes
 
-6.1.  draft-lincla-netonf-yang-library-augmentation: Changes from 00 to
+6.1.  draft-lincla-netconf-yang-library-augmentation: Changes from 00 to
       01
 
    The list name has been updated from "augmentation" to "augmented-by",
@@ -712,7 +712,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
    Section 5 Implementation and section 6 Changes has been added.
 
-6.2.  draft-lincla-netonf-yang-library-augmentedby version 00
+6.2.  draft-lincla-netconf-yang-library-augmentedby version 00
 
    Updated the Use case content in Section 3.1.  Add explanation: the
    scope of use case "Data Mesh Architecture" is limited to configured
@@ -730,7 +730,7 @@ Lin, et al.               Expires 18 April 2025                [Page 13]
 Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
 
-6.3.  draft-lincla-netonf-yang-library-augmentedby: Changes from 00 to
+6.3.  draft-lincla-netconf-yang-library-augmentedby: Changes from 00 to
       01
 
    Updated affiliations
@@ -742,7 +742,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
    Full review of document.  Nits and refinement of sections.
 
-6.4.  draft-lincla-netonf-yang-library-augmentedby: Changes from 01 to
+6.4.  draft-lincla-netconf-yang-library-augmentedby: Changes from 01 to
       02
 
    Rewrite Section 2 Motivation.
@@ -755,17 +755,17 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
    Added in the appendix the Impact Analysis of ietf-yang-library and
    proposal for the RFC8525bis draft.
 
-6.5.  draft-ietf-netonf-yang-library-augmentedby version 00
+6.5.  draft-ietf-netconf-yang-library-augmentedby version 00
 
    Resubmitted the draft name from:
 
-   draft-lincla-netonf-yang-library-augmentedby-02
+   draft-lincla-netconf-yang-library-augmentedby-02
 
    to:
 
-   draft-ietf-netonf-yang-library-augmentedby-00
+   draft-ietf-netconf-yang-library-augmentedby-00
 
-6.6.  draft-ietf-netonf-yang-library-augmentedby: Changes from 00 to 01
+6.6.  draft-ietf-netconf-yang-library-augmentedby: Changes from 00 to 01
 
    Correct the yanglint validation invalid example.  Updated the
    explaination to the yanglint validation example principle.
