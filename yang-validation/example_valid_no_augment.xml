@@ -6,10 +6,6 @@
         <name>module1</name>
         <revision>2024-02-29</revision> 
         <namespace>urn:ietf:params:xml:ns:yang:module1</namespace>
-        <augmented-by 
-        xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library-augmentedby">module2</augmented-by>
-        <augmented-by 
-        xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library-augmentedby">module3</augmented-by>
       </module>
       <module>
         <name>module2</name>
@@ -24,5 +20,5 @@
     </module-set>
 </yang-library>
 <modules-state xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library"> 
-    <module-set-id>0</module-set-id>
+  <module-set-id>0</module-set-id>
 </modules-state>
