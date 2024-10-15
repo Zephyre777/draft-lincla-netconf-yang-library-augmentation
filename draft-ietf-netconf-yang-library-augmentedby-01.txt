@@ -1207,19 +1207,19 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 Appendix B.  YANG module validation with yanglint
 
    This section gives a few examples that the user can try themselves
-   with yanglint.  This is created to prove the syntax correctness.
+   with yanglint.  This is created to prove the syntax correctness.  The
+   examples shoud be used with YANG modules ietf-yang-library and ietf-
+   yang-libarary-augmentedby as schemas.
+
+   The examples provided are ietf-yang-library 'yang-library' data xml
+   file containing the augmented-by field.
 
    The valid example should pass the validation while the invalid one
-   will not, because the module has augmented a module in another
-   module-set, which is illegal according to the YANG source code.
+   will not.  The difference is that in the invalid example, the module
+   in one module-set has augmented module in another module-set, which
+   is illegal according to the ietf-yang-library definition.
 
 B.1.  A valid ietf-yang-library data example
-
-
-
-
-
-
 
 
 
