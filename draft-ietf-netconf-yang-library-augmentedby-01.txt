@@ -96,16 +96,16 @@ Table of Contents
      6.5.  draft-ietf-netconf-yang-library-augmentedby version 00  .  14
      6.6.  draft-ietf-netconf-yang-library-augmentedby: Changes from
            00 to 01  . . . . . . . . . . . . . . . . . . . . . . . .  14
-   7.  Security Considerations . . . . . . . . . . . . . . . . . . .  14
+   7.  Security Considerations . . . . . . . . . . . . . . . . . . .  15
    8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  15
-   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  15
-     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  15
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  16
+     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  16
      9.2.  Informative References  . . . . . . . . . . . . . . . . .  17
-   Appendix A.  ietf-yang-library Impact Analysis, as an evaluation
-           for RFC8525bis  . . . . . . . . . . . . . . . . . . . . .  21
-   Appendix B.  YANG module validation with yanglint . . . . . . . .  22
-     B.1.  A valid ietf-yang-library data example  . . . . . . . . .  22
-     B.2.  An invalid ietf-yang-library data example . . . . . . . .  23
+   Appendix A.  YANG module validation with yanglint . . . . . . . .  21
+     A.1.  A valid ietf-yang-library data example  . . . . . . . . .  21
+     A.2.  An invalid ietf-yang-library data example . . . . . . . .  22
+   Appendix B.  YANG Module augmenting RFC7895 . . . . . . . . . . .  23
+     B.1.  Tree View for YANG module augmenting RFC7895  . . . . . .  23
 
 
 
@@ -114,14 +114,12 @@ Lin, et al.               Expires 18 April 2025                 [Page 2]
 Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
 
-   Appendix C.  YANG Module augmenting RFC7895 . . . . . . . . . . .  24
-     C.1.  Tree View for YANG module augmenting RFC7895  . . . . . .  24
-     C.2.  Full Tree View for ietf-yang-library with augmentation to
-           RFC7895 . . . . . . . . . . . . . . . . . . . . . . . . .  25
-     C.3.  YANG module augmenting RFC7895  . . . . . . . . . . . . .  25
-   Contributors  . . . . . . . . . . . . . . . . . . . . . . . . . .  28
-   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  28
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  28
+     B.2.  Full Tree View for ietf-yang-library with augmentation to
+           RFC7895 . . . . . . . . . . . . . . . . . . . . . . . . .  24
+     B.3.  YANG module augmenting RFC7895  . . . . . . . . . . . . .  24
+   Contributors  . . . . . . . . . . . . . . . . . . . . . . . . . .  27
+   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  27
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  27
 
 1.  Introduction
 
@@ -161,6 +159,8 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
    The terminology from [RFC8525] is used in this document
 
+   Tree diagrams in this document use the notation defined in [RFC8340]
+   .
 
 
 
@@ -169,9 +169,6 @@ Lin, et al.               Expires 18 April 2025                 [Page 3]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
-
-   Tree diagrams in this document use the notation defined in [RFC8340]
-   .
 
 2.  Motivation
 
@@ -211,11 +208,14 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
    could provide a much easier and light-weight solution to find module
    entire dependency, compared to getting and parsing all modules.
 
-
-
-
-
-
+   Right now, the YANG Library only provides the deviation list, but not
+   the augmentation.  With augmentation being more widly used and
+   defined, and with some use cases arise as the requirement of automate
+   network management, the augmentation becomes essential information to
+   be learnt by client what has been additionally implemented, and for
+   it to better understand the device module relationship.  Thus, the
+   YANG Library should be extended to also provide the augmentation
+   information.
 
 
 
@@ -225,15 +225,6 @@ Lin, et al.               Expires 18 April 2025                 [Page 4]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
-
-   Right now, the YANG Library only provides the deviation list, but not
-   the augmentation.  With augmentation being more widly used and
-   defined, and with some use cases arise as the requirement of automate
-   network management, the augmentation becomes essential information to
-   be learnt by client what has been additionally implemented, and for
-   it to better understand the device module relationship.  Thus, the
-   YANG Library should be extended to also provide the augmentation
-   information.
 
    The implementation is not difficult since both augmentation and
    deviation have similar way of working (both are applied to the
@@ -272,6 +263,15 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
    [I-D.ietf-netconf-yang-notifications-versioning] or Support of
    Network Observation Timestamping in YANG Notifications
    [I-D.netconf-tgraf-yang-push-observation-time], among others.
+
+
+
+
+
+
+
+
+
 
 
 
@@ -767,8 +767,24 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
 6.6.  draft-ietf-netconf-yang-library-augmentedby: Changes from 00 to 01
 
-   Correct the yanglint validation invalid example.  Updated the
-   explaination to the yanglint validation example principle.
+   Correct the yanglint validation invalid example.
+
+   Updated the explaination to the yanglint validation example
+   principle.
+
+   Delete Section "ietf-yang-library Impact Analysis, as an evaluation
+   for RFC8525bis".  The idea of updating the RFC8525 is paused.
+
+
+
+
+
+
+
+Lin, et al.               Expires 18 April 2025                [Page 14]
+
+Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
+
 
 7.  Security Considerations
 
@@ -778,14 +794,6 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
    is the secure transport layer, and the mandatory-to-implement secure
    transport is Secure Shell (SSH) [RFC6242].  The lowest RESTCONF layer
    is HTTPS, and the mandatory-to-implement secure transport is TLS
-
-
-
-Lin, et al.               Expires 18 April 2025                [Page 14]
-
-Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
-
-
    [RFC8446].
 
    The Network Configuration Access Control Model (NACM) [RFC8341]
@@ -827,6 +835,13 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
    namespace: urn:ietf:params:xml:ns:yang:ietf-yang-library-augmentedby
 
+
+
+Lin, et al.               Expires 18 April 2025                [Page 15]
+
+Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
+
+
    prefix: yanglib-aug
 
    reference: [I-D.lincla-netconf-yang-library-augmentedby]
@@ -834,13 +849,6 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 9.  References
 
 9.1.  Normative References
-
-
-
-Lin, et al.               Expires 18 April 2025                [Page 15]
-
-Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
-
 
    [LY16]     Vasko, M., "libyang", BSD-3-Clause license, November 2016,
               <https://github.com/CESNET/libyang.git>.
@@ -883,6 +891,13 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
               Protocol", RFC 8040, DOI 10.17487/RFC8040, January 2017,
               <https://www.rfc-editor.org/info/rfc8040>.
 
+
+
+Lin, et al.               Expires 18 April 2025                [Page 16]
+
+Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
+
+
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
@@ -890,13 +905,6 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
    [RFC8340]  Bjorklund, M. and L. Berger, Ed., "YANG Tree Diagrams",
               BCP 215, RFC 8340, DOI 10.17487/RFC8340, March 2018,
               <https://www.rfc-editor.org/info/rfc8340>.
-
-
-
-Lin, et al.               Expires 18 April 2025                [Page 16]
-
-Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
-
 
    [RFC8341]  Bierman, A. and M. Bjorklund, "Network Configuration
               Access Control Model", STD 91, RFC 8341,
@@ -938,14 +946,6 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
               Zheng, G., Zhou, T., Graf, T., Francois, P., Feng, A. H.,
               and P. Lucente, "UDP-based Transport for Configured
               Subscriptions", Work in Progress, Internet-Draft, draft-
-              ietf-netconf-udp-notif-14, 4 July 2024,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-netconf-
-              udp-notif-14>.
-
-   [I-D.ietf-netconf-yang-notifications-versioning]
-              Graf, T., Claise, B., and A. H. Feng, "Support of
-              Versioning in YANG Notifications Subscription", Work in
-              Progress, Internet-Draft, draft-ietf-netconf-yang-
 
 
 
@@ -954,6 +954,14 @@ Lin, et al.               Expires 18 April 2025                [Page 17]
 Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
 
+              ietf-netconf-udp-notif-14, 4 July 2024,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-netconf-
+              udp-notif-14>.
+
+   [I-D.ietf-netconf-yang-notifications-versioning]
+              Graf, T., Claise, B., and A. H. Feng, "Support of
+              Versioning in YANG Notifications Subscription", Work in
+              Progress, Internet-Draft, draft-ietf-netconf-yang-
               notifications-versioning-05, 16 June 2024,
               <https://datatracker.ietf.org/doc/html/draft-ietf-netconf-
               yang-notifications-versioning-05>.
@@ -995,20 +1003,19 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
               <https://datatracker.ietf.org/doc/html/draft-ietf-netmod-
               yang-packages-03>.
 
-   [I-D.ietf-netmod-yang-semver]
-              Clarke, J., Wilton, R., Rahman, R., Lengyel, B., Sterne,
-              J., and B. Claise, "YANG Semantic Versioning", Work in
-              Progress, Internet-Draft, draft-ietf-netmod-yang-semver-
-              17, 2 July 2024, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-netmod-yang-semver-17>.
-
-
 
 
 Lin, et al.               Expires 18 April 2025                [Page 18]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
+
+   [I-D.ietf-netmod-yang-semver]
+              Clarke, J., Wilton, R., Rahman, R., Lengyel, B., Sterne,
+              J., and B. Claise, "YANG Semantic Versioning", Work in
+              Progress, Internet-Draft, draft-ietf-netmod-yang-semver-
+              17, 2 July 2024, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-netmod-yang-semver-17>.
 
    [I-D.ietf-nmop-yang-message-broker-integration-03]
               Graf, T., "An Architecture for YANG-Push to Apache Kafka
@@ -1048,13 +1055,6 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
               <https://datatracker.ietf.org/doc/html/draft-netconf-
               tgraf-yang-push-observation-time-00>.
 
-   [I-D.rwilton-netmod-yang-packages-00]
-              Wilton, R., "YANG Packages", Work in Progress, Internet-
-              Draft, draft-rwilton-netmod-yang-packages-00, 20 December
-              2018, <https://datatracker.ietf.org/doc/html/draft-
-              rwilton-netmod-yang-packages-00>.
-
-
 
 
 
@@ -1065,6 +1065,12 @@ Lin, et al.               Expires 18 April 2025                [Page 19]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
+
+   [I-D.rwilton-netmod-yang-packages-00]
+              Wilton, R., "YANG Packages", Work in Progress, Internet-
+              Draft, draft-rwilton-netmod-yang-packages-00, 20 December
+              2018, <https://datatracker.ietf.org/doc/html/draft-
+              rwilton-netmod-yang-packages-00>.
 
    [I-D.wilton-netmod-yang-ver-selection-01]
               Wilton, R., Rahman, R., and J. Clarke, "YANG Schema
@@ -1111,100 +1117,12 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
 
 
-
-
-
-
-
-
 Lin, et al.               Expires 18 April 2025                [Page 20]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
 
-Appendix A.  ietf-yang-library Impact Analysis, as an evaluation for
-             RFC8525bis
-
-   As demand arises for more precises network monitoring, new metadata
-   is required to be reported by ietf-yang-library for client to better
-   understand device's status.  According to the impact analysis of
-   module ietf-yang-library, there are 15 modules in the yang-catalog
-   that inter-relate to it (https://www.yangcatalog.org/yang-search/impa
-   ct_analysis?rfcs=1&show_subm=1&show_dir=both&orgtags=ietf&modtags=iet
-   f-yang-library.yang).  The last update of ietf-yang-library was in
-   2019.  It is worth considering that the ietf-yang-library module be
-   updated to meet current requirements.
-
-   Among all modules that inter-relate to ietf-yang-library, there are
-   three of them that is defined in currently active draft, there are
-   respectively:
-
-   *  ietf-yang-library-semver:
-
-      Defined in [I-D.ietf-netmod-yang-semver], this module augmentes
-      the ietf-yang-library to provide the YANG semantic versioning
-      which is proposed as an extension in module ietf-yang-semver.  The
-      semantic versioning contains information about the version of
-      current module and also info about whether the module is backward
-      compatible or not.
-
-   *  ietf-yang-status-conformance:
-
-      The module is proposed in
-      [I-D.ietf-netmod-yang-module-versioning-12].  It defines two
-      nodes: 'deprecated-nodes-implemented' and 'obsolete-nodes-absent'
-      under /yanglib:yang-library/yanglib:schema/ to help device report
-      the implementation status of nodes.
-
-   *  ietf-full-embed-library:
-
-      The module augments the yang-library container to include the
-      mapping of schemas to embedding points.  It is proposed in
-      [I-D.jouqui-netmod-yang-full-include-02]
-
-   For other modules, either the draft that defined them has expired:
-
-   *  ietf-yl-packages -> [I-D.ietf-netmod-yang-packages-03]
-
-   *  ietf-yang-library-packages ->
-      [I-D.rwilton-netmod-yang-packages-00]
-
-
-
-
-
-Lin, et al.               Expires 18 April 2025                [Page 21]
-
-Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
-
-
-   Or they have been adopted into RFCs and/or in the RFC the augment
-   does not exist any longer:
-
-   *  ietf-yang-structural-mount ->
-      [I-D.bjorklund-netmod-structural-mount-02]
-
-   *  ietf-library-tags -> [I-D.ietf-netmod-module-tags-00]
-
-   *  ietf-system-capabilities -> [RFC9196]
-
-   *  ietf-yang-library-revisions ->
-      [I-D.ietf-netmod-yang-module-versioning-10]
-
-   Or they only use the container in ietf-yang-library and not augment
-   them:
-
-   *  yang-catalog -> [I-D.clacla-netmod-model-catalog-03]
-
-   *  ietf-system-capabilities -> [RFC9196]
-
-   *  ietf-platform-manifest ->
-      [I-D.ietf-opsawg-collected-data-manifest-04]
-
-   *  ietf-schema-version-selection ->
-      [I-D.wilton-netmod-yang-ver-selection-01]
-
-Appendix B.  YANG module validation with yanglint
+Appendix A.  YANG module validation with yanglint
 
    This section gives a few examples that the user can try themselves
    with yanglint.  This is created to prove the syntax correctness.  The
@@ -1219,7 +1137,7 @@ Appendix B.  YANG module validation with yanglint
    in one module-set has augmented module in another module-set, which
    is illegal according to the ietf-yang-library definition.
 
-B.1.  A valid ietf-yang-library data example
+A.1.  A valid ietf-yang-library data example
 
 
 
@@ -1229,7 +1147,33 @@ B.1.  A valid ietf-yang-library data example
 
 
 
-Lin, et al.               Expires 18 April 2025                [Page 22]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Lin, et al.               Expires 18 April 2025                [Page 21]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
@@ -1267,7 +1211,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
    </modules-state>
    <CODE ENDS>
 
-B.2.  An invalid ietf-yang-library data example
+A.2.  An invalid ietf-yang-library data example
 
 
 
@@ -1285,7 +1229,7 @@ B.2.  An invalid ietf-yang-library data example
 
 
 
-Lin, et al.               Expires 18 April 2025                [Page 23]
+Lin, et al.               Expires 18 April 2025                [Page 22]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
@@ -1326,14 +1270,14 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
    </modules-state>
    <CODE ENDS>
 
-Appendix C.  YANG Module augmenting RFC7895
+Appendix B.  YANG Module augmenting RFC7895
 
    This section defines the ietf-yang-library-rfc7895-augmentedby that
    augments the ietf-yang-library defined in [RFC7895].  The module-
    state/module list of this YANG module version is also defined in the
    [RFC8525] version though deprecated.
 
-C.1.  Tree View for YANG module augmenting RFC7895
+B.1.  Tree View for YANG module augmenting RFC7895
 
    The following is the YANG tree diagram for ietf-yang-library-
    rfc7895-augmentedby augmenting RFC7895.
@@ -1341,7 +1285,7 @@ C.1.  Tree View for YANG module augmenting RFC7895
 
 
 
-Lin, et al.               Expires 18 April 2025                [Page 24]
+Lin, et al.               Expires 18 April 2025                [Page 23]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
@@ -1353,7 +1297,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
           +--ro name        -> /yanglib:modules-state/module/name
           +--ro revision    -> /yanglib:modules-state/module/revision
 
-C.2.  Full Tree View for ietf-yang-library with augmentation to RFC7895
+B.2.  Full Tree View for ietf-yang-library with augmentation to RFC7895
 
    The following is the full YANG tree diagram of ietf-yang-library-
    rfc7895-augmentedby augmenting ietf-yang-library defined in RFC7895.
@@ -1385,7 +1329,7 @@ C.2.  Full Tree View for ietf-yang-library with augmentation to RFC7895
        +---n yang-library-change
           +--ro module-set-id    -> /modules-state/module-set-id
 
-C.3.  YANG module augmenting RFC7895
+B.3.  YANG module augmenting RFC7895
 
    The YANG module that augments the ietf-yang-library RFC7895.
 
@@ -1397,7 +1341,7 @@ C.3.  YANG module augmenting RFC7895
 
 
 
-Lin, et al.               Expires 18 April 2025                [Page 25]
+Lin, et al.               Expires 18 April 2025                [Page 24]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
@@ -1453,7 +1397,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
 
 
-Lin, et al.               Expires 18 April 2025                [Page 26]
+Lin, et al.               Expires 18 April 2025                [Page 25]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
@@ -1509,7 +1453,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
 
 
-Lin, et al.               Expires 18 April 2025                [Page 27]
+Lin, et al.               Expires 18 April 2025                [Page 26]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
@@ -1565,7 +1509,7 @@ Authors' Addresses
 
 
 
-Lin, et al.               Expires 18 April 2025                [Page 28]
+Lin, et al.               Expires 18 April 2025                [Page 27]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
@@ -1621,4 +1565,4 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
 
 
 
-Lin, et al.               Expires 18 April 2025                [Page 29]
+Lin, et al.               Expires 18 April 2025                [Page 28]

@@ -688,8 +688,15 @@ module ietf-yang-library-augmentedby {
       <section anchor="draft-ietf-netconf-yang-library-augmentedby: Changes from 00 to 01" 
       title="draft-ietf-netconf-yang-library-augmentedby: Changes from 00 to 01">
         <t>
-          Correct the yanglint validation invalid example. Updated the
-          explaination to the yanglint validation example principle. 
+          Correct the yanglint validation invalid example. 
+        </t>
+        <t>
+          Updated the explaination to the yanglint validation example 
+          principle. 
+        </t>
+        <t>
+          Delete Section "ietf-yang-library Impact Analysis, as an evaluation
+          for RFC8525bis". The idea of updating the RFC8525 is paused.
         </t>
       </section>
     </section>
@@ -1163,102 +1170,6 @@ module ietf-yang-library-augmentedby {
       <annotation>IEEE Communications Magazine</annotation></reference>
 
     </references>
-    <section anchor="ietf-yang-library impact analysis" title="ietf-yang-library Impact Analysis, as an evaluation for RFC8525bis">
-      <t>
-        As demand arises for more precises network monitoring, new metadata is 
-        required to be reported by ietf-yang-library for client to better 
-        understand device's status. According to the impact analysis of module
-        ietf-yang-library, there are 15 modules in the yang-catalog that 
-        inter-relate to it (https://www.yangcatalog.org/yang-search/impact_analysis?rfcs=1&amp;show_subm=1&amp;show_dir=both&amp;orgtags=ietf&amp;modtags=ietf-yang-library.yang). 
-        The last update of ietf-yang-library was in 2019. 
-        It is worth considering that the ietf-yang-library module be updated to 
-        meet current requirements.
-      </t>
-      <t>
-        Among all modules that inter-relate to ietf-yang-library, there are 
-        three of them that is defined in currently active draft, there are 
-        respectively: 
-      </t>
-      <ul>
-        <li>
-          ietf-yang-library-semver: 
-          <t>
-            Defined in <xref target="I-D.ietf-netmod-yang-semver"/>, this 
-            module augmentes the ietf-yang-library to provide the YANG semantic 
-            versioning which is proposed as an extension in module 
-            ietf-yang-semver. The semantic versioning contains information 
-            about the version of current module and also info about whether the 
-            module is backward compatible or not. 
-          </t>
-        </li>
-        <li>
-          ietf-yang-status-conformance: 
-          <t>
-            The module is proposed in <xref target="I-D.ietf-netmod-yang-module-versioning-12"/>.
-            It defines two nodes: 'deprecated-nodes-implemented' and 
-            'obsolete-nodes-absent' under /yanglib:yang-library/yanglib:schema/
-            to help device report the implementation status of nodes.
-          </t>
-        </li>
-        <li>
-          ietf-full-embed-library:
-          <t>
-            The module augments the yang-library container to include the 
-            mapping of schemas to embedding points.
-            It is proposed in <xref target="I-D.jouqui-netmod-yang-full-include-02"/>
-          </t>
-        </li>
-      </ul>
-      <t>
-        For other modules, either the draft that defined them has expired:
-      </t>
-      <ul>
-        <li>
-          ietf-yl-packages -&gt; <xref target="I-D.ietf-netmod-yang-packages-03"></xref>
-        </li>
-        <li>
-          ietf-yang-library-packages -&gt; <xref target="I-D.rwilton-netmod-yang-packages-00"></xref>
-        </li>
-      </ul>
-
-      <t>
-        Or they have been adopted into RFCs and/or in the RFC the augment 
-        does not exist any longer:
-      </t>
-      <ul>
-        <li>
-          ietf-yang-structural-mount -&gt; <xref target="I-D.bjorklund-netmod-structural-mount-02"/>
-        </li>
-        <li>
-          ietf-library-tags -&gt; <xref target="I-D.ietf-netmod-module-tags-00"/>
-        </li>
-        <li>
-          ietf-system-capabilities -&gt; <xref target="RFC9196"/>
-        </li>
-        <li>
-          ietf-yang-library-revisions -&gt; <xref target="I-D.ietf-netmod-yang-module-versioning-10"/>
-        </li>
-      </ul>
-      <t>
-        Or they only use the container in ietf-yang-library and not augment 
-        them:
-      </t>
-      <ul>
-        <li>
-          yang-catalog -&gt; <xref target="I-D.clacla-netmod-model-catalog-03"/>
-        </li>
-        <li>
-          ietf-system-capabilities -&gt; <xref target="RFC9196"/>
-        </li>
-        <li>
-          ietf-platform-manifest -&gt; <xref target="I-D.ietf-opsawg-collected-data-manifest-04"/>
-        </li>
-        <li>
-          ietf-schema-version-selection -&gt; <xref target="I-D.wilton-netmod-yang-ver-selection-01"/>
-        </li>
-      </ul>
-
-    </section>
     <section anchor="YANG module validation with yanglint" title="YANG module validation with yanglint">
       <t>This section gives a few examples that the user can
       try themselves with yanglint. This is created to prove
