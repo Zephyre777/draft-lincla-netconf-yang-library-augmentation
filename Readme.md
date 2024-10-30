@@ -34,6 +34,48 @@ commit the corresponding .txt so that diff with current version is correct.
 
 The YANG modules are in the [yang_augment_RFC7895](./yang_augment_RFC7895/) and the [yang_augment_RFC85435](./yang_augment_RFC8525/) directories, each containining a set of modules that augment different version of ietf-yang-library.
 
+## Docker image instruction
+### build docker image
+```
+./build_docker_image.sh
+```
+
+### Manually configuration for netopeer2
+```
+cd netopeer2/scripts
+
+export NP2_MODULE_DIR=/usr/share/yang/modules/netopeer2
+export NP2_MODULE_PERMS=600
+export LN2_MODULE_DIR=/usr/share/yang/modules/libnetconf2/
+
+./setup.sh
+./merge_hostkey.sh
+./merge_config.sh
+```
+
+### Run netopeer2 docker container  
+```
+docker run -dit --name [your_container_name] -p [port_from_your_machine]:830 -it netopeer2_ietf120
+```
+
+### Configure password for the docker container
+```
+docker exec -itu 0 [your_container_name] pass_wd
+```  
+Then type in your new password, which is later going to be used as the netopeer2-cli ssh connection password. 
+
+### Run netopeer2-server
+```
+netopeer2-server
+```
+
+### RUN netopeer2-cli
+```
+netopeer2-cli
+
+> connect
+```
+Type in the password you set to connect as the root user for n
 
 
 
