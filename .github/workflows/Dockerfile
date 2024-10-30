@@ -1,18 +1,17 @@
 FROM ubuntu:20.04
 
 LABEL org.opencontainers.image.source=https://github.com/Zephyre777/draft-lincla-netconf-yang-library-augmentation.git
-LABEL org.opencontainers.image.description="netopeer2-ietf120"
+LABEL org.opencontainers.image.description="netopeer2-ietf121"
 
 ENV GIT_SSL_NO_VERIFY=1
 
-RUN apt update && DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt install git g++ wget libtool libpython3-dev libjansson-dev libyang-dev python3 pkgconf cmake libz-dev libpam0g  -y
+RUN apt update && DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt install git g++ wget libtool libpython3-dev libjansson-dev libyang-dev python3 pkgconf cmake libz-dev libpam0g python3-pip -y
 
 RUN apt install libpam0g-dev
 
 # Install openssl@3.3.1
 RUN git clone https://github.com/openssl/openssl.git openssl
-RUN cd openssl && ./Configure && make -j8 && make install -j8
-RUN ldconfig /usr/local/lib64
+RUN cd openssl && ./Configure && make -j8 && make install -j8 && ldconfig /usr/local/lib64
 
 # Install m4@1.4.19
 RUN wget --no-check-certificate https://ftp.gnu.org/gnu/m4/m4-1.4.19.tar.gz
@@ -87,7 +86,7 @@ RUN git clone --depth 1 --branch v2.14 https://github.com/akheron/jansson.git ja
 RUN cd jansson && autoreconf -i && ./configure && make -j8 && make install -j8
 
 #Install libnetconf2@2.1.37
-RUN git clone --depth 1 --branch v3.3.3 https://github.com/CESNET/libnetconf2.git libnetconf2
+RUN git clone --depth 1 --branch v3.5.1 https://github.com/CESNET/libnetconf2.git libnetconf2
 RUN cd libnetconf2 && mkdir build && cd build && cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr .. && make -j8 && make install -j8
 
 #Install sysrepo
@@ -97,3 +96,10 @@ RUN cd sysrepo && mkdir build && cd build && cmake -DCMAKE_INSTALL_PREFIX:PATH=/
 #Install netopeer2
 RUN git clone --branch master --depth 1  https://github.com/CESNET/netopeer2.git netopeer2
 RUN cd netopeer2 && mkdir build && cd build && cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr .. -DLN2_YANG_MODULE_DIR=/usr/share/yang/modules/libnetconf2 -DSYSREPO_SETUP=OFF .. -DKEYSTORED_KEYS_DIR=/usr/local/etc/keystored/keys/ .. && make -j8 && make install -j8
+
+#Install python lib lxml & ncclient
+RUN pip install ncclient lxml
+
+#Install libyangpush
+RUN git clone --branch feature/ietf121 --depth 1 https://github.com/network-analytics/libyangpush.git libyangpush
+RUN cd libyangpush && meson setup --libdir=/usr/local/lib build && cd build && meson compile && meson install
