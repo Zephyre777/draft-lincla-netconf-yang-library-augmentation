@@ -697,6 +697,12 @@ module ietf-yang-library-augmentedby {
           for RFC8525bis". The idea of updating the RFC8525 is paused.
         </t>
       </section>
+      <section anchor="Changes from 01 to 02" title="draft-ietf-netconf-yang-library-augmentedby: Changes from 01 to 02">
+        <t>Update and rephrase the Introduction section. </t>
+        <t>Add Section 4.2 Implementation Instruction. Address that the definition of "augmented-by" only consider the direct augment. A YANG module example for explaining this purpose has been put into Appendix C.</t>
+        <t>Draft refinement.</t>
+        <t>Reference update.</t>
+      </section>
     </section>
 
     <section anchor="security-considerations" title="Security Considerations">
