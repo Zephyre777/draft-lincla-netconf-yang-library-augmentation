@@ -1483,7 +1483,7 @@ module ietf-yang-library-rfc7895-augmentedby {
 
     <section numbered="false" title="Acknowledgements">
 
-      <t>The author would like to thanks Jan Lindblad and Jean Quilbeuf
+      <t>The author would like to thank Jan Lindblad and Jean Quilbeuf
       for their help during the design of the YANG module, and Rob Wilton, Thomas Graf for their valuable comments. </t>
     </section>
   </back>
