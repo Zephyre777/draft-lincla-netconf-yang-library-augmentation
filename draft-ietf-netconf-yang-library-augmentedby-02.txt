@@ -456,7 +456,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG    October 2024
    augmented-by list in the "yang-library/module-set".  The name
    "augmented-by" indicates the modules by which the current module is
    being directly augmented.  For the definition of "augmented-by", this
-   draft only consider the direct augmentation relationship.  The
+   draft only considers the direct augmentation relationship.  The
    recursive result of augmentation or transitive dependency for module
    specified along the xpath, are out of the scope of this draft.
    Section 4.2 has given the implementation instruction.
