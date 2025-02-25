@@ -56,7 +56,7 @@
       <t>
       This document augments the ietf-yang-library to provide the augmented-by 
       list. It facilitates the process of obtaining the entire dependencies 
-      between YANG modules, by directly querying the server's YANG module.
+      between YANG modules, by directly querying the server's YANG Library.
       </t>
     </abstract>
 
@@ -73,18 +73,18 @@
 
     <t>
     The YANG library <xref target="RFC8525" /> specifies a YANG
-    module that provides module information such as submodule list and deviation list to help a client utilize the YANG data modelling language. 
+    module that provides module information such as submodule list and deviation list to help a client utilizes the YANG data modelling language. 
     </t>
 
     <t>
     According to <xref target="RFC7950" />, both augmentations
     and deviations are defining contents external to the module,
     but applying internally for the module, which are reverse dependency of a 
-    YANG module.  To contrucst the full dependency of a YANG module, the 
-    reverse dependency is a crucial informtion. However, currently it is 
+    YANG module.  To construct the full dependency of a YANG module, the 
+    reverse dependency is a crucial information. However, currently it is 
     difficult to obtain the reverse dependency without fetching and parsing 
     all device modules. The deviation list defined in YANG Library 
-    enables client to obatin the module reverse dependency without having to 
+    enables client to obtain the module reverse dependency without having to 
     get and parse all YANG modules. However, the augmentation list is not defined in it. 
     </t><t>
     Since both augmentation and deviation work as YANG module dependencies, 
@@ -139,8 +139,8 @@
     <t>
       For the reverse dependencies, since they are defined
       externally, it is not possible to discover them by parsing the YANG module.
-      The current way to discover the reverse denpendencies is to query 
-      all YANG modules from the server and parse them. This is a lenthy 
+      The current way to discover the reverse dependencies is to query 
+      all YANG modules from the server and parse them. This is a lengthy 
       process, which must be repeated for each client that requires these 
       information.
     </t>
@@ -154,7 +154,7 @@
     <t>
       Currently, the YANG library only provides the deviation 
       list, but not the augmentation. With augmentation 
-      being more widly used and defined, and with use cases arise as 
+      being more widely used and defined, and with use cases arise as 
       the requirement of automate network management, the augmentation becomes 
       essential information to be learnt by client what has been additionally 
       implemented, and for it to better understand the device module 
@@ -213,7 +213,7 @@
       semantics when data is received in Time Series Database in the end.
       To solve the problem, a schema registry is introduced to store
       YANG modules and all their relationships
-      (direct and reverse dependencies). The schema is obtained by the NETCONF
+      (Direct and reverse dependencies). The schema is obtained by the NETCONF
       &lt;get-schema&gt; of the subscribed YANG module, which is obtained by 
       parsing the &lt;subscription-started&gt; message of each YANG-Push 
       subscription.
@@ -375,7 +375,7 @@
       Note that this module only augments the ietf-yang-library defined in
       <xref target="RFC8525"/>. At the time of writing this document,
       most vendors support <xref target="RFC7895" />, a previous
-      revision of the ietf-yang-library YANG module; The module that
+      revision of the ietf-yang-library YANG module. The module that
       augments <xref target="RFC7895" /> is provided in the Appendix B.
       </t>
 
@@ -565,7 +565,7 @@ module ietf-yang-library-augmentedby {
 
   <section anchor="implementaionInstruction" title="Implementation Instruction">
     <t>
-    For developer of this draft, the "augmented-by" list should only consider those YANG modules that directly augment the main YANG module. The direct augment is identify by the relationship between the augment module and the target node's parent module that it augments to. Only the direct parent module of the target node is augmented, the rest of parent modules defiend in the schema tree are only indirect dependencies but not augmented modules. (Refer to "target node" definition in Section 7.17 in <xref target="RFC7950"/>)
+    For developer of this draft, the "augmented-by" list should only consider those YANG modules that directly augment the main YANG module. The direct augment is identified by the relationship between the augment module and the target node's parent module that it augments to. Only the direct parent module of the target node is augmented, the rest of parent modules defined in the schema tree are only indirect dependencies but not augmented modules. (Refer to "Target node" definition in Section 7.17 in <xref target="RFC7950"/>)
     </t>
     <t>An example of the YANG module and its augmented-by result can be found in Appendix C.</t>
 
@@ -1459,7 +1459,7 @@ module ietf-yang-library-rfc7895-augmentedby {
           <li>Module E augments "/c:foo-c" with contaienr "foo-e"</li>
         </ul>
       </t>
-      <t>The augmented-by result is the following:</t>
+      <t>The augmented-by result for module A, B and C is the following:</t>
       <t><ul>
         <li>Module A is augmented-by: Module B</li>
         <li>Module B is augmented-by: Module C</li>
