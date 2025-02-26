@@ -46,7 +46,7 @@
       </address>
     </author>
 
-    <date day="25" month="February" year="2024"/>
+    <date day="25" month="February" year="2025"/>
 
     <area>OPS</area>
 
@@ -565,7 +565,8 @@ module ietf-yang-library-augmentedby {
 
   <section anchor="implementaionInstruction" title="Implementation Instructions">
     <section anchor="scope" title="The scope of augmented-by">
-    <t>This section defines the scope of augmented-by.</t>
+    <t>This section defines the scope of augmented-by.
+    </t>
     <t>
     The "augmented-by" list should only consider those YANG modules that directly augment the YANG module in question in the ietf-yang-library. The "directly augment" is identified by the relationship between the augment module and the target node's parent module that it augments to. Only the direct parent module of the target node is augmented, and the rest of parent modules defined in the schema tree are only indirect dependencies but not augmented modules. (Refer to "Target node" definition in Section 7.17 of <xref target="RFC7950"/>)
     </t>
