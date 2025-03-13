@@ -9,7 +9,7 @@
 <?rfc inline="yes"?>
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
-<rfc category="std" docName="draft-ietf-netconf-yang-library-augmentedby-01"
+<rfc category="std" docName="draft-ietf-netconf-yang-library-augmentedby-02"
      ipr="trust200902">
   <front>
     <title abbrev="Augmented-by Addition into the IETF-YANG-Library">
@@ -46,7 +46,7 @@
       </address>
     </author>
 
-    <date day="25" month="February" year="2025"/>
+    <date day="3" month="March" year="2025"/>
 
     <area>OPS</area>
 
@@ -146,7 +146,8 @@
     </t>
     <t>
       According to the definition of module ietf-yang-library defined in 
-      <xref target="RFC8525"/>, in the schema content of a module in container yang-library, the deviation is provided to tell this module is deviated by which other 
+      <xref target="RFC8525"/>, in the schema content of a module in container 
+      yang-library, the deviation is provided to tell this module is deviated by which other 
       modules. If YANG library can directly report all reverse dependencies, 
       it could provide a much easier and light-weight solution to find module
       entire dependency, compared to getting and parsing all modules.
@@ -781,7 +782,7 @@ module ietf-yang-library-augmentedby {
     <t>name: ietf-yang-library-augmentedby</t>
     <t>namespace: urn:ietf:params:xml:ns:yang:ietf-yang-library-augmentedby</t>
     <t>prefix: yanglib-aug</t>
-    <t>reference: <xref target="I-D.lincla-netconf-yang-library-augmentedby"/>
+    <t>reference: <xref target="I-D.ietf-netconf-yang-library-augmentedby"/>
     </t>
     </section>
   </middle>
@@ -873,7 +874,7 @@ module ietf-yang-library-augmentedby {
       <?rfc include="reference.I-D.ietf-netmod-yang-semver"?>
       <?rfc include="reference.I-D.ietf-netmod-rfc6087bis.xml"?>
 
-      <reference anchor="I-D.lincla-netconf-yang-library-augmentedby" target="https://datatracker.ietf.org/doc/html/draft-lincla-netconf-yang-library-augmentedby-01">
+      <reference anchor="I-D.ietf-netconf-yang-library-augmentedby" target="https://datatracker.ietf.org/doc/draft-ietf-netconf-yang-library-augmentedby/01/">
         <front>
         <title>Augmented-by Addition into the IETF-YANG-Library</title>
         <author initials="Z." surname="Lin" fullname="Zhuoyao Lin">
@@ -885,7 +886,6 @@ module ietf-yang-library-augmentedby {
         <author initials="I. D." surname="Martinez-Casanueva" fullname="Ignacio Dominguez Martinez-Casanueva">
           <organization>Telefonica</organization>
         </author>
-        <date month="July" day="5" year="2024"/>
         <abstract>
          <t> This document augments the ietf-yang-library to provide the 
           augmented-by list. It facilitates the process of obtaining the 
@@ -893,7 +893,7 @@ module ietf-yang-library-augmentedby {
           server's YANG module.</t>
         </abstract>
         </front>
-        <seriesInfo name="Internet-Draft" value="draft-lincla-netconf-yang-library-augmentedby-01"/>
+        <seriesInfo name="Internet-Draft" value="draft-ietf-netconf-yang-library-augmentedby-01"/>
       </reference>
 
       <reference anchor="I-D.ietf-netmod-yang-module-versioning-12" target="https://datatracker.ietf.org/doc/html/draft-ietf-netmod-yang-module-versioning-12">
