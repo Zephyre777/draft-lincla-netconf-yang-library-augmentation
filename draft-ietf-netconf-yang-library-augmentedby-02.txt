@@ -139,7 +139,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
    dependencies and the include, import as defined in Section 5.1.1 of
    [RFC7950] are both crucial information for understanding all
    dependencies of a YANG module.  However, currently it is difficult to
-   obtain the YANG schema [RFC8340] without obtainting and aprsing all
+   obtain the YANG schema [RFC8340] without obtaining and parsing all
    YAG modules from a management server.  The deviation list defined in
    YANG library enables client to obtain the module reverse dependency
    without having to get and parse all YANG modules.  However, the
@@ -284,16 +284,16 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
    The purpose of this project is to provide adequate information to the
    YANG-Push subscription state change notifications so that when the
-   module and its dependencies can be parsed and retreived automatically
+   module and its dependencies can be parsed and retrieved automatically
    from the vantage point.  The architecture relies on the information
    of YANG dependencies to realize, to solve the problem of missing YANG
    semantics when notifications are transformed or indexed in Time
    Series Database.  As a solution to provide the missing YANG
    semantics, a schema registry is introduced to store YANG modules and
-   all their relationships(Direct and reverse dependencies).  The schema
-   is obtained by NETCONF <get-schema> of the subscribed YANG schema
-   tree, which is obtained by parsing the <subscription-started> message
-   of each YANG-Push subscription.
+   all their relationships (Direct and reverse dependencies).  The
+   schema is obtained by NETCONF <get-schema> of the subscribed YANG
+   schema tree, which is obtained by parsing the <subscription-started>
+   message of each YANG-Push subscription.
 
    When obtaining the dependency modules of a YANG module, an
    independent process containing multiple <get-schema> operations is
@@ -312,7 +312,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
    can fully understand and utilize all modules and module dependencies
    of device.  This process is very heavy because in a real situation,
    each device may implement hundreds of YANG modules, requiring up to
-   several minutes to complete in the worse case.  Besides, the need of
+   several minutes to complete in the worst case.  Besides, the need of
    parsing all YANG modules and finding all the dependencies adds a
    small extra delay.  Applying this method to obtain YANG module will
    make the operation very costly, since after each subscribed module is
