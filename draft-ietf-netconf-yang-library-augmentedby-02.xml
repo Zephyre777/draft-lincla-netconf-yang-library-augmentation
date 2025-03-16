@@ -386,19 +386,22 @@ module: ietf-yang-library
   x--ro modules-state
      x--ro module-set-id    string
      x--ro module* [name revision]
-        x--ro name                yang:yang-identifier
-        x--ro revision            union
-        +--ro schema?             inet:uri
-        x--ro namespace           inet:uri
-        x--ro feature*            yang:yang-identifier
+        x--ro name                        yang:yang-identifier
+        x--ro revision                    union
+        +--ro schema?                     inet:uri
+        x--ro namespace                   inet:uri
+        x--ro feature*                    yang:yang-identifier
         x--ro deviation* [name revision]
         |  x--ro name        yang:yang-identifier
         |  x--ro revision    union
-        x--ro conformance-type    enumeration
+        x--ro conformance-type            enumeration
         x--ro submodule* [name revision]
-           x--ro name        yang:yang-identifier
-           x--ro revision    union
-           +--ro schema?     inet:uri
+        |  x--ro name        yang:yang-identifier
+        |  x--ro revision    union
+        |  +--ro schema?     inet:uri
+        x--ro yanglib-aug:augmented-by* [name revision]
+           +--ro yanglib-aug:name        -> /yanglib:modules-state/module/name
+           +--ro yanglib-aug:revision    -> /yanglib:modules-state/module/revision
 
   notifications:
     +---n yang-library-update
@@ -501,6 +504,53 @@ module ietf-yang-library-augmentedby {
          Robust clients may want to make sure that they handle a
          situation where a module augments itself (directly or
          indirectly) gracefully.";
+    }
+  }
+
+  augment "/yanglib:modules-state/yanglib:module" {
+    description
+      "Augment the augmentedby from module info with the module-augmented-by grouping" ;
+    uses yanglib-aug:module-state-augmented-by;
+  }
+
+  grouping module-state-augmented-by {
+    description
+      "This grouping defines a list with keys being the module 
+      name and revison. The list contains the augmented-by list.";
+ 
+    list augmented-by {
+      key "name revision";
+      status deprecated;
+
+      description
+        "List of YANG augmented-by module names and revisions
+         used by this server to modify the conformance of
+         the module associated with this entry.  Note that
+         the same module can be used for augmented-by for
+         multiple modules, so the same entry MAY appear
+         within multiple 'module' entries.
+
+         The augment module MUST be present in the 'module'
+         list, with the same name and revision values.
+         The 'conformance-type' value will be 'implement' for
+         the augment module.";
+
+      leaf name {
+        type leafref {
+          path "/yanglib:modules-state/yanglib:module/yanglib:name";
+        }
+        description
+          "Identifies a given module in the yang library by 
+          its name.";
+      }
+
+      leaf revision {
+        type leafref {
+          path "/yanglib:modules-state/yanglib:module/yanglib:revision";
+        }
+        description
+          "Revision of the module";
+      }
     }
   }
 }

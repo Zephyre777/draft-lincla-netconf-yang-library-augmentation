@@ -80,32 +80,32 @@ Table of Contents
        4.1.1.  Tree View . . . . . . . . . . . . . . . . . . . . . .   8
        4.1.2.  Full Tree View  . . . . . . . . . . . . . . . . . . .   9
        4.1.3.  YANG Module . . . . . . . . . . . . . . . . . . . . .  10
-     4.2.  Implementation Instructions . . . . . . . . . . . . . . .  12
-       4.2.1.  The scope of augmented-by . . . . . . . . . . . . . .  12
-       4.2.2.  An example of YANG module augmented-by result . . . .  12
-   5.  Implementation Status . . . . . . . . . . . . . . . . . . . .  13
-     5.1.  Netopeer2 at IETF119 Hackathon  . . . . . . . . . . . . .  13
-     5.2.  Netopeer2 at IETF120 Hackathon  . . . . . . . . . . . . .  13
-     5.3.  Libyangpush Find-dependency . . . . . . . . . . . . . . .  13
-   6.  Changes . . . . . . . . . . . . . . . . . . . . . . . . . . .  14
+     4.2.  Implementation Instructions . . . . . . . . . . . . . . .  13
+       4.2.1.  The scope of augmented-by . . . . . . . . . . . . . .  13
+       4.2.2.  An example of YANG module augmented-by result . . . .  13
+   5.  Implementation Status . . . . . . . . . . . . . . . . . . . .  14
+     5.1.  Netopeer2 at IETF119 Hackathon  . . . . . . . . . . . . .  14
+     5.2.  Netopeer2 at IETF120 Hackathon  . . . . . . . . . . . . .  14
+     5.3.  Libyangpush Find-dependency . . . . . . . . . . . . . . .  14
+   6.  Changes . . . . . . . . . . . . . . . . . . . . . . . . . . .  15
      6.1.  draft-lincla-netconf-yang-library-augmentation: Changes
-           from 00 to 01 . . . . . . . . . . . . . . . . . . . . . .  14
+           from 00 to 01 . . . . . . . . . . . . . . . . . . . . . .  15
      6.2.  draft-lincla-netconf-yang-library-augmentedby version
-           00  . . . . . . . . . . . . . . . . . . . . . . . . . . .  14
+           00  . . . . . . . . . . . . . . . . . . . . . . . . . . .  15
      6.3.  draft-lincla-netconf-yang-library-augmentedby: Changes from
-           00 to 01  . . . . . . . . . . . . . . . . . . . . . . . .  14
-     6.4.  draft-lincla-netconf-yang-library-augmentedby: Changes from
-           01 to 02  . . . . . . . . . . . . . . . . . . . . . . . .  14
-     6.5.  draft-ietf-netconf-yang-library-augmentedby version 00  .  15
-     6.6.  draft-ietf-netconf-yang-library-augmentedby: Changes from
            00 to 01  . . . . . . . . . . . . . . . . . . . . . . . .  15
-     6.7.  draft-ietf-netconf-yang-library-augmentedby: Changes from
+     6.4.  draft-lincla-netconf-yang-library-augmentedby: Changes from
            01 to 02  . . . . . . . . . . . . . . . . . . . . . . . .  15
-   7.  Security Considerations . . . . . . . . . . . . . . . . . . .  15
-   8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  16
-   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  16
-     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  16
-     9.2.  Informative References  . . . . . . . . . . . . . . . . .  18
+     6.5.  draft-ietf-netconf-yang-library-augmentedby version 00  .  16
+     6.6.  draft-ietf-netconf-yang-library-augmentedby: Changes from
+           00 to 01  . . . . . . . . . . . . . . . . . . . . . . . .  16
+     6.7.  draft-ietf-netconf-yang-library-augmentedby: Changes from
+           01 to 02  . . . . . . . . . . . . . . . . . . . . . . . .  16
+   7.  Security Considerations . . . . . . . . . . . . . . . . . . .  16
+   8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  17
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  17
+     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  17
+     9.2.  Informative References  . . . . . . . . . . . . . . . . .  19
 
 
 
@@ -114,17 +114,17 @@ Lin, et al.             Expires 4 September 2025                [Page 2]
 Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
 
-   Appendix A.  YANG module validation with yanglint . . . . . . . .  19
-     A.1.  A valid ietf-yang-library data example  . . . . . . . . .  20
-     A.2.  An invalid ietf-yang-library data example . . . . . . . .  20
-   Appendix B.  YANG Module augmenting RFC7895 . . . . . . . . . . .  21
-     B.1.  Tree View for YANG module augmenting RFC7895  . . . . . .  21
+   Appendix A.  YANG module validation with yanglint . . . . . . . .  20
+     A.1.  A valid ietf-yang-library data example  . . . . . . . . .  21
+     A.2.  An invalid ietf-yang-library data example . . . . . . . .  21
+   Appendix B.  YANG Module augmenting RFC7895 . . . . . . . . . . .  22
+     B.1.  Tree View for YANG module augmenting RFC7895  . . . . . .  22
      B.2.  Full Tree View for ietf-yang-library with augmentation to
-           RFC7895 . . . . . . . . . . . . . . . . . . . . . . . . .  22
-     B.3.  YANG module augmenting RFC7895  . . . . . . . . . . . . .  22
-   Contributors  . . . . . . . . . . . . . . . . . . . . . . . . . .  25
-   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  25
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  25
+           RFC7895 . . . . . . . . . . . . . . . . . . . . . . . . .  23
+     B.3.  YANG module augmenting RFC7895  . . . . . . . . . . . . .  23
+   Contributors  . . . . . . . . . . . . . . . . . . . . . . . . . .  26
+   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  26
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  26
 
 1.  Introduction
 
@@ -456,48 +456,48 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
    library with the augmentation defined in module ietf-yang-library-
    augmentedby, including the RPCs and notifications.
 
-   module: ietf-yang-library
-     +--ro yang-library
-     |  +--ro module-set* [name]
-     |  |  +--ro name                  string
-     |  |  +--ro module* [name]
-     |  |  |  +--ro name                        yang:yang-identifier
-     |  |  |  +--ro revision?                   revision-identifier
-     |  |  |  +--ro namespace                   inet:uri
-     |  |  |  +--ro location*                   inet:uri
-     |  |  |  +--ro submodule* [name]
-     |  |  |  |  +--ro name        yang:yang-identifier
-     |  |  |  |  +--ro revision?   revision-identifier
-     |  |  |  |  +--ro location*   inet:uri
-     |  |  |  +--ro feature*                    yang:yang-identifier
-     |  |  |  +--ro deviation*                  -> ../../module/name
-     |  |  |  +--ro yanglib-aug:augmented-by*
-                                        -> ../../yanglib:module/name
-     |  |  +--ro import-only-module* [name revision]
-     |  |     +--ro name         yang:yang-identifier
-     |  |     +--ro revision     union
-     |  |     +--ro namespace    inet:uri
-     |  |     +--ro location*    inet:uri
-     |  |     +--ro submodule* [name]
-     |  |        +--ro name        yang:yang-identifier
-     |  |        +--ro revision?   revision-identifier
-     |  |        +--ro location*   inet:uri
-     |  +--ro schema* [name]
-     |  |  +--ro name          string
-     |  |  +--ro module-set*   -> ../../module-set/name
-     |  +--ro datastore* [name]
-     |  |  +--ro name      ds:datastore-ref
-     |  |  +--ro schema    -> ../../schema/name
-     |  +--ro content-id    string
-     x--ro modules-state
-        x--ro module-set-id    string
-        x--ro module* [name revision]
-           x--ro name                yang:yang-identifier
-           x--ro revision            union
-           +--ro schema?             inet:uri
-           x--ro namespace           inet:uri
-           x--ro feature*            yang:yang-identifier
-           x--ro deviation* [name revision]
+module: ietf-yang-library
+  +--ro yang-library
+  |  +--ro module-set* [name]
+  |  |  +--ro name                  string
+  |  |  +--ro module* [name]
+  |  |  |  +--ro name                        yang:yang-identifier
+  |  |  |  +--ro revision?                   revision-identifier
+  |  |  |  +--ro namespace                   inet:uri
+  |  |  |  +--ro location*                   inet:uri
+  |  |  |  +--ro submodule* [name]
+  |  |  |  |  +--ro name        yang:yang-identifier
+  |  |  |  |  +--ro revision?   revision-identifier
+  |  |  |  |  +--ro location*   inet:uri
+  |  |  |  +--ro feature*                    yang:yang-identifier
+  |  |  |  +--ro deviation*                  -> ../../module/name
+  |  |  |  +--ro yanglib-aug:augmented-by*
+                                     -> ../../yanglib:module/name
+  |  |  +--ro import-only-module* [name revision]
+  |  |     +--ro name         yang:yang-identifier
+  |  |     +--ro revision     union
+  |  |     +--ro namespace    inet:uri
+  |  |     +--ro location*    inet:uri
+  |  |     +--ro submodule* [name]
+  |  |        +--ro name        yang:yang-identifier
+  |  |        +--ro revision?   revision-identifier
+  |  |        +--ro location*   inet:uri
+  |  +--ro schema* [name]
+  |  |  +--ro name          string
+  |  |  +--ro module-set*   -> ../../module-set/name
+  |  +--ro datastore* [name]
+  |  |  +--ro name      ds:datastore-ref
+  |  |  +--ro schema    -> ../../schema/name
+  |  +--ro content-id    string
+  x--ro modules-state
+     x--ro module-set-id    string
+     x--ro module* [name revision]
+        x--ro name                        yang:yang-identifier
+        x--ro revision                    union
+        +--ro schema?                     inet:uri
+        x--ro namespace                   inet:uri
+        x--ro feature*                    yang:yang-identifier
+        x--ro deviation* [name revision]
 
 
 
@@ -506,19 +506,22 @@ Lin, et al.             Expires 4 September 2025                [Page 9]
 Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
 
-           |  x--ro name        yang:yang-identifier
-           |  x--ro revision    union
-           x--ro conformance-type    enumeration
-           x--ro submodule* [name revision]
-              x--ro name        yang:yang-identifier
-              x--ro revision    union
-              +--ro schema?     inet:uri
+        |  x--ro name        yang:yang-identifier
+        |  x--ro revision    union
+        x--ro conformance-type            enumeration
+        x--ro submodule* [name revision]
+        |  x--ro name        yang:yang-identifier
+        |  x--ro revision    union
+        |  +--ro schema?     inet:uri
+        x--ro yanglib-aug:augmented-by* [name revision]
+           +--ro yanglib-aug:name        -> /yanglib:modules-state/module/name
+           +--ro yanglib-aug:revision    -> /yanglib:modules-state/module/revision
 
-     notifications:
-       +---n yang-library-update
-       |  +--ro content-id    -> /yang-library/content-id
-       x---n yang-library-change
-          x--ro module-set-id    -> /modules-state/module-set-id
+  notifications:
+    +---n yang-library-update
+    |  +--ro content-id    -> /yang-library/content-id
+    x---n yang-library-change
+       x--ro module-set-id    -> /modules-state/module-set-id
 
 4.1.3.  YANG Module
 
@@ -551,9 +554,6 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
                   <matilto:ignacio.dominguezmartinez@telefonica.com>";
 
      description
-       "This module augments the ietf-yang-library defined in
-        [RFC8525] to provide not only the deviation list, but also
-        the augmented-by list, in order to give sufficient
 
 
 
@@ -562,6 +562,9 @@ Lin, et al.             Expires 4 September 2025               [Page 10]
 Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
 
+       "This module augments the ietf-yang-library defined in
+        [RFC8525] to provide not only the deviation list, but also
+        the augmented-by list, in order to give sufficient
         information about the YANG modules reverse dependency. It
         facilitates the process of obtaining the entire
         dependencies of YANG module.
@@ -607,9 +610,6 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
          description
            "Leaf-list of the augmentation used by this server to
             modify the conformance of the module associated with
-            this entry.  Note that the same module can be used for
-            augmented-by for multiple modules, so the same
-            entry MAY appear within multiple 'module' entries.
 
 
 
@@ -618,12 +618,71 @@ Lin, et al.             Expires 4 September 2025               [Page 11]
 Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
 
+            this entry.  Note that the same module can be used for
+            augmented-by for multiple modules, so the same
+            entry MAY appear within multiple 'module' entries.
+
             This reference MUST NOT (directly or indirectly)
             refer to the module being augmented.
 
             Robust clients may want to make sure that they handle a
             situation where a module augments itself (directly or
             indirectly) gracefully.";
+       }
+     }
+
+     augment "/yanglib:modules-state/yanglib:module" {
+       description
+         "Augment the augmentedby from module info with the module-augmented-by grouping" ;
+       uses yanglib-aug:module-state-augmented-by;
+     }
+
+     grouping module-state-augmented-by {
+       description
+         "This grouping defines a list with keys being the module
+         name and revison. The list contains the augmented-by list.";
+
+       list augmented-by {
+         key "name revision";
+         status deprecated;
+
+         description
+           "List of YANG augmented-by module names and revisions
+            used by this server to modify the conformance of
+            the module associated with this entry.  Note that
+            the same module can be used for augmented-by for
+            multiple modules, so the same entry MAY appear
+            within multiple 'module' entries.
+
+            The augment module MUST be present in the 'module'
+            list, with the same name and revision values.
+            The 'conformance-type' value will be 'implement' for
+            the augment module.";
+
+         leaf name {
+           type leafref {
+             path "/yanglib:modules-state/yanglib:module/yanglib:name";
+           }
+           description
+             "Identifies a given module in the yang library by
+             its name.";
+
+
+
+Lin, et al.             Expires 4 September 2025               [Page 12]
+
+Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
+
+
+         }
+
+         leaf revision {
+           type leafref {
+             path "/yanglib:modules-state/yanglib:module/yanglib:revision";
+           }
+           description
+             "Revision of the module";
+         }
        }
      }
    }
@@ -663,16 +722,17 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
    *  Module C augments "/a:foo-a/b:foo-b" with leaf "leaf-c", and it
       defines a container "foo-c"
 
-   *  Module D augments "/c:foo-c" with container "foo-d"
-
-   *  Module E augments "/c:foo-c" with contaienr "foo-e"
 
 
 
-Lin, et al.             Expires 4 September 2025               [Page 12]
+Lin, et al.             Expires 4 September 2025               [Page 13]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
+
+   *  Module D augments "/c:foo-c" with container "foo-d"
+
+   *  Module E augments "/c:foo-c" with contaienr "foo-e"
 
    The augmented-by result for module A, B and C is the following:
 
@@ -721,11 +781,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
 
 
-
-
-
-
-Lin, et al.             Expires 4 September 2025               [Page 13]
+Lin, et al.             Expires 4 September 2025               [Page 14]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
@@ -781,7 +837,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
 
 
-Lin, et al.             Expires 4 September 2025               [Page 14]
+Lin, et al.             Expires 4 September 2025               [Page 15]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
@@ -837,7 +893,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
 
 
-Lin, et al.             Expires 4 September 2025               [Page 15]
+Lin, et al.             Expires 4 September 2025               [Page 16]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
@@ -893,7 +949,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
 
 
-Lin, et al.             Expires 4 September 2025               [Page 16]
+Lin, et al.             Expires 4 September 2025               [Page 17]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
@@ -949,7 +1005,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
 
 
-Lin, et al.             Expires 4 September 2025               [Page 17]
+Lin, et al.             Expires 4 September 2025               [Page 18]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
@@ -1005,7 +1061,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
 
 
-Lin, et al.             Expires 4 September 2025               [Page 18]
+Lin, et al.             Expires 4 September 2025               [Page 19]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
@@ -1061,7 +1117,7 @@ Appendix A.  YANG module validation with yanglint
 
 
 
-Lin, et al.             Expires 4 September 2025               [Page 19]
+Lin, et al.             Expires 4 September 2025               [Page 20]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
@@ -1117,7 +1173,7 @@ A.2.  An invalid ietf-yang-library data example
 
 
 
-Lin, et al.             Expires 4 September 2025               [Page 20]
+Lin, et al.             Expires 4 September 2025               [Page 21]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
@@ -1173,7 +1229,7 @@ B.1.  Tree View for YANG module augmenting RFC7895
 
 
 
-Lin, et al.             Expires 4 September 2025               [Page 21]
+Lin, et al.             Expires 4 September 2025               [Page 22]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
@@ -1229,7 +1285,7 @@ B.3.  YANG module augmenting RFC7895
 
 
 
-Lin, et al.             Expires 4 September 2025               [Page 22]
+Lin, et al.             Expires 4 September 2025               [Page 23]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
@@ -1285,7 +1341,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
 
 
-Lin, et al.             Expires 4 September 2025               [Page 23]
+Lin, et al.             Expires 4 September 2025               [Page 24]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
@@ -1341,7 +1397,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
 
 
-Lin, et al.             Expires 4 September 2025               [Page 24]
+Lin, et al.             Expires 4 September 2025               [Page 25]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
@@ -1397,7 +1453,7 @@ Authors' Addresses
 
 
 
-Lin, et al.             Expires 4 September 2025               [Page 25]
+Lin, et al.             Expires 4 September 2025               [Page 26]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
@@ -1453,4 +1509,4 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG      March 2025
 
 
 
-Lin, et al.             Expires 4 September 2025               [Page 26]
+Lin, et al.             Expires 4 September 2025               [Page 27]
