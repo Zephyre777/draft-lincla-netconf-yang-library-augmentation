@@ -46,7 +46,7 @@
       </address>
     </author>
 
-    <date day="3" month="March" year="2025"/>
+    <date day="16" month="March" year="2025"/>
 
     <area>OPS</area>
 
@@ -724,6 +724,10 @@ module ietf-yang-library-augmentedby {
         <t>Add Section 4.2 Implementation Instructions. Address in Section 4.2.1 that the definition of "augmented-by" only consider the direct augment. A YANG example for explaining this purpose has been put into Section 4.2.2.</t>
         <t>Draft refinement.</t>
         <t>Reference update.</t>
+      </section>
+      <section anchor="Changes from 02 to 03" title="draft-ietf-netconf-yang-library-augmentedby: Changes from 02 to 03">
+        <t>Merge review comment from Thomas.</t>
+        <t>Merge Andy's comment. Adding deprecated node into the module augmenting RFC8525.</t>
       </section>
     </section>
 
