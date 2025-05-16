@@ -690,6 +690,7 @@ module ietf-yang-library-augmentedby {
       </section>
       <section anchor="Changes from 03 to 04" title="draft-ietf-netconf-yang-library-augmentedby: Changes from 03 to 04">
         <t>Update module content ietf-yang-library-augmentedby: Organise the augmentation content to grouping; Add augmentation to modules-state container. </t>
+        <t>Appendix B is deleted.</t>
       </section>
     </section>
 
@@ -1006,7 +1007,7 @@ module ietf-yang-library-augmentedby {
     <section numbered="false" title="Acknowledgements">
 
       <t>The author would like to thank Jan Lindblad and Jean Quilbeuf
-      for their help during the design of the YANG module, and Thomas Graf, Rob Wilton for their valuable review and comments. </t>
+      for their help during the design of the YANG module, and Thomas Graf, Rob Wilton, Andy Bierman for their valuable review and comments. </t>
     </section>
   </back>
 </rfc>
