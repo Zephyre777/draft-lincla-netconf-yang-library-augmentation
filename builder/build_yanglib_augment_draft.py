@@ -50,14 +50,11 @@ def _find_yang_file(prefix: str, yang_dir):
     raise Exception(f"Yang file with prefix {prefix} not found.")
 
 
-YANGLIB_AUGMENT_RFC7895 = _find_yang_file("ietf-yang-library-rfc7895-augmentedby", YANG_DIR_RFC7895)
 YANGLIB_AUGMENT_RFC8525 = _find_yang_file("ietf-yang-library-augmentedby", YANG_DIR_RFC8525)
 
 
 def draft_content():
     pyang_results = {
-        "yanglib_augment_rfc7895_tree": _build_tree([YANGLIB_AUGMENT_RFC7895], YANG_DIR_RFC7895),
-        "yanglib_augment_rfc7895_yang": _format_yang([YANGLIB_AUGMENT_RFC7895], YANG_DIR_RFC7895),
         "yanglib_augment_rfc8525_tree": _build_tree([YANGLIB_AUGMENT_RFC8525], YANG_DIR_RFC8525),
         "yanglib_augment_rfc8525_tree": _format_yang([YANGLIB_AUGMENT_RFC8525], YANG_DIR_RFC8525),
         }
@@ -76,7 +73,7 @@ def draft_content():
 
 
 if __name__ == '__main__':
-    output = os.path.join(os.path.dirname(BUILDER_DIR), "draft-ietf-netconf-yang-library-augmentedby-03.xml")
+    output = os.path.join(os.path.dirname(BUILDER_DIR), "draft-ietf-netconf-yang-library-augmentedby-04.xml")
     draft_text = env.get_template("draft-ietf-netconf-yang-library-augmentedby.xml")
     with open(output, 'w') as xml_generated:
         xml_generated.write(draft_text.render(**draft_content()))
