@@ -26,9 +26,9 @@ module ietf-yang-library-augmentedby {
     "This module augments the ietf-yang-library defined in 
      [RFC8525] to provide not only the deviation list, but also
      the augmented-by list, in order to give sufficient 
-     information about the YANG models reverse dependency. It 
+     information about the YANG modules reverse dependency. It
      facilitates the process of obtaining the entire 
-     dependencies of YANG model.
+     dependencies of YANG module.
      
      The key words 'MUST', 'MUST NOT', 'REQUIRED', 'SHALL',
      'SHALL NOT', 'SHOULD', 'SHOULD NOT', 'RECOMMENDED',
@@ -58,7 +58,7 @@ module ietf-yang-library-augmentedby {
       "RFC XXXX: Support of augmentedby in ietf-yang-library";
   }
 
-  augment "/yanglib:yang-library/yanglib:module-set/yanglib:module" {
+  grouping augmented-by {
     description
       "Augment the augmented-by list from module info with the 
        module-augmented-by grouping";
@@ -83,4 +83,20 @@ module ietf-yang-library-augmentedby {
          indirectly) gracefully.";
     }
   }
+
+  augment "/yanglib:yang-library/yanglib:module-set/yanglib:module" {
+    description
+      "Augment the augmented-by list from module info with the
+       augmented-by grouping" ;
+      uses augmented-by;
+  }
+
+  augment "/yanglib:modules-state/yanglib:module" {
+    status deprecated;
+    description
+      "Augment the augmented-by list from module info with the
+      augmented-by grouping" ;
+      uses augmented-by;
+  }
+  
 }
