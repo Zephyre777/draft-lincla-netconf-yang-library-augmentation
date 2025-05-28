@@ -11,7 +11,7 @@ Expires: 29 November 2025                       I. D. Martinez-Casanueva
 
 
             Augmented-by Addition into the IETF-YANG-Library
-             draft-ietf-netconf-yang-library-augmentedby-04
+             draft-ietf-netconf-yang-library-augmentedby-05
 
 Abstract
 
