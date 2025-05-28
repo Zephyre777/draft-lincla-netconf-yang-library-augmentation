@@ -5,9 +5,9 @@
 NETCONF                                                           Z. Lin
 Internet-Draft                                                 B. Claise
 Intended status: Standards Track                                  Huawei
-Expires: 17 November 2025                       I. D. Martinez-Casanueva
+Expires: 29 November 2025                       I. D. Martinez-Casanueva
                                                               Telefonica
-                                                             16 May 2025
+                                                             28 May 2025
 
 
             Augmented-by Addition into the IETF-YANG-Library
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 17 November 2025.
+   This Internet-Draft will expire on 29 November 2025.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Lin, et al.             Expires 17 November 2025                [Page 1]
+Lin, et al.             Expires 29 November 2025                [Page 1]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Lin, et al.             Expires 17 November 2025                [Page 2]
+Lin, et al.             Expires 29 November 2025                [Page 2]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
@@ -165,7 +165,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
 
 
-Lin, et al.             Expires 17 November 2025                [Page 3]
+Lin, et al.             Expires 29 November 2025                [Page 3]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
@@ -221,7 +221,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
 
 
-Lin, et al.             Expires 17 November 2025                [Page 4]
+Lin, et al.             Expires 29 November 2025                [Page 4]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
@@ -277,7 +277,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
 
 
-Lin, et al.             Expires 17 November 2025                [Page 5]
+Lin, et al.             Expires 29 November 2025                [Page 5]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
@@ -333,7 +333,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
 
 
-Lin, et al.             Expires 17 November 2025                [Page 6]
+Lin, et al.             Expires 29 November 2025                [Page 6]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
@@ -389,7 +389,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
 
 
-Lin, et al.             Expires 17 November 2025                [Page 7]
+Lin, et al.             Expires 29 November 2025                [Page 7]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
@@ -445,7 +445,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
 
 
-Lin, et al.             Expires 17 November 2025                [Page 8]
+Lin, et al.             Expires 29 November 2025                [Page 8]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
@@ -501,7 +501,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
 
 
-Lin, et al.             Expires 17 November 2025                [Page 9]
+Lin, et al.             Expires 29 November 2025                [Page 9]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
@@ -557,7 +557,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
 
 
-Lin, et al.             Expires 17 November 2025               [Page 10]
+Lin, et al.             Expires 29 November 2025               [Page 10]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
@@ -613,7 +613,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
 
 
-Lin, et al.             Expires 17 November 2025               [Page 11]
+Lin, et al.             Expires 29 November 2025               [Page 11]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
@@ -669,7 +669,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
 
 
-Lin, et al.             Expires 17 November 2025               [Page 12]
+Lin, et al.             Expires 29 November 2025               [Page 12]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
@@ -725,7 +725,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
 
 
-Lin, et al.             Expires 17 November 2025               [Page 13]
+Lin, et al.             Expires 29 November 2025               [Page 13]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
@@ -781,7 +781,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
 
 
-Lin, et al.             Expires 17 November 2025               [Page 14]
+Lin, et al.             Expires 29 November 2025               [Page 14]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
@@ -837,7 +837,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
 
 
-Lin, et al.             Expires 17 November 2025               [Page 15]
+Lin, et al.             Expires 29 November 2025               [Page 15]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
@@ -893,7 +893,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
 
 
-Lin, et al.             Expires 17 November 2025               [Page 16]
+Lin, et al.             Expires 29 November 2025               [Page 16]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
@@ -949,7 +949,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
 
 
-Lin, et al.             Expires 17 November 2025               [Page 17]
+Lin, et al.             Expires 29 November 2025               [Page 17]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
@@ -1005,7 +1005,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
 
 
-Lin, et al.             Expires 17 November 2025               [Page 18]
+Lin, et al.             Expires 29 November 2025               [Page 18]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
@@ -1061,7 +1061,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
 
 
-Lin, et al.             Expires 17 November 2025               [Page 19]
+Lin, et al.             Expires 29 November 2025               [Page 19]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
@@ -1117,7 +1117,7 @@ Appendix A.  YANG module validation with yanglint
 
 
 
-Lin, et al.             Expires 17 November 2025               [Page 20]
+Lin, et al.             Expires 29 November 2025               [Page 20]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
@@ -1173,7 +1173,7 @@ A.2.  An invalid ietf-yang-library data example
 
 
 
-Lin, et al.             Expires 17 November 2025               [Page 21]
+Lin, et al.             Expires 29 November 2025               [Page 21]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
@@ -1229,7 +1229,7 @@ Authors' Addresses
 
 
 
-Lin, et al.             Expires 17 November 2025               [Page 22]
+Lin, et al.             Expires 29 November 2025               [Page 22]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
@@ -1285,4 +1285,4 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG        May 2025
 
 
 
-Lin, et al.             Expires 17 November 2025               [Page 23]
+Lin, et al.             Expires 29 November 2025               [Page 23]
