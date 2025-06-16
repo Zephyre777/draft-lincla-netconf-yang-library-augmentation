@@ -9,7 +9,7 @@
 <?rfc inline="yes"?>
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
-<rfc category="std" docName="draft-ietf-netconf-yang-library-augmentedby-04"
+<rfc category="std" docName="draft-ietf-netconf-yang-library-augmentedby-05"
      ipr="trust200902">
   <front>
     <title abbrev="Augmented-by Addition into the IETF-YANG-Library">
@@ -46,7 +46,7 @@
       </address>
     </author>
 
-    <date day="16" month="May" year="2025"/>
+    <date day="28" month="May" year="2025"/>
 
     <area>OPS</area>
 
@@ -463,11 +463,9 @@ module ietf-yang-library-augmentedby {
      This version of this YANG module is part of RFC XXXX; see the
      RFC itself for full legal notices.  ";
 
-  revision 2023-10-27 {
+  revision 2025-05-28 {
     description
-      "Added list augmented-by in yang-library/module-set/module to
-      make the module store the entire reverse dependency information
-      (augmented-by and deviation).";
+      "Initial revision.";
     reference
       "RFC XXXX: Support of augmentedby in ietf-yang-library";
   }
@@ -691,6 +689,9 @@ module ietf-yang-library-augmentedby {
       <section anchor="Changes from 03 to 04" title="draft-ietf-netconf-yang-library-augmentedby: Changes from 03 to 04">
         <t>Update module content ietf-yang-library-augmentedby: Organise the augmentation content to grouping; Add augmentation to modules-state container. </t>
         <t>Appendix B is deleted.</t>
+      </section>
+      <section anchor="Changes from 04 to 05" title="draft-ietf-netconf-yang-library-augmentedby: Changes from 04 to 05">
+        <t>Update ietf-yang-library-augmentedby module revision.</t>
       </section>
     </section>
 
