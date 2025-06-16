@@ -140,7 +140,7 @@
       externally, it is not possible to discover them by parsing the YANG module.
       The current way to discover the reverse dependencies is to query 
       all YANG modules from the server and parse them. This is a lengthy 
-      process, which must be repeated for each client that requires these 
+      process, which must be repeated for each client that requires this 
       information.
     </t>
     <t>
@@ -159,7 +159,7 @@
       relationships. Thus, the YANG library should be extended to also provide the augmentation information.
     </t>
     <t>
-      From the perspective of implementation difficulty, it is easy to adapt the device implementation to include augmentation, since augmentation and deviation have similar way of working. 
+      From the perspective of implementation difficulty, it is easy to adapt the device implementation to include augmentation, since augmentation and deviation work similarly. 
     </t>
   </section>
 
@@ -168,7 +168,7 @@
   As the demand for
   YANG-based telemetry <xref target="RFC8641"/> arises, there is
   a need for real-time knowledge of a specific YANG module's
-  dependency list when a specific YANG-Push notification is
+  dependency list when a specific YANG-Push notification for a given subscription is
   received. </t>
   <t>The alternative for a YANG-Push receiver is to
   collect and store the entire module set for every single
@@ -177,8 +177,8 @@
   </t>
   <t>
     <ul>
-      <li>For a YANG-Push receiver =&gt; we never know in advance which or from which YANG-Push publisher
-     the subscribed YANG content will be received.</li>
+      <li>For a YANG-Push receiver =&gt; from which YANG-Push publisher
+     the subscribed YANG content is going to be received is not known until the first notification is being received.</li>
       <li>Querying all the YANG modules is time consuming and overhead considering that only a subset of YANG nodes of management server are subscribed.</li>
     </ul>
   </t>
