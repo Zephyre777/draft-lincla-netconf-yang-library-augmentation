@@ -188,7 +188,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2025
 
 2.  Motivation
 
-   When using a YANG module, it is necessary to make sure that all its
+   When using YANG modules, it is necessary to make sure that all its
    dependencies are presented.  [RFC7950] identifies four types of
    dependencies between YANG modules:
 
@@ -238,9 +238,9 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2025
    augmentations.  With augmentations being more widely used and
    defined, and with use cases to automate network management,
    augmentations become essential information for clients to better
-   understand the network management servers module relationships.
-   Thus, the YANG library should be extended to also provide the
-   augmentation information.
+   understand the network management server module relationships.  Thus,
+   the YANG library should be extended to also provide the augmentation
+   information.
 
    From the perspective of implementation difficulty, it is easy to
    adapt the device implementation to include augmentation, since
@@ -916,7 +916,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2025
 8.  IANA Considerations
 
    This document registers one URI in the "IETF XML Registry" [RFC3688].
-   Following the formate in [RFC3688], the following registration has
+   Following the format in [RFC3688], the following registration has
    been made.
 
    URI: urn:ietf:params:xml:ns:yang:ietf-yang-library-augmentedby

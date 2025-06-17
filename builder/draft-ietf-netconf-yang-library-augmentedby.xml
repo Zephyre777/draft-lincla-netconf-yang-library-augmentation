@@ -112,7 +112,7 @@
 
     <section anchor="motivation" title="Motivation">
 
-    <t>When using a YANG module, it is necessary to make sure
+    <t>When using YANG modules, it is necessary to make sure
     that all its dependencies are presented. <xref target="RFC7950" />
     identifies four types of dependencies between YANG modules:</t>
 
@@ -155,7 +155,7 @@
       The YANG library only provides the deviation 
       list, without augmentations. With augmentations 
       being more widely used and defined, and with use cases to automate network management, augmentations become 
-      essential information for clients to better understand the network management servers module 
+      essential information for clients to better understand the network management server module 
       relationships. Thus, the YANG library should be extended to also provide the augmentation information.
     </t>
     <t>
@@ -733,7 +733,7 @@ module ietf-yang-library-augmentedby {
     <section anchor="iana-considerations" title="IANA Considerations">
     <t>
       This document registers one URI in the "IETF XML Registry"
-      <xref target="RFC3688"/>. Following the formate in 
+      <xref target="RFC3688"/>. Following the format in 
       <xref target="RFC3688"/>, the following registration has been made.
     </t>
     <t>URI: urn:ietf:params:xml:ns:yang:ietf-yang-library-augmentedby</t>
