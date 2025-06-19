@@ -1,0 +1,28 @@
+  <yang-library xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library"> 
+    <content-id>1</content-id>
+    <module-set> 
+      <name>module-set1</name>
+      <module>
+        <name>a-module</name>
+        <revision>2025-06-18</revision> 
+        <namespace>urn:ietf:params:xml:ns:yang:a-module</namespace>
+        <augmented-by 
+        xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library-augmentedby">b-module</augmented-by>
+      </module>
+      <module>
+        <name>b-module</name>
+        <revision>2025-06-18</revision> 
+        <namespace>urn:ietf:params:xml:ns:yang:b-module</namespace>
+        <augmented-by 
+        xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library-augmentedby">c-module</augmented-by>
+      </module>
+      <module>
+        <name>c-module</name>
+        <revision>2025-06-18</revision> 
+        <namespace>urn:ietf:params:xml:ns:yang:c-module</namespace>
+      </module>
+    </module-set>
+</yang-library>
+<modules-state xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library"> 
+  <module-set-id>0</module-set-id>
+</modules-state>
