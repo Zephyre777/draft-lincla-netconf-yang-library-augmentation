@@ -1043,7 +1043,7 @@ module: ietf-yang-library
     <section numbered="false" title="Acknowledgements">
 
       <t>The author would like to thank Jan Lindblad and Jean Quilbeuf
-      for their help during the design of the YANG module, and Thomas Graf, Rob Wilton, Andy Bierman, Jean Quilbeu for their valuable review and comments. </t>
+      for their help during the design of the YANG module, and Thomas Graf, Rob Wilton, Andy Bierman, Jean Quilbeu, Alex Huang Feng for their valuable review and comments. </t>
     </section>
   </back>
 </rfc>
