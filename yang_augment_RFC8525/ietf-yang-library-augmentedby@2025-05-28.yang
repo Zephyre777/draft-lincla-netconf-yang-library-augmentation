@@ -95,7 +95,7 @@ module ietf-yang-library-augmentedby {
        The 'directly augment' is identified by the relationship 
        between the augment module and the target node's parent 
        module that it augments to. Only the direct parent module 
-       of the target node is augmented, and the rest of parent 
+       of the target node is augmented, and the rest of the parent 
        modules defined in the schema tree are only indirect 
        dependencies but not augmented modules. (Refer to 
        'Target node' definition in Section 7.17 of RFC7950)
@@ -117,7 +117,7 @@ module ietf-yang-library-augmentedby {
        The 'directly augment' is identified by the relationship 
        between the augment module and the target node's parent 
        module that it augments to. Only the direct parent module 
-       of the target node is augmented, and the rest of parent 
+       of the target node is augmented, and the rest of the parent 
        modules defined in the schema tree are only indirect 
        dependencies but not augmented modules. (Refer to 
        'Target node' definition in Section 7.17 of RFC7950)
