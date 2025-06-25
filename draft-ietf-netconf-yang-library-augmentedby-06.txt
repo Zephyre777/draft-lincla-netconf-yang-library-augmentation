@@ -198,8 +198,8 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2025
    *  Include: the "include" statement is used in a module to identify
       each submodule that belongs to it.
 
-   *  Augmentation: the "augment" statement defines the location in the
-      data model hierarchy where additional nodes are inserted.
+   *  Augment: the augmentation defines the location in the data model
+      hierarchy where additional nodes are inserted.
 
    *  Deviation: the "deviation" statement defines a fragment of a
       module that the server does not implement.

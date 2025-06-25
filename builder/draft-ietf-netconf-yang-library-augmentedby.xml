@@ -120,7 +120,7 @@
       <li>Include: the "include" statement is used in a module
       to identify each submodule that belongs to it.</li>
 
-      <li>Augmentation: the "augment" statement defines the
+      <li>Augment: the augmentation defines the
       location in the data model hierarchy where additional
       nodes are inserted.</li>
 
