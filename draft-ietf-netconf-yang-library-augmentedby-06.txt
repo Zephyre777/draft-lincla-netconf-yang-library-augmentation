@@ -874,21 +874,21 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2025
       dependency'.  Avoid possible misleading expression about reverse
       dependency and external dependency.
 
+   *  Section 2: Editorial Changes.
+
+   *  Section 3: Merged editorial feedback from Alex, mainly for
+      Section 3.1.
+
    *  Section 4: Move the full tree diagram to appendix A; Correct the
-      YANG file date; Update the description statement in YANG module;
-      Improve the text of implementation instrction and the direct
-      augment example.
+      YANG file date; Update the description statement in YANG module to
+      provide implementation instructions information; Improve the text
+      of implementation instrction and the direct augment example.
 
-   *  Appendix: The ietf-yang-library full tree view has been moved to
-      Appendix A.  The yanglint validation example has been moved to
-      Appendix B.  The invalid yanglint example has been removed.  Set
-      up texted has been added before the example.
-
-
-
-
-
-
+   *  Appendix: For Appendix A: The ietf-yang-library full tree view has
+      been moved to Appendix A.  For Appendix B: The yanglint validation
+      example has been moved from Appendix A to Appendix B.  The invalid
+      yanglint example has been removed.  Set up texted has been added
+      before the validation example.
 
 
 

@@ -679,8 +679,10 @@ module ietf-yang-library-augmentedby {
         <t>
           <ul>
             <li>Section 1: Rewrite introduction. Added definition for 'reverse dependency'. Avoid possible misleading  expression about reverse dependency and external dependency.</li>
-            <li>Section 4: Move the full tree diagram to appendix A; Correct the YANG file date; Update the description statement in YANG module; Improve the text of implementation instrction and the direct augment example.</li>
-            <li>Appendix: The ietf-yang-library full tree view has been moved to Appendix A. The yanglint validation example has been moved to Appendix B. The invalid yanglint example has been removed. Set up texted has been added before the example.</li>
+            <li>Section 2: Editorial Changes.</li>
+            <li>Section 3: Merged editorial feedback from Alex, mainly for Section 3.1.</li>
+            <li>Section 4: Move the full tree diagram to appendix A; Correct the YANG file date; Update the description statement in YANG module to provide implementation instructions information; Improve the text of implementation instrction and the direct augment example.</li>
+            <li>Appendix: For Appendix A: The ietf-yang-library full tree view has been moved to Appendix A. For Appendix B: The yanglint validation example has been moved from Appendix A to Appendix B. The invalid yanglint example has been removed. Set up texted has been added before the validation example.</li>
           </ul>
         </t>
       </section>
