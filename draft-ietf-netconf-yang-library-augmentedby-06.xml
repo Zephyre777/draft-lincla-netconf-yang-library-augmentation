@@ -745,7 +745,6 @@ module ietf-yang-library-augmentedby {
 
   <back>
     <references title="Normative References">
-      <?rfc include='reference.RFC.9196'?>
       <?rfc include='reference.RFC.2119'?>
       <?rfc include='reference.RFC.8174'?>
       <?rfc include='reference.RFC.8340'?>
@@ -758,6 +757,17 @@ module ietf-yang-library-augmentedby {
       <?rfc include='reference.RFC.6020'?>
       <?rfc include='reference.RFC.8341'?>
       <?rfc include='reference.RFC.3688'?>
+
+
+
+    </references>
+
+    <references title="Informative References">
+      <?rfc include='reference.RFC.8641'?>
+      <?rfc include='reference.RFC.8525'?>
+      <?rfc include='reference.RFC.7950'?>
+      <?rfc include='reference.RFC.7895'?>
+      <?rfc include='reference.I-D.ietf-netconf-yang-notifications-versioning'?>
 
       <reference anchor="NP24" target="https://github.com/network-analytics/libyangpush/tree/feature/draft_augmentedby">
         <front>
@@ -799,26 +809,15 @@ module ietf-yang-library-augmentedby {
         <refcontent>BSD-3-Clause license</refcontent>
       </reference>
 
-    </references>
-
-    <references title="Informative References">
-
-      <?rfc include='reference.RFC.8641'?>
-      <?rfc include='reference.RFC.8639'?>
-      <?rfc include='reference.RFC.8525'?>
-      <?rfc include='reference.RFC.7950'?>
-      <?rfc include='reference.RFC.7895'?>
-      <!-- <?rfc include='reference.RFC.6022'?> -->
-
-      <?rfc include="reference.I-D.ietf-netconf-udp-notif"?>
-
-      <?rfc include='reference.I-D.ietf-netconf-yang-notifications-versioning'?>
-      <reference anchor="RFC6022" target="https://datatracker.ietf.org/doc/html/rfc6022">
+      <reference anchor="RFC6022" target="https://www.rfc-editor.org/info/rfc6022">
         <front>
           <title>YANG Module for NETCONF Monitoring</title>
-          <author/>
+          <author fullname="M. Scott" initials="M." surname="Scott" />
+          <author fullname="M. Bjorklund" initials="M." surname="Bjorklund" />
+          <date month="October" year="2010" />
         </front>
-        <seriesInfo name="rfc" value="6022"/>
+        <seriesInfo name="RFC" value="6022" />
+        <seriesInfo name="DOI" value="10.17487/RFC6022" />
       </reference>
       
       <reference anchor="I-D.netana-netconf-notif-envelope" target="https://datatracker.ietf.org/doc/html/draft-netana-netconf-notif-envelope">
@@ -859,7 +858,7 @@ module ietf-yang-library-augmentedby {
           server's YANG module.</t>
         </abstract>
         </front>
-        <seriesInfo name="Internet-Draft" value="draft-ietf-netconf-yang-library-augmentedby-01"/>
+        <seriesInfo name="Internet-Draft" value="draft-ietf-netconf-yang-library-augmentedby"/>
       </reference>
 
       <reference anchor="I-D.ietf-nmop-yang-message-broker-integration" target="https://datatracker.ietf.org/doc/html/draft-ietf-nmop-yang-kafka-integration">
@@ -902,7 +901,7 @@ module ietf-yang-library-augmentedby {
       <annotation>IEEE Communications Magazine</annotation></reference>
 
     </references>
-      <section anchor="Full-Tree-View" title="Full Tree View of ietf-yang-library">
+  <section anchor="Full-Tree-View" title="Full Tree View of ietf-yang-library">
     <t>
     The following is the YANG tree diagram <xref target="RFC8340" />
     for module ietf-yang-library after adding augmentation from module ietf-yang-library-augmentedby. The RPCs and
@@ -1032,7 +1031,6 @@ module: ietf-yang-library
 
 
     </section>
-
     <?rfc needLines="100"?>
 
     <section numbered="false" title="Contributors">
