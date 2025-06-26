@@ -116,6 +116,8 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2025
 
      6.11. draft-ietf-netconf-yang-library-augmentedby: Changes from
             05 to 06 . . . . . . . . . . . . . . . . . . . . . . . .  16
+     6.12. draft-ietf-netconf-yang-library-augmentedby: Changes from
+            06 to 07 . . . . . . . . . . . . . . . . . . . . . . . .  17
    7.  Security Considerations . . . . . . . . . . . . . . . . . . .  17
    8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  17
    9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  18
@@ -160,8 +162,6 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2025
 
    Therefore, this document proposes a YANG module that augments the
    YANG library to include the YANG module augmentation information.
-
-
 
 
 
@@ -904,6 +904,11 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2025
       yanglint example has been removed.  Set up texted has been added
       before the validation example.
 
+6.12.  draft-ietf-netconf-yang-library-augmentedby: Changes from 06 to
+       07
+
+   Change the reference in IANA Consideration to RFC-to-be.
+
 7.  Security Considerations
 
    The YANG module specified in this document defines a schema for data
@@ -942,17 +947,16 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2025
 
    URI: urn:ietf:params:xml:ns:yang:ietf-yang-library-augmentedby
 
-   Registration Contact: The NETCONF WG of the IETF.
-
-   XML: N/A, the requested URI is an XML namespace.
-
-
 
 
 Lin, et al.             Expires 27 December 2025               [Page 17]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2025
 
+
+   Registration Contact: The NETCONF WG of the IETF.
+
+   XML: N/A, the requested URI is an XML namespace.
 
    This document registers one YANG module in the "YANG Module Names"
    registry [RFC6020]
@@ -996,10 +1000,6 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2025
               Protocol", RFC 8040, DOI 10.17487/RFC8040, January 2017,
               <https://www.rfc-editor.org/info/rfc8040>.
 
-   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
-              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
-              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
-
 
 
 
@@ -1009,6 +1009,10 @@ Lin, et al.             Expires 27 December 2025               [Page 18]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2025
 
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
    [RFC8340]  Bjorklund, M. and L. Berger, Ed., "YANG Tree Diagrams",
               BCP 215, RFC 8340, DOI 10.17487/RFC8340, March 2018,
@@ -1055,16 +1059,15 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2025
               envelope, <https://datatracker.ietf.org/doc/html/draft-
               netana-netconf-notif-envelope>.
 
-   [LY16]     Vasko, M., "libyang", BSD-3-Clause license, November 2016,
-              <https://github.com/CESNET/libyang.git>.
-
-
 
 
 Lin, et al.             Expires 27 December 2025               [Page 19]
 
 Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2025
 
+
+   [LY16]     Vasko, M., "libyang", BSD-3-Clause license, November 2016,
+              <https://github.com/CESNET/libyang.git>.
 
    [Martinez-Casanueva2023]
               Martinez-Casanueva, I. D., Gonzalez-Sanchez, D., Bellido,
@@ -1110,9 +1113,6 @@ Appendix A.  Full Tree View of ietf-yang-library
    The following is the YANG tree diagram [RFC8340] for module ietf-
    yang-library after adding augmentation from module ietf-yang-library-
    augmentedby.  The RPCs and notifications are included as well.
-
-
-
 
 
 
