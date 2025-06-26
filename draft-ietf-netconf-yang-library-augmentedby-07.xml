@@ -9,7 +9,7 @@
 <?rfc inline="yes"?>
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
-<rfc category="std" docName="draft-ietf-netconf-yang-library-augmentedby-06"
+<rfc category="std" docName="draft-ietf-netconf-yang-library-augmentedby-07"
      ipr="trust200902">
   <front>
     <title abbrev="Augmented-by Addition into the IETF-YANG-Library">
@@ -674,7 +674,7 @@ module ietf-yang-library-augmentedby {
         <t>Update ietf-yang-library-augmentedby module revision.</t>
       </section>
       <section anchor="Changes from 05 to 06" title="draft-ietf-netconf-yang-library-augmentedby: Changes from 05 to 06">
-        <t>Merged Jean, Thomas, and Alex's editorial feedback.</t>
+        <t>Merged Jean, Thomas and Alex's editorial feedback.</t>
         <t>Merged Andy's review. </t>
         <t>Changed contents are listed following: </t>
         <t>

@@ -9,7 +9,7 @@
 <?rfc inline="yes"?>
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
-<rfc category="std" docName="draft-ietf-netconf-yang-library-augmentedby-06"
+<rfc category="std" docName="draft-ietf-netconf-yang-library-augmentedby-07"
      ipr="trust200902">
   <front>
     <title abbrev="Augmented-by Addition into the IETF-YANG-Library">
