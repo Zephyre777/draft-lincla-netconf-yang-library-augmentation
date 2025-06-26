@@ -907,7 +907,7 @@ Internet-Draft  Augmented-by Addition into the IETF-YANG       June 2025
 6.12.  draft-ietf-netconf-yang-library-augmentedby: Changes from 06 to
        07
 
-   Change the reference in IANA Consideration to RFC-to-be.
+   Change the reference in IANA Consideration to 'RFC-to-be'.
 
 7.  Security Considerations
 

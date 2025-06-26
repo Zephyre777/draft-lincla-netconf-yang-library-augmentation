@@ -689,7 +689,7 @@ module ietf-yang-library-augmentedby {
       </section>
       <section anchor="Changes from 06 to 07" title="draft-ietf-netconf-yang-library-augmentedby: Changes from 06 to 07">
         <t>
-          Change the reference in IANA Consideration to RFC-to-be.
+          Change the reference in IANA Consideration to 'RFC-to-be'.
         </t>
       </section>
     </section>
