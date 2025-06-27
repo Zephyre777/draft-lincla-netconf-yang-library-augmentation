@@ -579,6 +579,22 @@ module ietf-yang-library-augmentedby {
           The source code can be obtained here: <xref target="NP24"/> 
         </t>
       </section>
+      <section anchor="Device Implementations" title="Device Implementations">
+        <t>This section introduced the device implementations of this document from vendors like Huawei, Cisco, 6Wind. </t>
+        <t>The list of Router Images supporting (upcoming and already implemented) the ietf-yang-library-augmentedby proposed by document is listed following:</t>
+        <t>
+          <ul>
+            <li>Huawei VRP R025C00 for NE8000 and NE40 (2025-10-15). <eref
+      target="https://support.huawei.com/"/></li>
+            <li>Cisco IOS XR 25.3.1 (2025-08-31). <eref
+      target="https://software.cisco.com/"/></li>
+            <li>Huawei VRP R024C10 for MA5800T-X17 (2025-06-30). <eref
+      target="https://support.huawei.com/"/></li>
+            <li>6WIND VSR 3.10. <eref
+      target="https://www.6wind.com/"/></li>
+          </ul>
+        </t>
+      </section>
     </section>
 
     <section anchor="Changes" title="Changes">
