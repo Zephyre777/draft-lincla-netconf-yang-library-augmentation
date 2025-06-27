@@ -194,11 +194,11 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
 
    This document defines the folloing term:
 
-   *  Reverse Dependency: The dependency YANG module that provide
-      modification to the behavior of a YANG module's schema node,
+   *  Reverse Dependency: The dependency YANG modules that provide
+      modification to the behavior of a base YANG module's schema node,
       creating flow backward from the augmenting/deviation module to the
-      base module, while is not specified in the module like 'import' or
-      'include'.
+      base module, while it is not specified in the base module as
+      opposed to the 'import' or 'include'.
 
 2.  Motivation
 
