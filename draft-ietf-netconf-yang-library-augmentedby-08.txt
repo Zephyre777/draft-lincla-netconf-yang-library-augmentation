@@ -55,7 +55,7 @@ Copyright Notice
 
 Lin, et al.             Expires 29 December 2025                [Page 1]
 
-Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
+Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -111,7 +111,7 @@ Table of Contents
 
 Lin, et al.             Expires 29 December 2025                [Page 2]
 
-Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
+Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
      6.10. draft-ietf-netconf-yang-library-augmentedby: Changes from
@@ -167,7 +167,7 @@ Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
 
 Lin, et al.             Expires 29 December 2025                [Page 3]
 
-Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
+Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
    Therefore, this document proposes a YANG module that augments the
@@ -223,7 +223,7 @@ Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
 
 Lin, et al.             Expires 29 December 2025                [Page 4]
 
-Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
+Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
    The import and include are direct dependencies which can be obtained
@@ -279,7 +279,7 @@ Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
 
 Lin, et al.             Expires 29 December 2025                [Page 5]
 
-Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
+Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
    *  For a YANG-Push receiver => from which YANG-Push publisher the
@@ -335,7 +335,7 @@ Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
 
 Lin, et al.             Expires 29 December 2025                [Page 6]
 
-Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
+Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
    Currently, the method used for obtaining modules and finding module
@@ -391,7 +391,7 @@ Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
 
 Lin, et al.             Expires 29 December 2025                [Page 7]
 
-Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
+Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
    Data catalog solutions typically implement collectors that ingest
@@ -447,7 +447,7 @@ Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
 
 Lin, et al.             Expires 29 December 2025                [Page 8]
 
-Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
+Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
    indicates by which modules that the current module is being directly
@@ -503,7 +503,7 @@ Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
 
 Lin, et al.             Expires 29 December 2025                [Page 9]
 
-Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
+Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
                   Benoit Claise
@@ -559,7 +559,7 @@ Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
 
 Lin, et al.             Expires 29 December 2025               [Page 10]
 
-Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
+Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
          description
@@ -615,7 +615,7 @@ Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
 
 Lin, et al.             Expires 29 December 2025               [Page 11]
 
-Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
+Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
           The 'directly augment' is identified by the relationship
@@ -671,7 +671,7 @@ Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
 
 Lin, et al.             Expires 29 December 2025               [Page 12]
 
-Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
+Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
    *  Module B augments "/a:foo-a" with container "foo-b"
@@ -727,7 +727,7 @@ Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
 
 Lin, et al.             Expires 29 December 2025               [Page 13]
 
-Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
+Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
 5.  Implementation Status
@@ -766,12 +766,12 @@ Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
 
 5.4.  Device Implementations
 
-   This section introduced the device implementations of this document
-   from vendors like Huawei, Cisco, 6Wind.
+   This section introduced the device implementations status [NA25] of
+   this document from vendors like Huawei, Cisco, 6Wind.
 
    The list of Router Images supporting (upcoming and already
-   implemented) the ietf-yang-library-augmentedby proposed by document
-   is listed following:
+   implemented) the ietf-yang-library-augmentedby YANG module proposed
+   in this document is following:
 
    *  Huawei VRP R025C00 for NE8000 and NE40 (2025-10-15).
       https://support.huawei.com/
@@ -783,7 +783,7 @@ Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
 
 Lin, et al.             Expires 29 December 2025               [Page 14]
 
-Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
+Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
    *  Huawei VRP R024C10 for MA5800T-X17 (2025-06-30).
@@ -839,7 +839,7 @@ Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
 
 Lin, et al.             Expires 29 December 2025               [Page 15]
 
-Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
+Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
    Update the Section 7 security consideration and section 8 IANA
@@ -895,7 +895,7 @@ Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
 
 Lin, et al.             Expires 29 December 2025               [Page 16]
 
-Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
+Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
    Appendix B is deleted.
@@ -951,7 +951,7 @@ Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
 
 Lin, et al.             Expires 29 December 2025               [Page 17]
 
-Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
+Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
 7.  Security Considerations
@@ -1007,7 +1007,7 @@ Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
 
 Lin, et al.             Expires 29 December 2025               [Page 18]
 
-Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
+Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
    prefix: yanglib-aug
@@ -1063,7 +1063,7 @@ Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
 
 Lin, et al.             Expires 29 December 2025               [Page 19]
 
-Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
+Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
    [RFC8343]  Bjorklund, M., "A YANG Data Model for Interface
@@ -1119,8 +1119,11 @@ Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
 
 Lin, et al.             Expires 29 December 2025               [Page 20]
 
-Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
+Internet-Draft        Augmented-by for YANG Library            June 2025
 
+
+   [NA25]     "IETF YANG-Push - Implementations", <https://www.network-
+              analytics.org/yp/implementations.html>.
 
    [NP24]     Lin, Z., "Netopeer2-docker-ietf120", July 2024,
               <https://github.com/network-
@@ -1167,17 +1170,17 @@ Appendix A.  Full Tree View of ietf-yang-library
     |  |  |  +--ro name                        yang:yang-identifier
     |  |  |  +--ro revision?                   revision-identifier
     |  |  |  +--ro namespace                   inet:uri
-    |  |  |  +--ro location*                   inet:uri
-    |  |  |  +--ro submodule* [name]
-    |  |  |  |  +--ro name        yang:yang-identifier
 
 
 
 Lin, et al.             Expires 29 December 2025               [Page 21]
 
-Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
+Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
+    |  |  |  +--ro location*                   inet:uri
+    |  |  |  +--ro submodule* [name]
+    |  |  |  |  +--ro name        yang:yang-identifier
     |  |  |  |  +--ro revision?   revision-identifier
     |  |  |  |  +--ro location*   inet:uri
     |  |  |  +--ro feature*                    yang:yang-identifier
@@ -1226,12 +1229,9 @@ Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
 
 
 
-
-
-
 Lin, et al.             Expires 29 December 2025               [Page 22]
 
-Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
+Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
 Appendix B.  YANG module validation with yanglint
@@ -1287,7 +1287,7 @@ B.1.  An ietf-yang-library yang-library data XML example
 
 Lin, et al.             Expires 29 December 2025               [Page 23]
 
-Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
+Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
    <CODE BEGINS> file "example_valid.xml"
@@ -1343,7 +1343,7 @@ Authors' Addresses
 
 Lin, et al.             Expires 29 December 2025               [Page 24]
 
-Internet-Draft  Augmented-by Addition into the YANG Libr       June 2025
+Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
    Zhuoyao Lin

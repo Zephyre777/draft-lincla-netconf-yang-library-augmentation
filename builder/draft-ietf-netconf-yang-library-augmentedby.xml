@@ -12,7 +12,7 @@
 <rfc category="std" docName="draft-ietf-netconf-yang-library-augmentedby-08"
      ipr="trust200902">
   <front>
-    <title abbrev="Augmented-by Addition into the YANG Library">
+    <title abbrev="Augmented-by for YANG Library">
     Augmented-by Addition into the YANG Library</title>
 
     <author fullname="Zhuoyao Lin" initials="Z " surname="Lin">
@@ -580,8 +580,8 @@ module ietf-yang-library-augmentedby {
         </t>
       </section>
       <section anchor="Device Implementations" title="Device Implementations">
-        <t>This section introduced the device implementations of this document from vendors like Huawei, Cisco, 6Wind. </t>
-        <t>The list of Router Images supporting (upcoming and already implemented) the ietf-yang-library-augmentedby proposed by document is listed following:</t>
+        <t>This section introduced the device implementations status <xref target="NA25"/> of this document from vendors like Huawei, Cisco, 6Wind. </t>
+        <t>The list of Router Images supporting (upcoming and already implemented) the ietf-yang-library-augmentedby YANG module proposed in this document is following:</t>
         <t>
           <ul>
             <li>Huawei VRP R025C00 for NE8000 and NE40 (2025-10-15). <eref
@@ -806,6 +806,13 @@ module ietf-yang-library-augmentedby {
           <title>Netopeer2-docker-ietf120</title>
           <author fullname="Zhuoyao Lin" initials="Z." surname="Lin"/>
           <date month="July" year="2024"/>
+        </front>
+      </reference>
+
+      <reference anchor="NA25" target="https://www.network-analytics.org/yp/implementations.html">
+        <front>
+          <title>IETF YANG-Push - Implementations</title>
+          <author/>
         </front>
       </reference>
 
