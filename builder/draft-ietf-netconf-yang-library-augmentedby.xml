@@ -13,7 +13,7 @@
      ipr="trust200902">
   <front>
     <title abbrev="Augmented-by for YANG Library">
-    Augmented-by Addition into the YANG Library</title>
+    Augmented-by Addition to the YANG Library</title>
 
     <author fullname="Zhuoyao Lin" initials="Z " surname="Lin">
       <organization>Huawei</organization>
@@ -101,7 +101,7 @@
       <t>The term "client" is used as defined in <xref target="RFC6241"/> for NETCONF and <xref target="RFC8040"/> for RESTCONF.</t>
 
       <t>The term "YANG schema tree" is used as defined in the terminology in <xref target="RFC7950"/></t> 
-      
+
       <t>The term 'NMDA' which is defined as the title of <xref target="RFC8342"/> is used in this document.</t>
 
       <t>Tree diagrams in this document use the notation defined in
@@ -399,7 +399,7 @@ module ietf-yang-library-augmentedby {
     description
       "Initial revision.";
     reference
-      "RFC XXXX: Augmented-by Addition into the YANG Library";
+      "RFC XXXX: Augmented-by Addition to the YANG Library";
   }
 
   grouping augmented-by {

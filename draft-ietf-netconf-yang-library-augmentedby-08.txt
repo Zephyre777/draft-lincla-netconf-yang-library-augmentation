@@ -10,7 +10,7 @@ Expires: 31 December 2025                       I. D. Martinez-Casanueva
                                                             29 June 2025
 
 
-              Augmented-by Addition into the YANG Library
+               Augmented-by Addition to the YANG Library
              draft-ietf-netconf-yang-library-augmentedby-08
 
 Abstract
@@ -553,7 +553,7 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
        description
          "Initial revision.";
        reference
-         "RFC XXXX: Augmented-by Addition into the YANG Library";
+         "RFC XXXX: Augmented-by Addition to the YANG Library";
 
 
 
