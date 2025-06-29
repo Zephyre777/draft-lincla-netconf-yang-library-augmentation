@@ -5,9 +5,9 @@
 NETCONF                                                           Z. Lin
 Internet-Draft                                                 B. Claise
 Intended status: Standards Track                                  Huawei
-Expires: 29 December 2025                       I. D. Martinez-Casanueva
+Expires: 31 December 2025                       I. D. Martinez-Casanueva
                                                               Telefonica
-                                                            27 June 2025
+                                                            29 June 2025
 
 
               Augmented-by Addition into the YANG Library
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 29 December 2025.
+   This Internet-Draft will expire on 31 December 2025.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Lin, et al.             Expires 29 December 2025                [Page 1]
+Lin, et al.             Expires 31 December 2025                [Page 1]
 
 Internet-Draft        Augmented-by for YANG Library            June 2025
 
@@ -75,41 +75,41 @@ Table of Contents
    3.  Use Cases . . . . . . . . . . . . . . . . . . . . . . . . . .   5
      3.1.  Data Mesh Architecture  . . . . . . . . . . . . . . . . .   6
      3.2.  Data Catalog  . . . . . . . . . . . . . . . . . . . . . .   7
-   4.  The "ietf-yang-library-augmentedby" YANG module . . . . . . .   8
+   4.  The "ietf-yang-library-augmentedby" YANG module . . . . . . .   9
      4.1.  Data Model Overview . . . . . . . . . . . . . . . . . . .   9
        4.1.1.  Tree View . . . . . . . . . . . . . . . . . . . . . .   9
        4.1.2.  YANG Module . . . . . . . . . . . . . . . . . . . . .   9
      4.2.  Implementation Instructions . . . . . . . . . . . . . . .  12
        4.2.1.  The scope of augmented-by . . . . . . . . . . . . . .  12
-       4.2.2.  An example of YANG module augmented-by result . . . .  12
+       4.2.2.  An example of YANG module augmented-by result . . . .  13
    5.  Implementation Status . . . . . . . . . . . . . . . . . . . .  14
      5.1.  Netopeer2 at IETF119 Hackathon  . . . . . . . . . . . . .  14
-     5.2.  Netopeer2 at IETF120 Hackathon  . . . . . . . . . . . . .  14
-     5.3.  Libyangpush Find-dependency . . . . . . . . . . . . . . .  14
-     5.4.  Device Implementations  . . . . . . . . . . . . . . . . .  14
+     5.2.  Netopeer2 at IETF120 Hackathon  . . . . . . . . . . . . .  15
+     5.3.  Libyangpush Find-dependency . . . . . . . . . . . . . . .  15
+     5.4.  Device Implementations  . . . . . . . . . . . . . . . . .  15
    6.  Changes . . . . . . . . . . . . . . . . . . . . . . . . . . .  15
      6.1.  draft-lincla-netconf-yang-library-augmentation: Changes
             from 00 to 01  . . . . . . . . . . . . . . . . . . . . .  15
      6.2.  draft-lincla-netconf-yang-library-augmentedby version
-            00 . . . . . . . . . . . . . . . . . . . . . . . . . . .  15
+            00 . . . . . . . . . . . . . . . . . . . . . . . . . . .  16
      6.3.  draft-lincla-netconf-yang-library-augmentedby: Changes from
-            00 to 01 . . . . . . . . . . . . . . . . . . . . . . . .  15
+            00 to 01 . . . . . . . . . . . . . . . . . . . . . . . .  16
      6.4.  draft-lincla-netconf-yang-library-augmentedby: Changes from
-            01 to 02 . . . . . . . . . . . . . . . . . . . . . . . .  15
+            01 to 02 . . . . . . . . . . . . . . . . . . . . . . . .  16
      6.5.  draft-ietf-netconf-yang-library-augmentedby version 00  .  16
      6.6.  draft-ietf-netconf-yang-library-augmentedby: Changes from
-            00 to 01 . . . . . . . . . . . . . . . . . . . . . . . .  16
+            00 to 01 . . . . . . . . . . . . . . . . . . . . . . . .  17
      6.7.  draft-ietf-netconf-yang-library-augmentedby: Changes from
-            01 to 02 . . . . . . . . . . . . . . . . . . . . . . . .  16
+            01 to 02 . . . . . . . . . . . . . . . . . . . . . . . .  17
      6.8.  draft-ietf-netconf-yang-library-augmentedby: Changes from
-            02 to 03 . . . . . . . . . . . . . . . . . . . . . . . .  16
+            02 to 03 . . . . . . . . . . . . . . . . . . . . . . . .  17
      6.9.  draft-ietf-netconf-yang-library-augmentedby: Changes from
-            03 to 04 . . . . . . . . . . . . . . . . . . . . . . . .  16
+            03 to 04 . . . . . . . . . . . . . . . . . . . . . . . .  17
 
 
 
 
-Lin, et al.             Expires 29 December 2025                [Page 2]
+Lin, et al.             Expires 31 December 2025                [Page 2]
 
 Internet-Draft        Augmented-by for YANG Library            June 2025
 
@@ -119,18 +119,18 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
      6.11. draft-ietf-netconf-yang-library-augmentedby: Changes from
             05 to 06 . . . . . . . . . . . . . . . . . . . . . . . .  17
      6.12. draft-ietf-netconf-yang-library-augmentedby: Changes from
-            06 to 07 . . . . . . . . . . . . . . . . . . . . . . . .  17
+            06 to 07 . . . . . . . . . . . . . . . . . . . . . . . .  18
    7.  Security Considerations . . . . . . . . . . . . . . . . . . .  18
-   8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  18
+   8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  19
    9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  19
      9.1.  Normative References  . . . . . . . . . . . . . . . . . .  19
      9.2.  Informative References  . . . . . . . . . . . . . . . . .  20
-   Appendix A.  Full Tree View of ietf-yang-library  . . . . . . . .  21
+   Appendix A.  Full Tree View of ietf-yang-library  . . . . . . . .  22
    Appendix B.  YANG module validation with yanglint . . . . . . . .  23
-     B.1.  An ietf-yang-library yang-library data XML example  . . .  23
-   Contributors  . . . . . . . . . . . . . . . . . . . . . . . . . .  24
-   Acknowledgments . . . . . . . . . . . . . . . . . . . . . . . . .  24
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  24
+     B.1.  An ietf-yang-library yang-library data XML example  . . .  24
+   Contributors  . . . . . . . . . . . . . . . . . . . . . . . . . .  25
+   Acknowledgments . . . . . . . . . . . . . . . . . . . . . . . . .  25
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  25
 
 1.  Introduction
 
@@ -165,7 +165,7 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
 
-Lin, et al.             Expires 29 December 2025                [Page 3]
+Lin, et al.             Expires 31 December 2025                [Page 3]
 
 Internet-Draft        Augmented-by for YANG Library            June 2025
 
@@ -188,6 +188,9 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
 
    The term "YANG schema tree" is used as defined in the terminology in
    [RFC7950]
+
+   The term 'NMDA' which is defined as the title of [RFC8342] is used in
+   this document.
 
    Tree diagrams in this document use the notation defined in [RFC8340]
    .
@@ -215,16 +218,16 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
    *  Augment: the augmentation defines the location in the data model
       hierarchy where additional nodes are inserted.
 
-   *  Deviation: the "deviation" statement defines a fragment of a
-      module that the server does not implement.
 
 
 
-
-Lin, et al.             Expires 29 December 2025                [Page 4]
+Lin, et al.             Expires 31 December 2025                [Page 4]
 
 Internet-Draft        Augmented-by for YANG Library            June 2025
 
+
+   *  Deviation: the "deviation" statement defines a fragment of a
+      module that the server does not implement.
 
    The import and include are direct dependencies which can be obtained
    by parsing the YANG module source code, while the augmentation and
@@ -269,18 +272,19 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
    data.  This approach is not always practical due to the following
    reasons:
 
-   *  A YANG-push receiver will not know which YANG-Push publisher sent
-      the subscribed YANG content until the first notification is
-      received.
 
 
 
 
 
-Lin, et al.             Expires 29 December 2025                [Page 5]
+Lin, et al.             Expires 31 December 2025                [Page 5]
 
 Internet-Draft        Augmented-by for YANG Library            June 2025
 
+
+   *  A YANG-push receiver will not know which YANG-Push publisher sent
+      the subscribed YANG content until the first notification is
+      received.
 
    *  For a YANG-Push receiver => from which YANG-Push publisher the
       subscribed YANG content is going to be received is not known until
@@ -324,19 +328,21 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
    [RFC6022] is launched after each new YANG-Push subscription module
    has been known.  However, the complexity remains at:
 
+
+
+
+
+
+Lin, et al.             Expires 31 December 2025                [Page 6]
+
+Internet-Draft        Augmented-by for YANG Library            June 2025
+
+
    *  How dependencies of YANG modules are found (so that the YANG-Push
       subscription message has the complete set of module dependencies
       for its subscribed YANG schema tree)?
 
    *  How do we conduct <get-schema>?
-
-
-
-
-Lin, et al.             Expires 29 December 2025                [Page 6]
-
-Internet-Draft        Augmented-by for YANG Library            June 2025
-
 
    Currently, the method used for obtaining modules and finding module
    dependencies is getting the full set of supported YANG modules from
@@ -375,24 +381,25 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
    the management of a multi-vendor network a big challenge for
    operators.  [Martinez-Casanueva2023]
 
+
+
+
+
+
+
+
+
+Lin, et al.             Expires 31 December 2025                [Page 7]
+
+Internet-Draft        Augmented-by for YANG Library            June 2025
+
+
    In this regard, a data catalog provides a registry of the datasets
    exposed by remote data sources for consumers to discover data of
    interest.  Besides the location of the dataset (i.e., the data
    source), the data catalog registers additional metadata such as the
    data model (or schema) followed in the dataset or even related terms
    defined in a business glossary.
-
-
-
-
-
-
-
-
-Lin, et al.             Expires 29 December 2025                [Page 7]
-
-Internet-Draft        Augmented-by for YANG Library            June 2025
-
 
    Data catalog solutions typically implement collectors that ingest
    metadata from the data sources themselves and external metadata
@@ -434,24 +441,28 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
    to also capture augment dependencies, in a similar fashion to
    deviation dependencies.
 
-4.  The "ietf-yang-library-augmentedby" YANG module
-
-   This YANG module augments the ietf-yang-library module by adding the
-   augmented-by leaf-list in the "yang-library/module-set" and "yang-
-   library/modules-state".  The "yang-library/module-state" is augmented
-   despite its "deprecated" state to cope with the situation when
-   container "modules-state" is used for compatibility reason with ietf-
-   yang-library defined in [RFC7895].  The name of list "augmented-by"
 
 
 
-Lin, et al.             Expires 29 December 2025                [Page 8]
+
+Lin, et al.             Expires 31 December 2025                [Page 8]
 
 Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
-   indicates by which modules that the current module is being directly
-   augmented.
+4.  The "ietf-yang-library-augmentedby" YANG module
+
+   This YANG module augments the ietf-yang-library module by adding the
+   augmented-by leaf-list in the "yang-library/module-set" and "yang-
+   library/modules-state".  The name of list "augmented-by" indicates by
+   which modules that the current module is being directly augmented.
+
+   The "yang-library/module-state" is augmented despite its "deprecated"
+   state to cope with the situation when container "modules-state" is
+   used for compatibility reason with ietf-yang-library defined in
+   [RFC7895].  Both the NMDA[RFC8342] and non-NMDA compliant additions
+   are defined in the same YANG module for simplicity for users and
+   implementors.
 
    For the scope of "augmented-by", this draft only considers the direct
    augmentation relationship.  The recursive result of augmentation or
@@ -487,6 +498,14 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
      import ietf-yang-library {
        prefix yanglib;
        reference
+
+
+
+Lin, et al.             Expires 31 December 2025                [Page 9]
+
+Internet-Draft        Augmented-by for YANG Library            June 2025
+
+
          "RFC 8525: YANG Library";
      }
 
@@ -498,14 +517,6 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
 
         Author:   Zhuoyao Lin
                   <mailto:zhuoyao.lin1@huawei-partners.com>
-
-
-
-Lin, et al.             Expires 29 December 2025                [Page 9]
-
-Internet-Draft        Augmented-by for YANG Library            June 2025
-
-
                   Benoit Claise
                   <mailto:benoit.claise@huawei.com>
                   Ignacio Dominguez Martinez-Casanueva
@@ -543,6 +554,14 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
          "Initial revision.";
        reference
          "RFC XXXX: Augmented-by Addition into the YANG Library";
+
+
+
+Lin, et al.             Expires 31 December 2025               [Page 10]
+
+Internet-Draft        Augmented-by for YANG Library            June 2025
+
+
      }
 
      grouping augmented-by {
@@ -554,13 +573,6 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
          type leafref {
            path "../../yanglib:module/yanglib:name";
          }
-
-
-
-Lin, et al.             Expires 29 December 2025               [Page 10]
-
-Internet-Draft        Augmented-by for YANG Library            June 2025
-
 
          description
            "Leaf-list of the augmentation used by this server to
@@ -599,6 +611,13 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
          uses augmented-by;
      }
 
+
+
+Lin, et al.             Expires 31 December 2025               [Page 11]
+
+Internet-Draft        Augmented-by for YANG Library            June 2025
+
+
      augment "/yanglib:modules-state/yanglib:module" {
        status deprecated;
        description
@@ -609,14 +628,6 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
           modules that directly augment the YANG module associated
           with this entry, and the augmenting and augmented modules
           should be defined in the same module-set.
-
-
-
-
-Lin, et al.             Expires 29 December 2025               [Page 11]
-
-Internet-Draft        Augmented-by for YANG Library            June 2025
-
 
           The 'directly augment' is identified by the relationship
           between the augment module and the target node's parent
@@ -654,6 +665,15 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
    specific schema tree dependency, the search logic should be
    implemented by the application itself.
 
+
+
+
+
+Lin, et al.             Expires 31 December 2025               [Page 12]
+
+Internet-Draft        Augmented-by for YANG Library            June 2025
+
+
    A YANG example with the expected augmented-by result is provided in
    Section 4.2.2.
 
@@ -665,14 +685,6 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
    There are Modules A, B, C, which have the following relationships:
 
    *  Module A is the base module with container "foo-a"
-
-
-
-
-Lin, et al.             Expires 29 December 2025               [Page 12]
-
-Internet-Draft        Augmented-by for YANG Library            June 2025
-
 
    *  Module B augments "/a:foo-a" with container "foo-b"
 
@@ -686,6 +698,37 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
    directly augmenting to "foo-a", is an "augmented-by" for Module A.
 
    The augmented-by XML result for Modules A, B and C is the following:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Lin, et al.             Expires 31 December 2025               [Page 13]
+
+Internet-Draft        Augmented-by for YANG Library            June 2025
+
 
    <CODE BEGINS>
    file "example_augmentedby_result.xml"
@@ -719,17 +762,6 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
    </modules-state>
    <CODE ENDS>
 
-
-
-
-
-
-
-Lin, et al.             Expires 29 December 2025               [Page 13]
-
-Internet-Draft        Augmented-by for YANG Library            June 2025
-
-
 5.  Implementation Status
 
    Note to the RFC-Editor: Please remove this section before publishing
@@ -746,6 +778,13 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
    implemented by extending the libyang [LY16] and sysrepo [SR16] which
    are the base libraries for Netopeer2 to support populating the
    augmented-by list.
+
+
+
+Lin, et al.             Expires 31 December 2025               [Page 14]
+
+Internet-Draft        Augmented-by for YANG Library            June 2025
+
 
 5.2.  Netopeer2 at IETF120 Hackathon
 
@@ -778,14 +817,6 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
 
    *  Cisco IOS XR 25.3.1 (2025-08-31). https://software.cisco.com/
 
-
-
-
-Lin, et al.             Expires 29 December 2025               [Page 14]
-
-Internet-Draft        Augmented-by for YANG Library            June 2025
-
-
    *  Huawei VRP R024C10 for MA5800T-X17 (2025-06-30).
       https://support.huawei.com/
 
@@ -803,6 +834,13 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
    libraray/yanglib:module-set/yanglib:module/yanglib:name" to relative
    path "../../yanglib:module/yanglib:name".  The YANG validation in the
    appendix B shows that this path can work as expected.
+
+
+
+Lin, et al.             Expires 31 December 2025               [Page 15]
+
+Internet-Draft        Augmented-by for YANG Library            June 2025
+
 
    Section 5 Implementation and section 6 Changes has been added.
 
@@ -833,15 +871,6 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
 
    Update Section 6 Changes's subsection title.
 
-
-
-
-
-Lin, et al.             Expires 29 December 2025               [Page 15]
-
-Internet-Draft        Augmented-by for YANG Library            June 2025
-
-
    Update the Section 7 security consideration and section 8 IANA
    Considerations.
 
@@ -857,6 +886,17 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
    to:
 
    draft-ietf-netconf-yang-library-augmentedby-00
+
+
+
+
+
+
+
+Lin, et al.             Expires 31 December 2025               [Page 16]
+
+Internet-Draft        Augmented-by for YANG Library            June 2025
+
 
 6.6.  draft-ietf-netconf-yang-library-augmentedby: Changes from 00 to 01
 
@@ -891,13 +931,6 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
    augmentation content to grouping; Add augmentation to modules-state
    container.
 
-
-
-Lin, et al.             Expires 29 December 2025               [Page 16]
-
-Internet-Draft        Augmented-by for YANG Library            June 2025
-
-
    Appendix B is deleted.
 
 6.10.  draft-ietf-netconf-yang-library-augmentedby: Changes from 04 to
@@ -913,6 +946,13 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
    Merged Andy's review.
 
    Changed contents are listed following:
+
+
+
+Lin, et al.             Expires 31 December 2025               [Page 17]
+
+Internet-Draft        Augmented-by for YANG Library            June 2025
+
 
    *  Section 1: Rewrite introduction.  Added definition for 'reverse
       dependency'.  Avoid possible misleading expression about reverse
@@ -939,21 +979,6 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
 
    Change the reference in IANA Consideration to 'RFC-to-be'.
 
-
-
-
-
-
-
-
-
-
-
-Lin, et al.             Expires 29 December 2025               [Page 17]
-
-Internet-Draft        Augmented-by for YANG Library            June 2025
-
-
 7.  Security Considerations
 
    The YANG module specified in this document defines a schema for data
@@ -974,6 +999,16 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
    important to control read access (e.g., via get, get-config, or
    notification) to this data node.  The following is the explanation of
    data node's sensitivity/vulnerability:
+
+
+
+
+
+
+Lin, et al.             Expires 31 December 2025               [Page 18]
+
+Internet-Draft        Augmented-by for YANG Library            June 2025
+
 
    The "augmented-by" list in this YANG module could reveal all modules
    that are augmenting one module.  It could help attacker identify the
@@ -1003,13 +1038,6 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
 
    namespace: urn:ietf:params:xml:ns:yang:ietf-yang-library-augmentedby
 
-
-
-Lin, et al.             Expires 29 December 2025               [Page 18]
-
-Internet-Draft        Augmented-by for YANG Library            June 2025
-
-
    prefix: yanglib-aug
 
    reference: RFC-to-be
@@ -1026,6 +1054,17 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
    [RFC3688]  Mealling, M., "The IETF XML Registry", BCP 81, RFC 3688,
               DOI 10.17487/RFC3688, January 2004,
               <https://www.rfc-editor.org/info/rfc3688>.
+
+
+
+
+
+
+
+Lin, et al.             Expires 31 December 2025               [Page 19]
+
+Internet-Draft        Augmented-by for YANG Library            June 2025
+
 
    [RFC6020]  Bjorklund, M., Ed., "YANG - A Data Modeling Language for
               the Network Configuration Protocol (NETCONF)", RFC 6020,
@@ -1058,14 +1097,6 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
               DOI 10.17487/RFC8341, March 2018,
               <https://www.rfc-editor.org/info/rfc8341>.
 
-
-
-
-Lin, et al.             Expires 29 December 2025               [Page 19]
-
-Internet-Draft        Augmented-by for YANG Library            June 2025
-
-
    [RFC8343]  Bjorklund, M., "A YANG Data Model for Interface
               Management", RFC 8343, DOI 10.17487/RFC8343, March 2018,
               <https://www.rfc-editor.org/info/rfc8343>.
@@ -1083,6 +1114,14 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
    [I-D.ietf-netconf-yang-notifications-versioning]
               Graf, T., Claise, B., and A. H. Feng, "Support of
               Versioning in YANG Notifications Subscription", Work in
+
+
+
+Lin, et al.             Expires 31 December 2025               [Page 20]
+
+Internet-Draft        Augmented-by for YANG Library            June 2025
+
+
               Progress, Internet-Draft, draft-ietf-netconf-yang-
               notifications-versioning-08, 5 April 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-netconf-
@@ -1113,15 +1152,6 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
               <https://doi.org/10.1109/MCOM.001.2200222>.  IEEE
               Communications Magazine
 
-
-
-
-
-Lin, et al.             Expires 29 December 2025               [Page 20]
-
-Internet-Draft        Augmented-by for YANG Library            June 2025
-
-
    [NA25]     "IETF YANG-Push - Implementations", <https://www.network-
               analytics.org/yp/implementations.html>.
 
@@ -1140,9 +1170,22 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
               Library", RFC 7895, DOI 10.17487/RFC7895, June 2016,
               <https://www.rfc-editor.org/info/rfc7895>.
 
+
+
+
+Lin, et al.             Expires 31 December 2025               [Page 21]
+
+Internet-Draft        Augmented-by for YANG Library            June 2025
+
+
    [RFC7950]  Bjorklund, M., Ed., "The YANG 1.1 Data Modeling Language",
               RFC 7950, DOI 10.17487/RFC7950, August 2016,
               <https://www.rfc-editor.org/info/rfc7950>.
+
+   [RFC8342]  Bjorklund, M., Schoenwaelder, J., Shafer, P., Watsen, K.,
+              and R. Wilton, "Network Management Datastore Architecture
+              (NMDA)", RFC 8342, DOI 10.17487/RFC8342, March 2018,
+              <https://www.rfc-editor.org/info/rfc8342>.
 
    [RFC8525]  Bierman, A., Bjorklund, M., Schoenwaelder, J., Watsen, K.,
               and R. Wilton, "YANG Library", RFC 8525,
@@ -1170,14 +1213,6 @@ Appendix A.  Full Tree View of ietf-yang-library
     |  |  |  +--ro name                        yang:yang-identifier
     |  |  |  +--ro revision?                   revision-identifier
     |  |  |  +--ro namespace                   inet:uri
-
-
-
-Lin, et al.             Expires 29 December 2025               [Page 21]
-
-Internet-Draft        Augmented-by for YANG Library            June 2025
-
-
     |  |  |  +--ro location*                   inet:uri
     |  |  |  +--ro submodule* [name]
     |  |  |  |  +--ro name        yang:yang-identifier
@@ -1191,6 +1226,14 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
     |  |     +--ro name         yang:yang-identifier
     |  |     +--ro revision     union
     |  |     +--ro namespace    inet:uri
+
+
+
+Lin, et al.             Expires 31 December 2025               [Page 22]
+
+Internet-Draft        Augmented-by for YANG Library            June 2025
+
+
     |  |     +--ro location*    inet:uri
     |  |     +--ro submodule* [name]
     |  |        +--ro name        yang:yang-identifier
@@ -1227,13 +1270,6 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
       x---n yang-library-change
          x--ro module-set-id    -> /modules-state/module-set-id
 
-
-
-Lin, et al.             Expires 29 December 2025               [Page 22]
-
-Internet-Draft        Augmented-by for YANG Library            June 2025
-
-
 Appendix B.  YANG module validation with yanglint
 
    This section gives an example of the yang-library content that the
@@ -1244,6 +1280,15 @@ Appendix B.  YANG module validation with yanglint
 
    The examples provided are ietf-yang-library 'yang-library' data XML
    file containing the augmented-by field.
+
+
+
+
+
+Lin, et al.             Expires 31 December 2025               [Page 23]
+
+Internet-Draft        Augmented-by for YANG Library            June 2025
+
 
 B.1.  An ietf-yang-library yang-library data XML example
 
@@ -1285,7 +1330,18 @@ B.1.  An ietf-yang-library yang-library data XML example
 
 
 
-Lin, et al.             Expires 29 December 2025               [Page 23]
+
+
+
+
+
+
+
+
+
+
+
+Lin, et al.             Expires 31 December 2025               [Page 24]
 
 Internet-Draft        Augmented-by for YANG Library            June 2025
 
@@ -1341,7 +1397,7 @@ Authors' Addresses
 
 
 
-Lin, et al.             Expires 29 December 2025               [Page 24]
+Lin, et al.             Expires 31 December 2025               [Page 25]
 
 Internet-Draft        Augmented-by for YANG Library            June 2025
 
@@ -1397,4 +1453,4 @@ Internet-Draft        Augmented-by for YANG Library            June 2025
 
 
 
-Lin, et al.             Expires 29 December 2025               [Page 25]
+Lin, et al.             Expires 31 December 2025               [Page 26]

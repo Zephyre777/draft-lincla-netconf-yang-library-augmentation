@@ -46,7 +46,7 @@
       </address>
     </author>
 
-    <date day="27" month="June" year="2025"/>
+    <date day="29" month="June" year="2025"/>
 
     <area>OPS</area>
 
@@ -101,6 +101,8 @@
       <t>The term "client" is used as defined in <xref target="RFC6241"/> for NETCONF and <xref target="RFC8040"/> for RESTCONF.</t>
 
       <t>The term "YANG schema tree" is used as defined in the terminology in <xref target="RFC7950"/></t> 
+      
+      <t>The term 'NMDA' which is defined as the title of <xref target="RFC8342"/> is used in this document.</t>
 
       <t>Tree diagrams in this document use the notation defined in
         <xref target="RFC8340" /> .</t>
@@ -310,7 +312,8 @@
   <section anchor="ietf-yang-library-augmentedby-model" title="The &quot;ietf-yang-library-augmentedby&quot; YANG module">
       <t>
       This YANG module augments the ietf-yang-library module by adding the
-      augmented-by leaf-list in the "yang-library/module-set" and "yang-library/modules-state". The "yang-library/module-state" is augmented despite its "deprecated" state to cope with the situation when container "modules-state" is used for compatibility reason with ietf-yang-library defined in <xref target="RFC7895"/>. The name of list "augmented-by" indicates by which modules that the current module is being directly augmented. 
+      augmented-by leaf-list in the "yang-library/module-set" and "yang-library/modules-state". The name of list "augmented-by" indicates by which modules that the current module is being directly augmented.</t>
+      <t> The "yang-library/module-state" is augmented despite its "deprecated" state to cope with the situation when container "modules-state" is used for compatibility reason with ietf-yang-library defined in <xref target="RFC7895"/>. Both the NMDA<xref target="RFC8342"/> and non-NMDA compliant additions are defined in the same YANG module for simplicity for users and implementors.
       </t>
       <t>For the scope of "augmented-by", this draft only considers the direct augmentation relationship. The recursive result of augmentation or transitive dependency for module specified along the XPath, is out of the scope of this draft. Section 4.2 has given the implementation instructions.</t>
 
@@ -799,6 +802,7 @@ module ietf-yang-library-augmentedby {
       <?rfc include='reference.RFC.8525'?>
       <?rfc include='reference.RFC.7950'?>
       <?rfc include='reference.RFC.7895'?>
+      <?rfc include='reference.RFC.8342'?>
       <?rfc include='reference.I-D.ietf-netconf-yang-notifications-versioning'?>
 
       <reference anchor="NP24" target="https://github.com/network-analytics/libyangpush/tree/feature/draft_augmentedby">
