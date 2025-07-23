@@ -741,6 +741,11 @@ module ietf-yang-library-augmentedby {
         </t>
         <t>Moved RFC8525 reference to Nomative References section.</t>
       </section>
+      <section anchor="Changes from 10 to 11" title="draft-ietf-netconf-yang-library-augmentedby: Changes from 10 to 11">
+        <t>
+          Mentioned in the title that this document updates RFC8525.
+        </t>
+      </section>
     </section>
 
     <section anchor="security-considerations" title="Security Considerations">
