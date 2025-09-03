@@ -28,9 +28,9 @@
     </author>
 
     <author fullname="Benoit Claise" initials="B " surname="Claise">
-      <organization>Huawei</organization>
+      <organization>Everything OPS</organization>
       <address>
-        <email>benoit.claise@huawei.com</email>
+        <email>Benoit@everything-ops.net</email>
       </address>
     </author>
 
@@ -46,7 +46,7 @@
       </address>
     </author>
 
-    <date day="24" month="July" year="2025"/>
+    <date day="3" month="September" year="2025"/>
 
     <area>OPS</area>
 
@@ -88,6 +88,8 @@
     </t>
 
     <t>Therefore, this document proposes a YANG module that augments the YANG library to include the YANG module augmentation information.</t>
+
+    <t>One specific limitation with the implementation of this augmented-by YANG module specification is, the modules and the augmented-by modules require now to be listed in the same module-set. Note that a similar restriction already applies for the YANG deviations.</t>
 
     <section anchor="terminology" title="Terminology">
       <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
@@ -162,7 +164,7 @@
       relationships. Thus, the YANG library should be extended to also provide the augmentation information.
     </t>
     <t>
-      From the perspective of the operational efficiency, it is easy to adapt the device implementation to include augmentation, since augmentation and deviation work similarly. However, to avoid causing problems in devices, for instance falsely referring to modules in a wrong module-set, the base modules and the augmentations require now to be listed in the same module-set.</t>
+      From the perspective of operational efficiency, it is easy to adapt the device implementation to include augmentation, since augmentation and deviation work similarly. However, to avoid causing problems in devices, for instance, falsely referring to modules in the wrong module-set, the base modules and the augmentations require now to be listed in the same module-set.</t>
   </section>
 
   <section anchor="Use Cases" title="Use Cases">
@@ -364,7 +366,7 @@ module ietf-yang-library-augmentedby {
      Authors:   Zhuoyao Lin
                <mailto:zhuoyao.lin1@huawei-partners.com>
                Benoit Claise
-               <mailto:benoit.claise@huawei.com>
+               <mailto:Benoit@everything-ops.net>
                Ignacio Dominguez Martinez-Casanueva
                <matilto:ignacio.dominguezmartinez@telefonica.com>";
   description
@@ -433,7 +435,7 @@ module ietf-yang-library-augmentedby {
        The 'augmented-by' leaf-list should only consider those YANG
        modules that directly augment the YANG module associated
        with this entry, and the augmenting and augmented modules
-       should be defined in the same module-set.
+       must be defined in the same module-set.
 
        The 'directly augment' is identified by the relationship
        between the augment module and the target node's parent
@@ -455,7 +457,7 @@ module ietf-yang-library-augmentedby {
        The 'augmented-by' leaf-list should only consider those YANG
        modules that directly augment the YANG module associated
        with this entry, and the augmenting and augmented modules
-       should be defined in the same module-set.
+       must be defined in the same module-set.
 
        The 'directly augment' is identified by the relationship
        between the augment module and the target node's parent
@@ -480,7 +482,7 @@ module ietf-yang-library-augmentedby {
     <t>This section explains the scope of augmented-by.
     </t>
     <t>
-    The "augmented-by" leaf-list should only consider those YANG modules that directly augment the YANG module in question in the ietf-yang-library, and the augmenting and augmented modules should be defined in the same module-set. </t>
+    The "augmented-by" leaf-list should only consider those YANG modules that directly augment the YANG module in question in the ietf-yang-library, and the augmenting and augmented modules must be defined in the same module-set. </t>
     <t>The "direct augment" is identified by the relationship between the augment module and the target node's parent module that it augments to. Only the direct parent module of the target node is augmented, and the rest of the parent modules defined in the schema tree are only indirect dependencies but not augmented modules. (Refer to "Target node" definition in Section 7.17 of <xref target="RFC7950"/>)
     </t>
 
@@ -902,7 +904,7 @@ module ietf-yang-library-augmentedby {
         <organization>Swisscom</organization>
         </author>
         <author initials="B." surname="Claise" fullname="Benoit Claise">
-        <organization>Huawei</organization>
+        <organization>Everything OPS</organization>
         </author>
       </front>
         <seriesInfo name="Internet-Draft" value="draft-netana-netconf-notif-envelope"/>
