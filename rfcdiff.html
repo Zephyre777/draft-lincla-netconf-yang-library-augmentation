@@ -857,7 +857,7 @@
         <td>&nbsp;</td>
         <td class="lblock"></td>
         <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">            13 to 13 . . . . . . . . . . . . . . . . . . . . . . . .  18
+        <td class="rblock"><span class="insert">            12 to 13 . . . . . . . . . . . . . . . . . . . . . . . .  18
 </span></td>
       </tr>
       <tr>
@@ -1744,10 +1744,46 @@
       </tr>
       <tr>
         <td>&nbsp;</td>
+        <td class="lblock"></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">   itself and in case of UDP transport [I-D.ietf-netconf-udp-notif].
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">   See figure 1 in An Architecture for YANG-Push to Message Broker
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">   Integration [I-D.ietf-nmop-yang-message-broker-integration] for more
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">   details.
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
         <td class="lblock"><span class="delete">   *  A YANG-push receiver will not know which YANG-Push publisher sent
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   itself and in case of UDP transport [I-D.ietf-netconf-udp-notif].
+        <td class="rblock"><span class="insert">   This architecture relies on the information of YANG dependencies in
 </span></td>
       </tr>
       <tr>
@@ -1755,7 +1791,7 @@
         <td class="lblock"><span class="delete">      the subscribed YANG content until the first notification is
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   See figure 1 in An Architecture for YANG-Push to Message Broker
+        <td class="rblock"><span class="insert">   this specification to solve the problem of missing YANG semantics
 </span></td>
       </tr>
       <tr>
@@ -1763,108 +1799,162 @@
         <td class="lblock"><span class="delete">      received.
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">   when notifications are transformed or indexed in Time Series
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">   Database.
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">   *  For a YANG-Push receiver =&gt; from which YANG-Push publisher the
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">   Prior to the implementation of this specification, the method used
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">      subscribed YANG content is going to be received is not known until
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"><span class="delete">      the first notification is being received.
+        <td class="rblock"><span class="insert">   for obtaining modules and finding module dependencies is to retrieve
 </span></td>
-        <td>&nbsp;</td>
-        <td class="rblock"></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">   the full set of supported YANG modules from the network device,
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">   triggered by parsing the &lt;subscription-started&gt; message for each new
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">   YANG-Push subscription, because the YANG-push receiver would not know
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">   which YANG-Push publisher sends the subscribed YANG content until the
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock">  <span class="delete">    the</span> first notification is<span class="delete"> being</span> received.
+</td>
+        <td>&nbsp;</td>
+        <td class="rblock">   first notification is received.
+</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="left">
+</td>
+        <td>&nbsp;</td>
+        <td class="right">
+</td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">   *  Querying all the YANG modules is time-consuming and add overhead
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">   By using the provided the augmentedby information in this
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">      considering that only a subset of the YANG nodes of the management
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">   specification, the YANG-Push receiver can directly obtain the YANG
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">      server are subscribed to.
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">   reverse dependencies for the specific YANG module(s) in the
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">   subscription by querying the server, saving collection and processing
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">   This section introduces two use cases that reflect the motivation for
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">   time at the YANG-Push receiver, by querying dependencies only for the
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">   extending the YANG library.  One targets solving dependency problems
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">   required modules, and therefore helping with the real-time aspects of
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">   in a data mesh architecture while the other aims at building a data
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">   network observability.
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">   catalog that makes YANG module information easily accessible.
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">   Following is an example YANG-Push message of this use case received
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">3.1.  Data Mesh Architecture
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">   from within a subscription to YANG module ietf-interfaces:
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td class="lblock"></td>
+        <td class="left">
+</td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="right">
+</td>
       </tr>
       <tr>
         <td>&nbsp;</td>
@@ -1882,19 +1972,17 @@
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td class="lblock">   Integration [I-D.ietf-nmop-yang-message-broker-integration]<span class="delete">.  This</span>
-</td>
+        <td class="lblock"><span class="delete">   Integration [I-D.ietf-nmop-yang-message-broker-integration].  This
+</span></td>
         <td>&nbsp;</td>
-        <td class="rblock">   Integration [I-D.ietf-nmop-yang-message-broker-integration]<span class="insert"> for more</span>
-</td>
+        <td class="rblock"></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">   open-source project encompasses contributions such as Support of
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   details.
-</span></td>
+        <td class="rblock"></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
@@ -1937,52 +2025,55 @@
         <td class="lblock"><span class="delete">   The purpose of this project is to provide adequate information to the
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">     &quot;datastore-contents&quot;: {
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">   YANG-Push notifications so that the module and its dependencies can
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">       &quot;ietf-interfaces:interfaces&quot;: [
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">   be parsed and retrieved automatically from the vantage point.  The
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">       {
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td class="lblock">   architecture relies on the information of YANG dependencies <span class="delete">to</span>
-</td>
+        <td class="lblock"><span class="delete">   architecture relies on the information of YANG dependencies to
+</span></td>
         <td>&nbsp;</td>
-        <td class="rblock">  <span class="insert"> This</span> architecture relies on the information of YANG dependencies <span class="insert">in</span>
-</td>
+        <td class="rblock"><span class="insert">         &quot;interface&quot;: {
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td class="lblock">   <span class="delete">r</span>ea<span class="delete">l</span>i<span class="delete">ze,</span> to solve the problem of missing YANG semantics<span class="delete"> when</span>
-</td>
+        <td class="lblock"><span class="delete">   realize, to solve the problem of missing YANG semantics when
+</span></td>
         <td>&nbsp;</td>
-        <td class="rblock">   <span class="insert">this sp</span>e<span class="insert">cific</span>a<span class="insert">t</span>i<span class="insert">on</span> to solve the problem of missing YANG semantics
-</td>
+        <td class="rblock"><span class="insert">           &quot;name&quot;: &quot;eth0&quot;,
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td class="lblock">   notifications are transformed or indexed in Time Series<span class="delete"> Database.  As</span>
-</td>
+        <td class="lblock"><span class="delete">   notifications are transformed or indexed in Time Series Database.  As
+</span></td>
         <td>&nbsp;</td>
-        <td class="rblock">  <span class="insert"> when</span> notifications are transformed or indexed in Time Series
-</td>
+        <td class="rblock"><span class="insert">           &quot;type&quot;: &quot;iana-if-type:ethernetCsmacd&quot;,
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">   a solution to provide the missing YANG semantics, a schema registry
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   Database.
+        <td class="rblock"><span class="insert">           &quot;oper-status&quot;: &quot;up&quot;,
 </span></td>
       </tr>
       <tr>
@@ -1990,35 +2081,68 @@
         <td class="lblock"><span class="delete">   is introduced to store YANG modules and all their relationships
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">           &quot;speed&quot;: &quot;1000000&quot;,
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">   (Direct and reverse dependencies).  The schema is obtained by NETCONF
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">           &quot;ietf-ip:ipv4&quot;: {
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">   &lt;get-schema&gt; operation (defined in Section 3.1 of [RFC6022]) of the
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">             &quot;enabled&quot;: true,
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">   subscribed YANG schema tree, which is obtained by parsing the
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">             &quot;forwarding&quot;: true
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">   &lt;subscription-started&gt; message of each YANG-Push subscription.
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">           }
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">         }
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">       }
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">       ]
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">     }
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
@@ -2033,7 +2157,7 @@
         <td class="lblock"><span class="delete">   When obtaining the dependency modules of a YANG module, an
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   Prior to the implementation of this specification, the method used
+        <td class="rblock"><span class="insert">   To correctly interpret the semantics of this message, both the ietf-
 </span></td>
       </tr>
       <tr>
@@ -2041,7 +2165,7 @@
         <td class="lblock"><span class="delete">   independent process containing multiple &lt;get-schema&gt; operations
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   for obtaining modules and finding module dependencies is to retrieve
+        <td class="rblock"><span class="insert">   interfaces and ietf-ip YANG modules are required.  Knowing only that
 </span></td>
       </tr>
       <tr>
@@ -2049,7 +2173,7 @@
         <td class="lblock"><span class="delete">   [RFC6022] is launched after each new YANG-Push subscription module
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   the full set of supported YANG modules from the network device,
+        <td class="rblock"><span class="insert">   the subscribed YANG module is ietf-interfaces is therefore
 </span></td>
       </tr>
       <tr>
@@ -2057,64 +2181,46 @@
         <td class="lblock"><span class="delete">   has been known.  However, the complexity remains at:
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   triggered by parsing the &lt;subscription-started&gt; message for each new
+        <td class="rblock"><span class="insert">   insufficient, but that is currently the only dependency information
 </span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"></td>
         <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   YANG-Push subscription, because the YANG-push receiver would not know
+        <td class="rblock"><span class="insert">   exposed by the subscription information.  In this case, a lightweight
 </span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   which YANG-Push publisher sends the subscribed YANG content until the
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   first notification is received.
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="left">
-</td>
-        <td>&nbsp;</td>
-        <td class="right">
-</td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">   *  How dependencies of YANG modules are found (so that the YANG-Push
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">   mechanism is needed to discover all relevant dependency modules,
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">      subscription message has the complete set of module dependencies
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">   especially reverse dependencies (refer to ietf-ip in this example) so
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">      for its subscribed YANG schema tree)?
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">   that every YANG module referenced in the pushed data can be reliably
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">   identified.
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
@@ -2255,265 +2361,45 @@
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td class="lblock">   By using the provided the augment<span class="delete">ation</span> information in i<span class="delete">etf-yang-</span>
-</td>
+        <td class="lblock"><span class="delete">   By using the provided the augmentation information in ietf-yang-
+</span></td>
         <td>&nbsp;</td>
-        <td class="rblock">   By using the provided the augment<span class="insert">edby</span> information in <span class="insert">th</span>i<span class="insert">s</span>
-</td>
+        <td class="rblock"></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td class="lblock">   <span class="delete">l</span>i<span class="delete">br</span>a<span class="delete">ry</span>, the YANG-Push receiver can directly obtain the YANG<span class="delete"> reverse</span>
-</td>
+        <td class="lblock"><span class="delete">   library, the YANG-Push receiver can directly obtain the YANG reverse
+</span></td>
         <td>&nbsp;</td>
-        <td class="rblock">   <span class="insert">spec</span>i<span class="insert">fic</span>a<span class="insert">tion</span>, the YANG-Push receiver can directly obtain the YANG
-</td>
+        <td class="rblock"></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">   dependencies by obtaining the contents of the YANG library, saving
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   reverse dependencies for the specific YANG module(s) in the
-</span></td>
+        <td class="rblock"></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">   collection (and processing time) at the YANG-Push receiver and
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   subscription by querying the server, saving collection and processing
-</span></td>
+        <td class="rblock"></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">   therefore helping with the real-time aspects of Network Observability
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   time at the YANG-Push receiver, by querying dependencies only for the
-</span></td>
+        <td class="rblock"></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">   and enabling closed-loop actions.
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   required modules, and therefore helping with the real-time aspects of
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   network observability.
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   Following is an example YANG-Push message of this use case received
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   from within a subscription to YANG module ietf-interfaces:
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
         <td class="rblock"></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">     &quot;datastore-contents&quot;: {
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">       &quot;ietf-interfaces:interfaces&quot;: [
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">       {
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">         &quot;interface&quot;: {
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">           &quot;name&quot;: &quot;eth0&quot;,
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">           &quot;type&quot;: &quot;iana-if-type:ethernetCsmacd&quot;,
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">           &quot;oper-status&quot;: &quot;up&quot;,
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">           &quot;speed&quot;: &quot;1000000&quot;,
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">           &quot;ietf-ip:ipv4&quot;: {
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">             &quot;enabled&quot;: true,
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">             &quot;forwarding&quot;: true
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">           }
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">         }
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">       }
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">       ]
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">     }
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   To correctly interpret the semantics of this message, both the ietf-
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   interfaces and ietf-ip YANG modules are required.  Knowing only that
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   the subscribed YANG module is ietf-interfaces is therefore
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   insufficient, but that is currently the only dependency information
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   exposed by the subscription information.  In this case, a lightweight
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   mechanism is needed to discover all relevant dependency modules,
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   especially reverse dependencies (refer to ietf-ip in this example) so
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   that every YANG module referenced in the pushed data can be reliably
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   identified.
-</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
@@ -5219,7 +5105,7 @@
         <td>&nbsp;</td>
         <td class="lblock"></td>
         <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">7.17.  draft-ietf-netconf-yang-library-augmentedby: Changes from 13 to
+        <td class="rblock"><span class="insert">7.17.  draft-ietf-netconf-yang-library-augmentedby: Changes from 12 to
 </span></td>
       </tr>
       <tr>
@@ -5391,54 +5277,25 @@
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td class="lblock"></td>
+        <td class="lblock"><span class="delete">   sensitive or vulnerable in some network environments.  It is thus
+</span></td>
         <td>&nbsp;</td>
         <td class="rblock"><span class="insert">   module.
 </span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   This YANG module defines only readable (&quot;config false&quot;) data nodes.
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock"></td>
-        <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   Some of these readable data nodes may be considered sensitive or
-</span></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td class="lblock">  <span class="delete"> sensitive or</span> vulnerable in some network environments.  It is t<span class="delete">hus</span>
-</td>
-        <td>&nbsp;</td>
-        <td class="rblock">   vulnerable in some network environments.  It is <span class="insert">impor</span>t<span class="insert">ant to control</span>
-</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
         <td class="lblock"><span class="delete">   important to control read access (e.g., via get, get-config, or
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   read access (e.g., via get, get-config, or notification) to these
-</span></td>
+        <td class="rblock"></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">   notification) to this data node.  The following is the explanation of
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   data nodes.
-</span></td>
+        <td class="rblock"></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
@@ -5460,7 +5317,7 @@
         <td class="lblock"><span class="delete">   The &quot;augmented-by&quot; list in this YANG module could reveal all modules
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   Specifically, the following readable data nodes contain potentially
+        <td class="rblock"><span class="insert">   This YANG module defines only readable (&quot;config false&quot;) data nodes.
 </span></td>
       </tr>
       <tr>
@@ -5468,7 +5325,7 @@
         <td class="lblock"><span class="delete">   that are augmenting one module.  It could help attacker identify the
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"><span class="insert">   sensitive information:
+        <td class="rblock"><span class="insert">   Some of these readable data nodes may be considered sensitive or
 </span></td>
       </tr>
       <tr>
@@ -5476,21 +5333,24 @@
         <td class="lblock"><span class="delete">   relationship between modules and server implementations known bugs.
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">   vulnerable in some network environments.  It is important to control
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">   Server vulnerabilities may include but not restricted to: 1.  Too
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">   read access (e.g., via get, get-config, or notification) to these
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td class="lblock"><span class="delete">   many augmented-by records cause buffer overflow. 2.  The augmented-by
 </span></td>
         <td>&nbsp;</td>
-        <td class="rblock"></td>
+        <td class="rblock"><span class="insert">   data nodes.
+</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
@@ -5520,6 +5380,26 @@
         <td>&nbsp;</td>
         <td class="right">
 </td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">   Specifically, the following readable data nodes contain potentially
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"></td>
+        <td>&nbsp;</td>
+        <td class="rblock"><span class="insert">   sensitive information:
+</span></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="lblock"></td>
+        <td>&nbsp;</td>
+        <td class="rblock"></td>
       </tr>
       <tr>
         <td>&nbsp;</td>

@@ -784,7 +784,7 @@ module ietf-yang-library-augmentedby {
         </t>
       </section>
       <section anchor="Changes from 12 to 13"
-        title="draft-ietf-netconf-yang-library-augmentedby: Changes from 13 to 13">
+        title="draft-ietf-netconf-yang-library-augmentedby: Changes from 12 to 13">
         <t>
           Updated draft according to the AD review.
         </t>

@@ -129,7 +129,7 @@ Internet-Draft        Augmented-by for YANG Library        December 2025
      7.16. draft-ietf-netconf-yang-library-augmentedby: Changes from
             10 to 11 . . . . . . . . . . . . . . . . . . . . . . . .  18
      7.17. draft-ietf-netconf-yang-library-augmentedby: Changes from
-            13 to 13 . . . . . . . . . . . . . . . . . . . . . . . .  18
+            12 to 13 . . . . . . . . . . . . . . . . . . . . . . . .  18
    8.  Security Considerations . . . . . . . . . . . . . . . . . . .  18
    9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  20
    10. References  . . . . . . . . . . . . . . . . . . . . . . . . .  20
@@ -987,7 +987,7 @@ Internet-Draft        Augmented-by for YANG Library        December 2025
 
    Mentioned in the title that this document updates RFC8525.
 
-7.17.  draft-ietf-netconf-yang-library-augmentedby: Changes from 13 to
+7.17.  draft-ietf-netconf-yang-library-augmentedby: Changes from 12 to
        13
 
    Updated draft according to the AD review.
