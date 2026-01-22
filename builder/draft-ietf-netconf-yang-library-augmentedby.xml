@@ -371,7 +371,7 @@ module ietf-yang-library-augmentedby {
                Benoit Claise
                <mailto:benoit@everything-ops.net>
                Ignacio Dominguez Martinez-Casanueva
-               <matilto:ignacio.dominguezmartinez@telefonica.com>";
+               <mailto:ignacio.dominguezmartinez@telefonica.com>";
   description
     "This module augments the ietf-yang-library defined in
      [RFC8525] to provide not only the deviation list, but also
