@@ -112,7 +112,7 @@
             target="RFC8040" /> for RESTCONF.</t>
 
         <t>The term "YANG schema tree" is used as defined in the terminology in <xref
-            target="RFC7950" /></t>
+            target="RFC7950" />.</t>
 
         <t>The term 'NMDA' which is defined as the title of <xref target="RFC8342" /> is used in
           this document.</t>
