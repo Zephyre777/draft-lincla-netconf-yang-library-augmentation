@@ -480,7 +480,7 @@ module ietf-yang-library-augmentedby {
               <li>Module C augments "/a:foo-a/b:foo-b" with leaf "leaf-c"</li>
             </ul>
           </t>
-          <t>In this example, while the XPath that Module C augments to contains container "foo-a"
+          <t>In this example, while the XPath that Module C augments to contain container "foo-a"
             defined in Module A, the actual target node it directly augments to is "foo-b" in Module
             B. Therefore, Module C is not an augmentation for Module A and does not appear in the
             "augmented-by" leaf-list of Module A. Only Module B, which is directly augmenting to
@@ -496,7 +496,7 @@ module ietf-yang-library-augmentedby {
   <module-set> 
     <name>module-set1</name>
     <module>
-      <name>a-module</name>
+      <name>A</name>
       <revision>2025-06-18</revision> 
       <namespace>urn:ietf:params:xml:ns:yang:a-module</namespace>
       <augmented-by 
@@ -504,7 +504,7 @@ module ietf-yang-library-augmentedby {
       ietf-yang-library-augmentedby">b-module</augmented-by>
     </module>
     <module>
-      <name>b-module</name>
+      <name>B</name>
       <revision>2025-06-18</revision> 
       <namespace>urn:ietf:params:xml:ns:yang:b-module</namespace>
       <augmented-by 
@@ -512,7 +512,7 @@ module ietf-yang-library-augmentedby {
       ietf-yang-library-augmentedby">c-module</augmented-by>
     </module>
     <module>
-      <name>c-module</name>
+      <name>C</name>
       <revision>2025-06-18</revision> 
       <namespace>urn:ietf:params:xml:ns:yang:c-module</namespace>
     </module>
