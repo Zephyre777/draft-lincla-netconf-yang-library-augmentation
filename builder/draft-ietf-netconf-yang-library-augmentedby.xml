@@ -58,6 +58,7 @@
         This document augments the ietf-yang-library to provide the augmented-by
         list. It facilitates the process of obtaining all dependencies
         between YANG modules, by querying the network management server's YANG library.
+		This document updates RFC 8525.
       </t>
     </abstract>
 
@@ -116,8 +117,8 @@
         <t>The term "YANG schema tree" is used as defined in the terminology in <xref
             target="RFC7950" /></t>
 
-        <t>The term 'NMDA' which is defined as the title of <xref target="RFC8342" /> is used in
-          this document.</t>
+        <t>The term 'NMDA' (Network Management Datastore Architecture), which is defined as the 
+		  title of <xref target="RFC8342" /> is used in this document.</t>
 
         <t>Tree diagrams in this document use the notation defined in <xref target="RFC8340" /> .</t>
         <t>This document defines the following term:</t>
@@ -469,72 +470,11 @@ module ietf-yang-library-augmentedby {
           <t>A YANG example with the expected augmented-by result is provided in Section 4.2.2.</t>
 
         </section>
-        <section anchor="exampleOfAugmentedBy" title="Examples of YANG module augmented-by result">
-          <t>This section provides two module-set examples and their corresponding yang-library
-            query result to explain the definition of "direct augment" stated in Section 4.2.1.</t>
-          <t>Two scenarios are provided in this section, with both of them having three YANG modules defined
-            in the same module-set: Module A, Module B and Module C, while the relationships among them are
-            different. All three YANG modules are defined in the same module-set name 'module-set1' to be able to
-            augment or be augmented by the others. Otherwise, the yanglint validation should fail.</t>
-          <section anchor="example1" title="Example 1">
-            <t>Relationships among Module A, Module B and Module C in this example are following:</t>
-            <t>
-              <ul>
-                <li>Module A is the base module with container "foo-a"</li>
-                <li>Module B augments "/A:foo-a" with container "foo-b"</li>
-                <li>Module C augments "/A:foo-a/B:foo-b" with leaf "leaf-c"</li>
-              </ul>
-            </t>
-
-            <t>The yang-library query result is following:</t>
-            <t>
-              <figure>
-                <artwork><![CDATA[
-<CODE BEGINS>file "example_yanglib_result1.xml"
-<yang-library xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library"> 
-  <content-id>1</content-id>
-  <module-set> 
-    <name>module-set1</name>
-    <module>
-      <name>A</name>
-      <revision>2025-06-18</revision> 
-      <namespace>urn:ietf:params:xml:ns:yang:A</namespace>
-      <augmented-by 
-      xmlns="urn:ietf:params:xml:ns:yang:
-      ietf-yang-library-augmentedby">B</augmented-by>
-    </module>
-    <module>
-      <name>B</name>
-      <revision>2025-06-18</revision> 
-      <namespace>urn:ietf:params:xml:ns:yang:B</namespace>
-      <augmented-by 
-      xmlns="urn:ietf:params:xml:ns:yang:
-      ietf-yang-library-augmentedby">C</augmented-by>
-    </module>
-    <module>
-      <name>C</name>
-      <revision>2025-06-18</revision> 
-      <namespace>urn:ietf:params:xml:ns:yang:C</namespace>
-    </module>
-  </module-set>
-</yang-library>
-<modules-state xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library"> 
-  <module-set-id>0</module-set-id>
-</modules-state>
-
-<CODE ENDS>]]></artwork>
-              </figure>
-            </t>
-            <t>In this example, although the augment XPath statement used by Module C is rooted from
-              the container "foo-a" defined in Module A, the node that Module C directly augments is
-              the container "foo-b" defined in Module B. As a result, Module C is not considered to
-              directly augment Module A and therefore does not appear in the "augmented-by"
-              leaf-list of Module A. Only Module B, which directly augments the container "foo-a",
-              is listed as an "augmented-by" module for Module A.</t>
-          </section>
-
-          <section anchor="example2"
-            title="Example2">
+        <section anchor="exampleOfAugmentedBy" title="Examples">
+          <t>This section provides two module-set examples and their corresponding ietf-yang-library-augmentedby query results to explain the definition of "direct augment" stated in Section 4.2.1.</t>
+          <t>The two scenarios are provided with the same three YANG modules (Module A, B, and C) defined in the module-set, however the relationships among them are different. All three YANG modules are defined in the same module-set name 'module-set1' to be able to augment or be augmented by the others. Otherwise, the yanglint validation should fail.</t>
+		    <section anchor="example1"
+            title="Example 1">
             <t>Relationships among Module A, Module B and Module C in this example are following:</t>
             <t>
               <ul>
@@ -544,11 +484,11 @@ module ietf-yang-library-augmentedby {
               </ul>
             </t>
 
-            <t>The yang-library query result is following:</t>
+            <t>The ietf-yang-library-augmentedby query result is:</t>
             <t>
               <figure>
                 <artwork><![CDATA[
-<CODE BEGINS> file "example_yanglib_result2.xml"
+<CODE BEGINS> file "example_yanglib_result1.xml"
 <yang-library xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library">
   <content-id>1</content-id>
   <module-set>
@@ -583,9 +523,62 @@ module ietf-yang-library-augmentedby {
 <CODE ENDS>]]></artwork>
               </figure>
             </t>
-            <t>In this example, both Module B and Module C directly augments the container "foo-a". Therefore,
+            <t>In this example, both Module B and Module C directly augment the container "foo-a". Therefore,
               both B and C are listed as "augmented-by" modules for Module A.</t>
           </section>
+		  
+          <section anchor="example2" title="Example 2">
+            <t>Relationships among Module A, Module B and Module C in this example are following:</t>
+            <t>
+              <ul>
+                <li>Module A is the base module with container "foo-a"</li>
+                <li>Module B augments "/A:foo-a" with container "foo-b"</li>
+                <li>Module C augments "/A:foo-a/B:foo-b" with leaf "leaf-c"</li>
+              </ul>
+            </t>
+
+            <t>The ietf-yang-library-augmentedby query result is:</t>
+            <t>
+              <figure>
+                <artwork><![CDATA[
+<CODE BEGINS>file "example_yanglib_result2.xml"
+<yang-library xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library"> 
+  <content-id>1</content-id>
+  <module-set> 
+    <name>module-set1</name>
+    <module>
+      <name>A</name>
+      <revision>2025-06-18</revision> 
+      <namespace>urn:ietf:params:xml:ns:yang:A</namespace>
+      <augmented-by 
+      xmlns="urn:ietf:params:xml:ns:yang:
+      ietf-yang-library-augmentedby">B</augmented-by>
+    </module>
+    <module>
+      <name>B</name>
+      <revision>2025-06-18</revision> 
+      <namespace>urn:ietf:params:xml:ns:yang:B</namespace>
+      <augmented-by 
+      xmlns="urn:ietf:params:xml:ns:yang:
+      ietf-yang-library-augmentedby">C</augmented-by>
+    </module>
+    <module>
+      <name>C</name>
+      <revision>2025-06-18</revision> 
+      <namespace>urn:ietf:params:xml:ns:yang:C</namespace>
+    </module>
+  </module-set>
+</yang-library>
+<modules-state xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library"> 
+  <module-set-id>0</module-set-id>
+</modules-state>
+
+<CODE ENDS>]]></artwork>
+              </figure>
+            </t>
+            <t>In this example, although the augment XPath statement used by Module C is rooted from the container "foo-a" defined in Module A, the node that Module C directly augments is the container "foo-b" defined in Module B. As a result, Module C is not considered to directly augment Module A and therefore does not appear in the "augmented-by" leaf-list of Module A. Only Module B, which directly augments the container "foo-a", is listed as an "augmented-by" module for Module A.</t>
+          </section>
+
         </section>
       </section>
     </section>
@@ -649,6 +642,10 @@ module ietf-yang-library-augmentedby {
 
       <t> This section follows the guidelines in Section 3.7 of <xref
           target="I-D.ietf-netmod-rfc8407bis" />. </t>
+
+      <t> Since this document augments the ietf-yang-library YANG module
+          defined in <xref target="RFC8525" />, the Section 6 Security Considerations of
+          <xref target="RFC8525" /> apply here as well. </t>
 
       <t> The "ietf-yang-library-augmentedby" YANG module defines a data model that is designed to
         be accessed via YANG-based management protocols, such as NETCONF <xref target="RFC6241" />
@@ -1095,6 +1092,12 @@ module: ietf-yang-library
         title="draft-ietf-netconf-yang-library-augmentedby: Changes from 13 to 14">
         <t>
           Resolving nits.
+        </t>
+      </section>
+	  <section anchor="Changes from 14 to 15"
+        title="draft-ietf-netconf-yang-library-augmentedby: Changes from 14 to 15">
+        <t>
+          Improved the examples, based on the designated expert review.
         </t>
       </section>
     </section>

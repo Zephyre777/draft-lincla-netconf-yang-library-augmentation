@@ -19,7 +19,7 @@ Abstract
    This document augments the ietf-yang-library to provide the
    augmented-by list.  It facilitates the process of obtaining all
    dependencies between YANG modules, by querying the network management
-   server's YANG library.
+   server's YANG library.  This document updates RFC 8525.
 
 Discussion Venues
 
@@ -82,7 +82,7 @@ Table of Contents
        4.1.2.  YANG ietf-yang-library-augmentedby Module . . . . . .   9
      4.2.  Implementation Instructions . . . . . . . . . . . . . . .  11
        4.2.1.  The scope of augmented-by . . . . . . . . . . . . . .  11
-       4.2.2.  Examples of YANG module augmented-by result . . . . .  12
+       4.2.2.  Examples  . . . . . . . . . . . . . . . . . . . . . .  12
    5.  Operational Considerations  . . . . . . . . . . . . . . . . .  15
    6.  Implementation Status . . . . . . . . . . . . . . . . . . . .  15
      6.1.  Netopeer2 at IETF119 Hackathon  . . . . . . . . . . . . .  15
@@ -140,6 +140,8 @@ Internet-Draft        Augmented-by for YANG Library         January 2026
             12 to 13 . . . . . . . . . . . . . . . . . . . . . . . .  25
      B.18. draft-ietf-netconf-yang-library-augmentedby: Changes from
             13 to 14 . . . . . . . . . . . . . . . . . . . . . . . .  25
+     B.19. draft-ietf-netconf-yang-library-augmentedby: Changes from
+            14 to 15 . . . . . . . . . . . . . . . . . . . . . . . .  25
    Acknowledgments . . . . . . . . . . . . . . . . . . . . . . . . .  26
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  26
 
@@ -159,8 +161,6 @@ Internet-Draft        Augmented-by for YANG Library         January 2026
    document: this means the behavior of a schema node depends on
    external modifications, creating flow backward from the augmenting/
    deviation module to the base module.
-
-
 
 
 
@@ -209,8 +209,8 @@ Internet-Draft        Augmented-by for YANG Library         January 2026
    The term "YANG schema tree" is used as defined in the terminology in
    [RFC7950]
 
-   The term 'NMDA' which is defined as the title of [RFC8342] is used in
-   this document.
+   The term 'NMDA' (Network Management Datastore Architecture), which is
+   defined as the title of [RFC8342] is used in this document.
 
    Tree diagrams in this document use the notation defined in [RFC8340]
    .
@@ -625,18 +625,18 @@ Internet-Draft        Augmented-by for YANG Library         January 2026
    A YANG example with the expected augmented-by result is provided in
    Section 4.2.2.
 
-4.2.2.  Examples of YANG module augmented-by result
+4.2.2.  Examples
 
    This section provides two module-set examples and their corresponding
-   yang-library query result to explain the definition of "direct
-   augment" stated in Section 4.2.1.
+   ietf-yang-library-augmentedby query results to explain the definition
+   of "direct augment" stated in Section 4.2.1.
 
-   Two scenarios are provided in this section, with both of them having
-   three YANG modules defined in the same module-set: Module A, Module B
-   and Module C, while the relationships among them are different.  All
-   three YANG modules are defined in the same module-set name 'module-
-   set1' to be able to augment or be augmented by the others.
-   Otherwise, the yanglint validation should fail.
+   The two scenarios are provided with the same three YANG modules
+   (Module A, B, and C) defined in the module-set, however the
+   relationships among them are different.  All three YANG modules are
+   defined in the same module-set name 'module-set1' to be able to
+   augment or be augmented by the others.  Otherwise, the yanglint
+   validation should fail.
 
 4.2.2.1.  Example 1
 
@@ -647,9 +647,9 @@ Internet-Draft        Augmented-by for YANG Library         January 2026
 
    *  Module B augments "/A:foo-a" with container "foo-b"
 
-   *  Module C augments "/A:foo-a/B:foo-b" with leaf "leaf-c"
+   *  Module C augments "/A:foo-a" with leaf "leaf-c"
 
-   The yang-library query result is following:
+   The ietf-yang-library-augmentedby query result is:
 
 
 
@@ -674,8 +674,66 @@ Lin, et al.               Expires 27 July 2026                 [Page 12]
 Internet-Draft        Augmented-by for YANG Library         January 2026
 
 
+   <CODE BEGINS> file "example_yanglib_result1.xml"
+   <yang-library xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library">
+     <content-id>1</content-id>
+     <module-set>
+       <name>module-set1</name>
+       <module>
+         <name>A</name>
+         <revision>2024-02-29</revision>
+         <namespace>urn:ietf:params:xml:ns:yang:A</namespace>
+         <augmented-by
+         xmlns="urn:ietf:params:xml:ns:yang:
+         ietf-yang-library-augmentedby">B</augmented-by>
+         <augmented-by
+         xmlns="urn:ietf:params:xml:ns:yang:
+         ietf-yang-library-augmentedby">C</augmented-by>
+       </module>
+       <module>
+         <name>B</name>
+         <revision>2024-02-29</revision>
+         <namespace>urn:ietf:params:xml:ns:yang:B</namespace>
+       </module>
+       <module>
+         <name>C</name>
+         <revision>2024-02-29</revision>
+         <namespace>urn:ietf:params:xml:ns:yang:C</namespace>
+       </module>
+     </module-set>
+   </yang-library>
+   <modules-state xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library">
+       <module-set-id>0</module-set-id>
+   </modules-state>
+   <CODE ENDS>
+
+   In this example, both Module B and Module C directly augment the
+   container "foo-a".  Therefore, both B and C are listed as "augmented-
+   by" modules for Module A.
+
+4.2.2.2.  Example 2
+
+   Relationships among Module A, Module B and Module C in this example
+   are following:
+
+   *  Module A is the base module with container "foo-a"
+
+   *  Module B augments "/A:foo-a" with container "foo-b"
+
+   *  Module C augments "/A:foo-a/B:foo-b" with leaf "leaf-c"
+
+
+
+
+Lin, et al.               Expires 27 July 2026                 [Page 13]
+
+Internet-Draft        Augmented-by for YANG Library         January 2026
+
+
+   The ietf-yang-library-augmentedby query result is:
+
    <CODE BEGINS>
-   file "example_yanglib_result1.xml"
+   file "example_yanglib_result2.xml"
    <yang-library xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library">
      <content-id>1</content-id>
      <module-set>
@@ -716,64 +774,6 @@ Internet-Draft        Augmented-by for YANG Library         January 2026
    leaf-list of Module A.  Only Module B, which directly augments the
    container "foo-a", is listed as an "augmented-by" module for Module
    A.
-
-4.2.2.2.  Example2
-
-   Relationships among Module A, Module B and Module C in this example
-   are following:
-
-
-
-
-Lin, et al.               Expires 27 July 2026                 [Page 13]
-
-Internet-Draft        Augmented-by for YANG Library         January 2026
-
-
-   *  Module A is the base module with container "foo-a"
-
-   *  Module B augments "/A:foo-a" with container "foo-b"
-
-   *  Module C augments "/A:foo-a" with leaf "leaf-c"
-
-   The yang-library query result is following:
-
-   <CODE BEGINS> file "example_yanglib_result2.xml"
-   <yang-library xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library">
-     <content-id>1</content-id>
-     <module-set>
-       <name>module-set1</name>
-       <module>
-         <name>A</name>
-         <revision>2024-02-29</revision>
-         <namespace>urn:ietf:params:xml:ns:yang:A</namespace>
-         <augmented-by
-         xmlns="urn:ietf:params:xml:ns:yang:
-         ietf-yang-library-augmentedby">B</augmented-by>
-         <augmented-by
-         xmlns="urn:ietf:params:xml:ns:yang:
-         ietf-yang-library-augmentedby">C</augmented-by>
-       </module>
-       <module>
-         <name>B</name>
-         <revision>2024-02-29</revision>
-         <namespace>urn:ietf:params:xml:ns:yang:B</namespace>
-       </module>
-       <module>
-         <name>C</name>
-         <revision>2024-02-29</revision>
-         <namespace>urn:ietf:params:xml:ns:yang:C</namespace>
-       </module>
-     </module-set>
-   </yang-library>
-   <modules-state xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library">
-       <module-set-id>0</module-set-id>
-   </modules-state>
-   <CODE ENDS>
-
-   In this example, both Module B and Module C directly augments the
-   container "foo-a".  Therefore, both B and C are listed as "augmented-
-   by" modules for Module A.
 
 
 
@@ -857,6 +857,10 @@ Internet-Draft        Augmented-by for YANG Library         January 2026
    This section follows the guidelines in Section 3.7 of
    [I-D.ietf-netmod-rfc8407bis].
 
+   Since this document augments the ietf-yang-library YANG module
+   defined in [RFC8525], the Section 6 Security Considerations of
+   [RFC8525] apply here as well.
+
    The "ietf-yang-library-augmentedby" YANG module defines a data model
    that is designed to be accessed via YANG-based management protocols,
    such as NETCONF [RFC6241] and RESTCONF [RFC8040].  These YANG-based
@@ -884,10 +888,6 @@ Internet-Draft        Augmented-by for YANG Library         January 2026
    *  /yang-library/module-set/module/augmented-by
 
    *  /modules-state/module/augmented-by (modules-state is deprecated)
-
-
-
-
 
 
 
@@ -1389,10 +1389,10 @@ B.18.  draft-ietf-netconf-yang-library-augmentedby: Changes from 13 to
 
    Resolving nits.
 
+B.19.  draft-ietf-netconf-yang-library-augmentedby: Changes from 14 to
+       15
 
-
-
-
+   Improved the examples, based on the designated expert review.
 
 
 
