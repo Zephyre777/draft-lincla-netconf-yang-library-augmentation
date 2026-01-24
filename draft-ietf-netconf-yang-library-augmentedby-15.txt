@@ -582,11 +582,17 @@ Internet-Draft        Augmented-by for YANG Library         January 2026
      }
 
      augment "/yanglib:yang-library/yanglib:module-set/yanglib:module" {
+       description
+         "Augments the augmented-by leaf-list from module info with the
+          augmented-by grouping.";
        uses augmented-by;
      }
 
      augment "/yanglib:modules-state/yanglib:module" {
        status deprecated;
+       description
+         "Augments the augmented-by leaf-list from module info with the
+          augmented-by grouping.";
        uses augmented-by;
      }
    }
@@ -603,12 +609,6 @@ Internet-Draft        Augmented-by for YANG Library         January 2026
    library, and the augmenting and augmented modules must be defined in
    the same module-set.
 
-   The "direct augment" is identified by the relationship between the
-   augment module and the target node's parent module that it augments
-   to.  Only the direct parent module of the target node is augmented,
-   and the rest of the parent modules defined in the schema tree are
-   only indirect dependencies but not augmented modules.  (Refer to
-   "Target node" definition in Section 7.17 of [RFC7950])
 
 
 
@@ -617,6 +617,13 @@ Lin, et al.               Expires 27 July 2026                 [Page 11]
 
 Internet-Draft        Augmented-by for YANG Library         January 2026
 
+
+   The "direct augment" is identified by the relationship between the
+   augment module and the target node's parent module that it augments
+   to.  Only the direct parent module of the target node is augmented,
+   and the rest of the parent modules defined in the schema tree are
+   only indirect dependencies but not augmented modules.  (Refer to
+   "Target node" definition in Section 7.17 of [RFC7950])
 
    In the case when a YANG application requires recursive dependency or
    specific schema tree dependency, the search logic should be
@@ -650,13 +657,6 @@ Internet-Draft        Augmented-by for YANG Library         January 2026
    *  Module C augments "/A:foo-a" with leaf "leaf-c"
 
    The ietf-yang-library-augmentedby query result is:
-
-
-
-
-
-
-
 
 
 
