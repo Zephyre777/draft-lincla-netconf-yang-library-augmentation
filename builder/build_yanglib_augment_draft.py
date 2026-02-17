@@ -3,12 +3,17 @@ import os.path
 import subprocess
 from typing import List
 
-from jinja2 import Environment, FileSystemLoader, select_autoescape
+from jinja2 import Environment, FileSystemLoader, select_autoescape, Template
 
 BUILDER_DIR = os.path.dirname(os.path.abspath(__file__))
 YANG_DIR_RFC7895 = os.path.join(os.path.dirname(BUILDER_DIR), "yang_augment_RFC7895")
 YANG_DIR_RFC8525 = os.path.join(os.path.dirname(BUILDER_DIR), "yang_augment_RFC8525")
-
+EXAMPLE_DIR = os.path.join(os.path.dirname(BUILDER_DIR), "yang-validation")
+YANG_MODULE_NAME = "ietf-yang-library-augmentedby@2025-05-28.yang"
+YANG_MODULE_PATH = os.path.join(YANG_DIR_RFC8525,YANG_MODULE_NAME)
+YANGTREE = os.path.join(EXAMPLE_DIR, "ietf-yang-library-augmentedby@2025-05-28.tree")
+EXAMPLE1 = os.path.join(EXAMPLE_DIR, "example_yanglib_result1.xml")
+EXAMPLE2 = os.path.join(EXAMPLE_DIR, "example_yanglib_result2.xml")
 
 env = Environment(
     loader=FileSystemLoader(BUILDER_DIR),
@@ -71,9 +76,13 @@ def draft_content():
         exit(1)
     return contents
 
+def loadFileContent(file_path):
+    with open(file_path, 'r') as yang_module_context:
+        return yang_module_context.read()
+    
 
 if __name__ == '__main__':
-    output = os.path.join(os.path.dirname(BUILDER_DIR), "draft-ietf-netconf-yang-library-augmentedby-05.xml")
+    output = os.path.join(os.path.dirname(BUILDER_DIR), "draft-ietf-netconf-yang-library-augmentedby-15.xml")
     draft_text = env.get_template("draft-ietf-netconf-yang-library-augmentedby.xml")
     with open(output, 'w') as xml_generated:
-        xml_generated.write(draft_text.render(**draft_content()))
+        xml_generated.write(draft_text.render(**draft_content(), YANG_AUGMENTEDBY=loadFileContent(YANG_MODULE_PATH), EXAMPLE1=loadFileContent(EXAMPLE1), EXAMPLE2=loadFileContent(EXAMPLE2), YANGTREE=loadFileContent(YANGTREE)))
