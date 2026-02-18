@@ -16,7 +16,7 @@ Expires: 22 August 2026                         I. D. Martinez-Casanueva
 
 Abstract
 
-   "YANG Library" specifies the YANG module "ietf-yang-
+   "YANG Library" [RFC8525 specifies the YANG module "ietf-yang-
    library" that provides information about the YANG modules,
    datastores, and datastore schemas used by a network management
    server.
