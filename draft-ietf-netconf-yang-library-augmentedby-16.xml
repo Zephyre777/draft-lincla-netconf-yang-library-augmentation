@@ -1133,6 +1133,12 @@ module: ietf-yang-library
           Improved the examples, based on the designated expert review.
         </t>
       </section>
+	  <section anchor="Changes from 15 to 16"
+        title="draft-ietf-netconf-yang-library-augmentedby: Changes from 15 to 16">
+        <t>
+          Address Med's DISCUSS.
+        </t>
+      </section>
     </section>
     <?rfc needLines="100"?>
 
