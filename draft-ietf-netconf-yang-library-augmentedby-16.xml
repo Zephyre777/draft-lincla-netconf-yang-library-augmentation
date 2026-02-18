@@ -92,7 +92,7 @@
         Since both augmentation and deviation work as YANG module dependencies,
         it is reasonable to document them the same way in the YANG library.
         Having both augmentation and deviation directly
-        available in the YANG library provides an easy and lightweight
+        available in the YANG library provides a convenient
         solution for determining the reverse dependencies.
       </t>
 
@@ -172,7 +172,7 @@
           target="RFC8525" />, the "deviation" list describes that a module is deviated by which
         other modules. Since deviations and augmentations work similarly, if the YANG library could
         directly report all reverse dependencies, including augmentations, it would provide a much
-        easier and light-weight solution to find module all dependencies, compared to obtaining and
+        convenient solution to find module all dependencies, compared to obtaining and
         parsing all modules. In addition, to avoid causing problems in devices, for instance,
         falsely referring to modules in the wrong module-set, this document requires that the base
         modules and the augmentations be listed in the same module-set. </t>
@@ -217,7 +217,7 @@
           helping with the real-time aspects of network observability.</t>
         <t>
           Following is an example YANG-Push message of this use case received from within a
-          subscription to YANG module ietf-interfaces:
+          subscription to YANG module "ietf-interfaces":
         </t>
 
         <t>
@@ -258,7 +258,7 @@
           configuring and monitoring the status of a network. However, since the inception of YANG
           the network industry has defined large number of YANG modules developed by SDOs,
           open-source communities, and network vendors. This heterogeneity of YANG modules, that
-          vary from one network device model to another, makes the management of a multi-vendor
+          vary from one network device/service model to another, makes the management of a multi-vendor
           network a big challenge for operators. <xref target="Martinez-Casanueva2023"/>.</t>
 
         <t>In this regard, a data catalog provides a registry of the datasets
@@ -309,21 +309,7 @@
 
     <section anchor="ietf-yang-library-augmentedby-model"
       title="The &quot;ietf-yang-library-augmentedby&quot; YANG module">
-      <t>
-        This YANG module augments the ietf-yang-library module by adding the
-        augmented-by leaf-list in the "yang-library/module-set" and "yang-library/modules-state".
-        The name of list "augmented-by" indicates by which modules that the current module is being
-        directly augmented.</t>
-      <t> The "yang-library/modules-state" is augmented despite its "deprecated" state to cope with
-        the situation when container "modules-state" is used for compatibility reason with
-        ietf-yang-library defined in <xref target="RFC7895" />. Both the NMDA<xref target="RFC8342" />
-        and non-NMDA compliant additions are defined in the same YANG module for simplicity for
-        users and implementors. </t>
-      <t>For the scope of "augmented-by", this document only considers the direct augmentation
-        relationship. The recursive result of augmentation or transitive dependency for module
-        specified along the XPath, is out of the scope of this draft. Section 4.2 has given the
-        implementation instructions.</t>
-
+     
       <section anchor="data-model-overview" title="Data Model Overview">
 
         <section anchor="Tree-View" title="Tree Structure">
@@ -340,11 +326,26 @@ module: ietf-yang-library-augmentedby
 ]]></artwork>
             </figure>
           </t>
+
+		   <t>
+           This YANG module augments the ietf-yang-library module by adding the
+           augmented-by leaf-list in the "yang-library/module-set" and "yang-library/modules-state".
+           The name of list "augmented-by" indicates by which modules that the current module is being
+           directly augmented.</t>
+          <t> The "yang-library/modules-state" is augmented despite its "deprecated" state to cope with
+           the situation when container "modules-state" is used for compatibility reason with
+           ietf-yang-library defined in <xref target="RFC7895" />. Both the NMDA<xref target="RFC8342" />
+           and non-NMDA compliant additions are defined in the same YANG module for simplicity for
+           users and implementors. </t>
+         <t>For the scope of "augmented-by", this document only considers the direct augmentation
+          relationship. The recursive result of augmentation or transitive dependency for module
+          specified along the XPath, is out of the scope of this draft. Section 4.2 has given the
+          implementation instructions.</t>
         </section>
 
 
         <section anchor="YANG-revision-module" title="YANG ietf-yang-library-augmentedby Module">
-          <t>This YANG modules imports and augments the "ietf-yang-library" <xref
+          <t>This YANG module imports and augments the "ietf-yang-library" <xref
               target="RFC8525" />.</t>
 
           <t>
@@ -495,12 +496,12 @@ module ietf-yang-library-augmentedby {
           <t>In the case when a YANG application requires recursive dependency or specific schema
             tree dependency, the search logic should be implemented by the application itself.</t>
 
-          <t>A YANG example with the expected augmented-by result is provided in Section 4.2.2.</t>
-
         </section>
         <section anchor="exampleOfAugmentedBy" title="Examples">
           <t>This section provides two module-set examples and their corresponding ietf-yang-library-augmentedby query results to explain the definition of "direct augment" stated in Section 4.2.1.</t>
-          <t>The two scenarios are provided with the same three YANG modules (Module A, B, and C) defined in the module-set, however the relationships among them are different. All three YANG modules are defined in the same module-set name 'module-set1' to be able to augment or be augmented by the others. Otherwise, the yanglint validation should fail.</t>
+          <t>The two scenarios are provided with the same three YANG modules (Module A, B, and C) defined in the module-set, 
+			  however the relationships among them are different. All three YANG modules are defined in the same module-set name
+			  'module-set1' to be able to augment or be augmented by the others. Otherwise, the YANG validation should fail.</t>
 		    <section anchor="example1"
             title="Example 1">
             <t>Relationships among Module A, Module B and Module C in this example are following:</t>
@@ -615,6 +616,12 @@ module ietf-yang-library-augmentedby {
       <t>With the implementation of augmented-by, the base modules and the augmented-by modules require
         to be listed in the same module-set.</t>
 
+	  <t>Note that the reverse dependency will increase the size of the ietf-yang-library instance on the server. Also, 
+		  the ietf-yang-library instance, and therefore the augmented-by, should be updated when new YANG
+		  modules are onboarded".</t>
+
+	   <t>A YANG example with the expected augmented-by result is provided in Section 4.2.2.</t>
+
     </section>
 
     <section anchor="Implementation" title="Implementation Status">
@@ -671,10 +678,6 @@ module ietf-yang-library-augmentedby {
       <t> This section follows the guidelines in Section 3.7 of <xref
           target="I-D.ietf-netmod-rfc8407bis" />. </t>
 
-      <t> Since this document augments the ietf-yang-library YANG module
-          defined in <xref target="RFC8525" />, the Section 6 Security Considerations of
-          <xref target="RFC8525" /> apply here as well. </t>
-
       <t> The "ietf-yang-library-augmentedby" YANG module defines a data model that is designed to
         be accessed via YANG-based management protocols, such as NETCONF <xref target="RFC6241" />
         and RESTCONF <xref target="RFC8040" />. These YANG-based management protocols require the
@@ -727,9 +730,11 @@ module ietf-yang-library-augmentedby {
       </t>
       <t>This module uses groupings from the ietf-yang-library YANG module defined in <xref
           target="RFC8525" />, which defines nodes that may be considered sensitive or vulnerable in
-        network environments. Refer to the Section 6 Security Considerations of <xref
-          target="RFC8525" /> for information as to which nodes may be considered sensitive or
-        vulnerable in network environments.</t>
+        network environments. Since this document augments the ietf-yang-library YANG module
+          defined in <xref target="RFC8525" />, the Section 6 Security Considerations of
+          <xref target="RFC8525" /> apply here as well. Refer to that Section for information 
+		  as to which nodes may be considered sensitive or vulnerable in network environments.</t>
+		
     </section>
 
     <section anchor="iana-considerations" title="IANA Considerations">
@@ -755,18 +760,10 @@ module ietf-yang-library-augmentedby {
     <references title="Normative References">
       <?rfc include='reference.RFC.2119'?>
       <?rfc include='reference.RFC.8174'?>
-      <?rfc include='reference.RFC.8340'?>
-      <?rfc include='reference.RFC.8343'?>
-      <?rfc include='reference.RFC.8344'?>
-      <?rfc include='reference.RFC.6241'?>
-      <?rfc include='reference.RFC.8040'?>
-      <?rfc include='reference.RFC.8446'?>
       <?rfc include='reference.RFC.6020'?>
       <?rfc include='reference.RFC.8341'?>
       <?rfc include='reference.RFC.3688'?>
       <?rfc include='reference.RFC.8525'?>
-      <?rfc include='reference.RFC.9000'?>
-      <?rfc include='reference.RFC.4252'?>
       <?rfc include='reference.RFC.7950'?>
 
 
@@ -777,6 +774,14 @@ module ietf-yang-library-augmentedby {
       <?rfc include='reference.RFC.7895'?>
       <?rfc include='reference.RFC.8342'?>
       <?rfc include='reference.RFC.8639'?>
+	  <?rfc include='reference.RFC.4252'?>
+	  <?rfc include='reference.RFC.6241'?>
+	  <?rfc include='reference.RFC.8040'?>
+	  <?rfc include='reference.RFC.8340'?>
+	  <?rfc include='reference.RFC.8343'?>
+      <?rfc include='reference.RFC.8344'?>
+      <?rfc include='reference.RFC.9000'?>
+	  <?rfc include='reference.RFC.8446'?>
       <?rfc include='reference.I-D.ietf-netconf-udp-notif'?>
       <?rfc include='reference.I-D.ietf-netmod-rfc8407bis'?>
 
