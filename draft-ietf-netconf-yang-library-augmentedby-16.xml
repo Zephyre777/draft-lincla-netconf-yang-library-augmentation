@@ -55,7 +55,7 @@
 
     <abstract>
       <t>
-        "YANG Library" <xref target="RFC8525"/> specifies the YANG module "ietf-yang-library"
+        "YANG Library" specifies the YANG module "ietf-yang-library"
         that provides information about the YANG modules, datastores,
         and datastore schemas used by a network management server.
       </t>
