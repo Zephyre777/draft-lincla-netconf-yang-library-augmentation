@@ -82,7 +82,7 @@ def loadFileContent(file_path):
     
 
 if __name__ == '__main__':
-    output = os.path.join(os.path.dirname(BUILDER_DIR), "draft-ietf-netconf-yang-library-augmentedby-16.xml")
+    output = os.path.join(os.path.dirname(BUILDER_DIR), "draft-ietf-netconf-yang-library-augmentedby-17.xml")
     draft_text = env.get_template("draft-ietf-netconf-yang-library-augmentedby.xml")
     with open(output, 'w') as xml_generated:
         xml_generated.write(draft_text.render(**draft_content(), YANG_AUGMENTEDBY=loadFileContent(YANG_MODULE_PATH), EXAMPLE1=loadFileContent(EXAMPLE1), EXAMPLE2=loadFileContent(EXAMPLE2), YANGTREE=loadFileContent(YANGTREE)))
