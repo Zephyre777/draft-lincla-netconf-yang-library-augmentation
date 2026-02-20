@@ -16,10 +16,9 @@ Expires: 22 August 2026                         I. D. Martinez-Casanueva
 
 Abstract
 
-   "YANG Library" [RFC8525 specifies the YANG module "ietf-yang-
-   library" that provides information about the YANG modules,
-   datastores, and datastore schemas used by a network management
-   server.
+   "YANG Library" specifies the YANG module "ietf-yang-library" that
+   provides information about the YANG modules, datastores, and
+   datastore schemas used by a network management server.
 
    This document augments the "ietf-yang-library" to provide the
    augmented-by list.  It facilitates the process of obtaining all
@@ -50,6 +49,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
+   This Internet-Draft will expire on 22 August 2026.
 
 
 
@@ -57,8 +57,6 @@ Lin, et al.              Expires 22 August 2026                 [Page 1]
 
 Internet-Draft        Augmented-by for YANG Library        February 2026
 
-
-   This Internet-Draft will expire on 22 August 2026.
 
 Copyright Notice
 
@@ -95,16 +93,18 @@ Table of Contents
      6.1.  Netopeer2 at IETF119 Hackathon  . . . . . . . . . . . . .  16
      6.2.  Netopeer2 at IETF120 Hackathon  . . . . . . . . . . . . .  16
      6.3.  Libyangpush Find-dependency . . . . . . . . . . . . . . .  16
-     6.4.  Device Implementations  . . . . . . . . . . . . . . . . .  16
+     6.4.  Device Implementations  . . . . . . . . . . . . . . . . .  17
    7.  Security Considerations . . . . . . . . . . . . . . . . . . .  17
    8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  18
-   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  18
-     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  18
-     9.2.  Informative References  . . . . . . . . . . . . . . . . .  20
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  19
+     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  19
+     9.2.  Informative References  . . . . . . . . . . . . . . . . .  19
    Appendix A.  Full Tree View of ietf-yang-library  . . . . . . . .  21
    Appendix B.  Changes  . . . . . . . . . . . . . . . . . . . . . .  23
      B.1.  draft-lincla-netconf-yang-library-augmentation: Changes
             from 00 to 01  . . . . . . . . . . . . . . . . . . . . .  23
+     B.2.  draft-lincla-netconf-yang-library-augmentedby version
+            00 . . . . . . . . . . . . . . . . . . . . . . . . . . .  23
 
 
 
@@ -114,8 +114,6 @@ Lin, et al.              Expires 22 August 2026                 [Page 2]
 Internet-Draft        Augmented-by for YANG Library        February 2026
 
 
-     B.2.  draft-lincla-netconf-yang-library-augmentedby version
-            00 . . . . . . . . . . . . . . . . . . . . . . . . . . .  23
      B.3.  draft-lincla-netconf-yang-library-augmentedby: Changes from
             00 to 01 . . . . . . . . . . . . . . . . . . . . . . . .  23
      B.4.  draft-lincla-netconf-yang-library-augmentedby: Changes from
@@ -149,6 +147,8 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
             13 to 14 . . . . . . . . . . . . . . . . . . . . . . . .  26
      B.19. draft-ietf-netconf-yang-library-augmentedby: Changes from
             14 to 15 . . . . . . . . . . . . . . . . . . . . . . . .  26
+     B.20. draft-ietf-netconf-yang-library-augmentedby: Changes from
+            15 to 16 . . . . . . . . . . . . . . . . . . . . . . . .  27
    Acknowledgments . . . . . . . . . . . . . . . . . . . . . . . . .  27
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  27
 
@@ -189,8 +189,8 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
    Since both augmentation and deviation work as YANG module
    dependencies, it is reasonable to document them the same way in the
    YANG library.  Having both augmentation and deviation directly
-   available in the YANG library provides an easy and lightweight
-   solution for determining the reverse dependencies.
+   available in the YANG library provides a convenient solution for
+   determining the reverse dependencies.
 
    This document specifies a YANG module that augments the YANG library
    to include the YANG module augmentation information.  It updates RFC
@@ -286,9 +286,9 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
    in [RFC8525], the "deviation" list describes that a module is
    deviated by which other modules.  Since deviations and augmentations
    work similarly, if the YANG library could directly report all reverse
-   dependencies, including augmentations, it would provide a much easier
-   and light-weight solution to find module all dependencies, compared
-   to obtaining and parsing all modules.  In addition, to avoid causing
+   dependencies, including augmentations, it would provide a much
+   convenient solution to find module all dependencies, compared to
+   obtaining and parsing all modules.  In addition, to avoid causing
    problems in devices, for instance, falsely referring to modules in
    the wrong module-set, this document requires that the base modules
    and the augmentations be listed in the same module-set.
@@ -355,7 +355,7 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
    observability.
 
    Following is an example YANG-Push message of this use case received
-   from within a subscription to YANG module ietf-interfaces:
+   from within a subscription to YANG module "ietf-interfaces":
 
 
      "datastore-contents": {
@@ -401,9 +401,9 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
    However, since the inception of YANG the network industry has defined
    large number of YANG modules developed by SDOs, open-source
    communities, and network vendors.  This heterogeneity of YANG
-   modules, that vary from one network device model to another, makes
-   the management of a multi-vendor network a big challenge for
-   operators.  [Martinez-Casanueva2023].
+   modules, that vary from one network device/service model to another,
+   makes the management of a multi-vendor network a big challenge for
+   operators.  [Martinez-Casanueva2023] .
 
    In this regard, a data catalog provides a registry of the datasets
    exposed by remote data sources for consumers to discover data of
@@ -460,6 +460,20 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
 
 4.  The "ietf-yang-library-augmentedby" YANG module
 
+4.1.  Data Model Overview
+
+4.1.1.  Tree Structure
+
+   The following is the YANG tree diagram for module "ietf-yang-library-
+   augmentedby".
+
+   module: ietf-yang-library-augmentedby
+
+     augment /yanglib:yang-library/yanglib:module-set/yanglib:module:
+       +--ro augmented-by*   -> ../../yanglib:module/name
+     augment /yanglib:modules-state/yanglib:module:
+       +--ro augmented-by*   -> ../../yanglib:module/name
+
    This YANG module augments the ietf-yang-library module by adding the
    augmented-by leaf-list in the "yang-library/module-set" and "yang-
    library/modules-state".  The name of list "augmented-by" indicates by
@@ -478,23 +492,9 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
    XPath, is out of the scope of this draft.  Section 4.2 has given the
    implementation instructions.
 
-4.1.  Data Model Overview
-
-4.1.1.  Tree Structure
-
-   The following is the YANG tree diagram for module "ietf-yang-library-
-   augmentedby".
-
-   module: ietf-yang-library-augmentedby
-
-     augment /yanglib:yang-library/yanglib:module-set/yanglib:module:
-       +--ro augmented-by*   -> ../../yanglib:module/name
-     augment /yanglib:modules-state/yanglib:module:
-       +--ro augmented-by*   -> ../../yanglib:module/name
-
 4.1.2.  YANG ietf-yang-library-augmentedby Module
 
-   This YANG modules imports and augments the "ietf-yang-library"
+   This YANG module imports and augments the "ietf-yang-library"
    [RFC8525].
 
 
@@ -674,9 +674,6 @@ Lin, et al.              Expires 22 August 2026                [Page 12]
 Internet-Draft        Augmented-by for YANG Library        February 2026
 
 
-   A YANG example with the expected augmented-by result is provided in
-   Section 4.2.2.
-
 4.2.2.  Examples
 
    This section provides two module-set examples and their corresponding
@@ -687,7 +684,7 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
    (Module A, B, and C) defined in the module-set, however the
    relationships among them are different.  All three YANG modules are
    defined in the same module-set name 'module-set1' to be able to
-   augment or be augmented by the others.  Otherwise, the yanglint
+   augment or be augmented by the others.  Otherwise, the YANG
    validation should fail.
 
 4.2.2.1.  Example 1
@@ -702,6 +699,9 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
    *  Module C augments "/A:foo-a" with leaf "leaf-c"
 
    The ietf-yang-library-augmentedby query result is:
+
+
+
 
 
 
@@ -847,6 +847,14 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
    With the implementation of augmented-by, the base modules and the
    augmented-by modules require to be listed in the same module-set.
 
+   Note that the reverse dependency will increase the size of the ietf-
+   yang-library instance on the server.  Also, the ietf-yang-library
+   instance, and therefore the augmented-by, should be updated when new
+   YANG modules are onboarded".
+
+   A YANG example with the expected augmented-by result is provided in
+   Section 4.2.2.
+
 6.  Implementation Status
 
    Note to the RFC-Editor: Please remove this section before publishing.
@@ -880,14 +888,6 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
 
    The source code can be obtained here: [NP24]
 
-6.4.  Device Implementations
-
-   This section introduced the device implementations status [NA25] of
-   this document from vendors like Huawei, Cisco, 6Wind.
-
-   The list of Router Images supporting (upcoming and already
-   implemented) the ietf-yang-library-augmentedby YANG module proposed
-   in this document is following:
 
 
 
@@ -897,6 +897,15 @@ Lin, et al.              Expires 22 August 2026                [Page 16]
 
 Internet-Draft        Augmented-by for YANG Library        February 2026
 
+
+6.4.  Device Implementations
+
+   This section introduced the device implementations status [NA25] of
+   this document from vendors like Huawei, Cisco, 6Wind.
+
+   The list of Router Images supporting (upcoming and already
+   implemented) the ietf-yang-library-augmentedby YANG module proposed
+   in this document is following:
 
    *  Huawei VRP R025C00 for NE8000 and NE40 (2025-10-15).
       https://support.huawei.com/
@@ -912,10 +921,6 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
 
    This section follows the guidelines in Section 3.7 of
    [I-D.ietf-netmod-rfc8407bis].
-
-   Since this document augments the ietf-yang-library YANG module
-   defined in [RFC8525], the Section 6 Security Considerations of
-   [RFC8525] apply here as well.
 
    The "ietf-yang-library-augmentedby" YANG module defines a data model
    that is designed to be accessed via YANG-based management protocols,
@@ -941,11 +946,6 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
    Specifically, the following readable data nodes contain potentially
    sensitive information:
 
-   *  /yang-library/module-set/module/augmented-by
-
-   *  /modules-state/module/augmented-by (modules-state is deprecated)
-
-
 
 
 
@@ -953,6 +953,10 @@ Lin, et al.              Expires 22 August 2026                [Page 17]
 
 Internet-Draft        Augmented-by for YANG Library        February 2026
 
+
+   *  /yang-library/module-set/module/augmented-by
+
+   *  /modules-state/module/augmented-by (modules-state is deprecated)
 
    These nodes expose the augmentation relationships among modules
    implemented by a server.  Unauthorized read access could help an
@@ -967,10 +971,11 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
 
    This module uses groupings from the ietf-yang-library YANG module
    defined in [RFC8525], which defines nodes that may be considered
-   sensitive or vulnerable in network environments.  Refer to the
-   Section 6 Security Considerations of [RFC8525] for information as to
-   which nodes may be considered sensitive or vulnerable in network
-   environments.
+   sensitive or vulnerable in network environments.  Since this document
+   augments the ietf-yang-library YANG module defined in [RFC8525], the
+   Section 6 Security Considerations of [RFC8525] apply here as well.
+   Refer to that Section for information as to which nodes may be
+   considered sensitive or vulnerable in network environments.
 
 8.  IANA Considerations
 
@@ -998,17 +1003,16 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
 
    Maintained by IANA: N
 
-9.  References
-
-9.1.  Normative References
-
-
 
 
 Lin, et al.              Expires 22 August 2026                [Page 18]
 
 Internet-Draft        Augmented-by for YANG Library        February 2026
 
+
+9.  References
+
+9.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -1019,70 +1023,28 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
               DOI 10.17487/RFC3688, January 2004,
               <https://www.rfc-editor.org/info/rfc3688>.
 
-   [RFC4252]  Ylonen, T. and C. Lonvick, Ed., "The Secure Shell (SSH)
-              Authentication Protocol", RFC 4252, DOI 10.17487/RFC4252,
-              January 2006, <https://www.rfc-editor.org/info/rfc4252>.
-
    [RFC6020]  Bjorklund, M., Ed., "YANG - A Data Modeling Language for
               the Network Configuration Protocol (NETCONF)", RFC 6020,
               DOI 10.17487/RFC6020, October 2010,
               <https://www.rfc-editor.org/info/rfc6020>.
 
-   [RFC6241]  Enns, R., Ed., Bjorklund, M., Ed., Schoenwaelder, J., Ed.,
-              and A. Bierman, Ed., "Network Configuration Protocol
-              (NETCONF)", RFC 6241, DOI 10.17487/RFC6241, June 2011,
-              <https://www.rfc-editor.org/info/rfc6241>.
-
    [RFC7950]  Bjorklund, M., Ed., "The YANG 1.1 Data Modeling Language",
               RFC 7950, DOI 10.17487/RFC7950, August 2016,
               <https://www.rfc-editor.org/info/rfc7950>.
 
-   [RFC8040]  Bierman, A., Bjorklund, M., and K. Watsen, "RESTCONF
-              Protocol", RFC 8040, DOI 10.17487/RFC8040, January 2017,
-              <https://www.rfc-editor.org/info/rfc8040>.
-
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
-
-   [RFC8340]  Bjorklund, M. and L. Berger, Ed., "YANG Tree Diagrams",
-              BCP 215, RFC 8340, DOI 10.17487/RFC8340, March 2018,
-              <https://www.rfc-editor.org/info/rfc8340>.
 
    [RFC8341]  Bierman, A. and M. Bjorklund, "Network Configuration
               Access Control Model", STD 91, RFC 8341,
               DOI 10.17487/RFC8341, March 2018,
               <https://www.rfc-editor.org/info/rfc8341>.
 
-   [RFC8343]  Bjorklund, M., "A YANG Data Model for Interface
-              Management", RFC 8343, DOI 10.17487/RFC8343, March 2018,
-              <https://www.rfc-editor.org/info/rfc8343>.
-
-
-
-
-Lin, et al.              Expires 22 August 2026                [Page 19]
-
-Internet-Draft        Augmented-by for YANG Library        February 2026
-
-
-   [RFC8344]  Bjorklund, M., "A YANG Data Model for IP Management",
-              RFC 8344, DOI 10.17487/RFC8344, March 2018,
-              <https://www.rfc-editor.org/info/rfc8344>.
-
-   [RFC8446]  Rescorla, E., "The Transport Layer Security (TLS) Protocol
-              Version 1.3", RFC 8446, DOI 10.17487/RFC8446, August 2018,
-              <https://www.rfc-editor.org/info/rfc8446>.
-
    [RFC8525]  Bierman, A., Bjorklund, M., Schoenwaelder, J., Watsen, K.,
               and R. Wilton, "YANG Library", RFC 8525,
               DOI 10.17487/RFC8525, March 2019,
               <https://www.rfc-editor.org/info/rfc8525>.
-
-   [RFC9000]  Iyengar, J., Ed. and M. Thomson, Ed., "QUIC: A UDP-Based
-              Multiplexed and Secure Transport", RFC 9000,
-              DOI 10.17487/RFC9000, May 2021,
-              <https://www.rfc-editor.org/info/rfc9000>.
 
 9.2.  Informative References
 
@@ -1093,6 +1055,16 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
               ietf-netconf-udp-notif-25, 28 January 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-netconf-
               udp-notif-25>.
+
+
+
+
+
+
+Lin, et al.              Expires 22 August 2026                [Page 19]
+
+Internet-Draft        Augmented-by for YANG Library        February 2026
+
 
    [I-D.ietf-netmod-rfc8407bis]
               Bierman, A., Boucadair, M., and Q. Wu, "Guidelines for
@@ -1112,16 +1084,6 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
    [LY16]     Vasko, M., "libyang", BSD-3-Clause license, November 2016,
               <https://github.com/CESNET/libyang.git>.
 
-
-
-
-
-
-Lin, et al.              Expires 22 August 2026                [Page 20]
-
-Internet-Draft        Augmented-by for YANG Library        February 2026
-
-
    [Martinez-Casanueva2023]
               Martinez-Casanueva, I. D., Gonzalez-Sanchez, D., Bellido,
               L., Fernandez, D., and D. R. Lopez, "Toward Building a
@@ -1140,14 +1102,50 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
    [NTP17]    Vasko, M., "Netopeer2", BSD-3-Clause license, May 2017,
               <https://github.com/CESNET/netopeer2>.
 
+   [RFC4252]  Ylonen, T. and C. Lonvick, Ed., "The Secure Shell (SSH)
+              Authentication Protocol", RFC 4252, DOI 10.17487/RFC4252,
+              January 2006, <https://www.rfc-editor.org/info/rfc4252>.
+
+   [RFC6241]  Enns, R., Ed., Bjorklund, M., Ed., Schoenwaelder, J., Ed.,
+              and A. Bierman, Ed., "Network Configuration Protocol
+              (NETCONF)", RFC 6241, DOI 10.17487/RFC6241, June 2011,
+              <https://www.rfc-editor.org/info/rfc6241>.
+
    [RFC7895]  Bierman, A., Bjorklund, M., and K. Watsen, "YANG Module
               Library", RFC 7895, DOI 10.17487/RFC7895, June 2016,
               <https://www.rfc-editor.org/info/rfc7895>.
+
+
+
+Lin, et al.              Expires 22 August 2026                [Page 20]
+
+Internet-Draft        Augmented-by for YANG Library        February 2026
+
+
+   [RFC8040]  Bierman, A., Bjorklund, M., and K. Watsen, "RESTCONF
+              Protocol", RFC 8040, DOI 10.17487/RFC8040, January 2017,
+              <https://www.rfc-editor.org/info/rfc8040>.
+
+   [RFC8340]  Bjorklund, M. and L. Berger, Ed., "YANG Tree Diagrams",
+              BCP 215, RFC 8340, DOI 10.17487/RFC8340, March 2018,
+              <https://www.rfc-editor.org/info/rfc8340>.
 
    [RFC8342]  Bjorklund, M., Schoenwaelder, J., Shafer, P., Watsen, K.,
               and R. Wilton, "Network Management Datastore Architecture
               (NMDA)", RFC 8342, DOI 10.17487/RFC8342, March 2018,
               <https://www.rfc-editor.org/info/rfc8342>.
+
+   [RFC8343]  Bjorklund, M., "A YANG Data Model for Interface
+              Management", RFC 8343, DOI 10.17487/RFC8343, March 2018,
+              <https://www.rfc-editor.org/info/rfc8343>.
+
+   [RFC8344]  Bjorklund, M., "A YANG Data Model for IP Management",
+              RFC 8344, DOI 10.17487/RFC8344, March 2018,
+              <https://www.rfc-editor.org/info/rfc8344>.
+
+   [RFC8446]  Rescorla, E., "The Transport Layer Security (TLS) Protocol
+              Version 1.3", RFC 8446, DOI 10.17487/RFC8446, August 2018,
+              <https://www.rfc-editor.org/info/rfc8446>.
 
    [RFC8639]  Voit, E., Clemm, A., Gonzalez Prieto, A., Nilsen-Nygaard,
               E., and A. Tripathy, "Subscription to YANG Notifications",
@@ -1158,6 +1156,11 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
               for Datastore Updates", RFC 8641, DOI 10.17487/RFC8641,
               September 2019, <https://www.rfc-editor.org/info/rfc8641>.
 
+   [RFC9000]  Iyengar, J., Ed. and M. Thomson, Ed., "QUIC: A UDP-Based
+              Multiplexed and Secure Transport", RFC 9000,
+              DOI 10.17487/RFC9000, May 2021,
+              <https://www.rfc-editor.org/info/rfc9000>.
+
    [SR16]     Vasko, M., "sysrepo", BSD-3-Clause license, January 2016,
               <https://github.com/sysrepo/sysrepo.git>.
 
@@ -1166,9 +1169,6 @@ Appendix A.  Full Tree View of ietf-yang-library
    The following is the YANG tree diagram [RFC8340] for module ietf-
    yang-library after adding augmentation from module ietf-yang-library-
    augmentedby.  The RPCs and notifications are included as well.
-
-
-
 
 
 
@@ -1458,12 +1458,18 @@ Lin, et al.              Expires 22 August 2026                [Page 26]
 Internet-Draft        Augmented-by for YANG Library        February 2026
 
 
+B.20.  draft-ietf-netconf-yang-library-augmentedby: Changes from 15 to
+       16
+
+   Address Med's DISCUSS.
+
 Acknowledgments
 
    The author would like to thank Jan Lindblad and Jean Quilbeuf for
    their help during the design of the YANG module, and Thomas Graf, Rob
    Wilton, Andy Bierman, Jean Quilbeuf, Alex Huang Feng, Per Andersson,
-   Mahesh Jethanandani for their valuable review and comments.
+   Mahesh Jethanandani, and Med Boucadair for their valuable review and
+   comments.
 
 Authors' Addresses
 
@@ -1486,12 +1492,6 @@ Authors' Addresses
    Madrid 28050
    Spain
    Email: ignacio.dominguezmartinez@telefonica.com
-
-
-
-
-
-
 
 
 
