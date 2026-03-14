@@ -53,6 +53,12 @@ module ietf-yang-library-augmentedby {
 
      This version of this YANG module is part of RFC XXXX; see
      the RFC itself for full legal notices.";
+     
+  // RFC Ed.: replace XXXX/YYYY with actual RFC number and remove
+  // this note
+
+  // replace 'date-revision' with the module publication date
+  // the format is (YYYY-MM-DD)
 
   revision 2025-05-28 {
     description

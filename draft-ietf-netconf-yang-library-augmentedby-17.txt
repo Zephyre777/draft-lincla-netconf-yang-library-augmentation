@@ -88,16 +88,16 @@ Table of Contents
      4.2.  Implementation Instructions . . . . . . . . . . . . . . .  12
        4.2.1.  The scope of augmented-by . . . . . . . . . . . . . .  12
        4.2.2.  Examples  . . . . . . . . . . . . . . . . . . . . . .  12
-   5.  Operational Considerations  . . . . . . . . . . . . . . . . .  15
+   5.  Operational Considerations  . . . . . . . . . . . . . . . . .  16
    6.  Implementation Status . . . . . . . . . . . . . . . . . . . .  16
      6.1.  Netopeer2 at IETF119 Hackathon  . . . . . . . . . . . . .  16
      6.2.  Netopeer2 at IETF120 Hackathon  . . . . . . . . . . . . .  16
      6.3.  Libyangpush Find-dependency . . . . . . . . . . . . . . .  16
-     6.4.  Device Implementations  . . . . . . . . . . . . . . . . .  16
+     6.4.  Device Implementations  . . . . . . . . . . . . . . . . .  17
    7.  Security Considerations . . . . . . . . . . . . . . . . . . .  17
    8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  18
-   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  18
-     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  18
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  19
+     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  19
      9.2.  Informative References  . . . . . . . . . . . . . . . . .  19
    Appendix A.  Full Tree View of ietf-yang-library  . . . . . . . .  22
    Appendix B.  Changes  . . . . . . . . . . . . . . . . . . . . . .  23
@@ -571,6 +571,12 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
         This version of this YANG module is part of RFC XXXX; see
         the RFC itself for full legal notices.";
 
+     // RFC Ed.: replace XXXX/YYYY with actual RFC number and remove
+     // this note
+
+     // replace 'date-revision' with the module publication date
+     // the format is (YYYY-MM-DD)
+
      revision 2025-05-28 {
        description
          "Initial revision.";
@@ -605,12 +611,6 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
        }
      }
 
-     augment "/yanglib:yang-library/yanglib:module-set/yanglib:module" {
-       description
-         "Augments the augmented-by leaf-list from module info with the
-          augmented-by grouping.";
-       uses augmented-by;
-
 
 
 Lin, et al.              Expires 22 August 2026                [Page 11]
@@ -618,6 +618,11 @@ Lin, et al.              Expires 22 August 2026                [Page 11]
 Internet-Draft        Augmented-by for YANG Library        February 2026
 
 
+     augment "/yanglib:yang-library/yanglib:module-set/yanglib:module" {
+       description
+         "Augments the augmented-by leaf-list from module info with the
+          augmented-by grouping.";
+       uses augmented-by;
      }
 
      augment "/yanglib:modules-state/yanglib:module" {
@@ -661,11 +666,6 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
    The two scenarios are provided with the same three YANG modules
    (Module A, B, and C) defined in the module-set, however the
    relationships among them are different.  All three YANG modules are
-   defined in the same module-set name 'module-set1' to be able to
-   augment or be augmented by the others.  Otherwise, the YANG
-   validation should fail.
-
-
 
 
 
@@ -673,6 +673,10 @@ Lin, et al.              Expires 22 August 2026                [Page 12]
 
 Internet-Draft        Augmented-by for YANG Library        February 2026
 
+
+   defined in the same module-set name 'module-set1' to be able to
+   augment or be augmented by the others.  Otherwise, the YANG
+   validation should fail.
 
 4.2.2.1.  Example 1
 
@@ -686,6 +690,45 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
    *  Module C augments "/A:foo-a" with leaf "leaf-c"
 
    The ietf-yang-library-augmentedby query result is:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Lin, et al.              Expires 22 August 2026                [Page 13]
+
+Internet-Draft        Augmented-by for YANG Library        February 2026
+
 
    <CODE BEGINS> file "example_yanglib_result1.xml"
    <yang-library xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library">
@@ -720,16 +763,6 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
    </modules-state>
    <CODE ENDS>
 
-
-
-
-
-
-Lin, et al.              Expires 22 August 2026                [Page 13]
-
-Internet-Draft        Augmented-by for YANG Library        February 2026
-
-
    In this example, both Module B and Module C directly augment the
    container "foo-a".  Therefore, both B and C are listed as "augmented-
    by" modules for Module A.
@@ -745,39 +778,6 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
 
    *  Module C augments "/A:foo-a/B:foo-b" with leaf "leaf-c"
 
-   The ietf-yang-library-augmentedby query result is:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -785,6 +785,8 @@ Lin, et al.              Expires 22 August 2026                [Page 14]
 
 Internet-Draft        Augmented-by for YANG Library        February 2026
 
+
+   The ietf-yang-library-augmentedby query result is:
 
    <CODE BEGINS>
    file "example_yanglib_result2.xml"
@@ -829,10 +831,8 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
    container "foo-a", is listed as an "augmented-by" module for Module
    A.
 
-5.  Operational Considerations
 
-   With the implementation of augmented-by, the base modules and the
-   augmented-by modules require to be listed in the same module-set.
+
 
 
 
@@ -841,6 +841,11 @@ Lin, et al.              Expires 22 August 2026                [Page 15]
 
 Internet-Draft        Augmented-by for YANG Library        February 2026
 
+
+5.  Operational Considerations
+
+   With the implementation of augmented-by, the base modules and the
+   augmented-by modules require to be listed in the same module-set.
 
    Note that the reverse dependency will increase the size of the ietf-
    yang-library instance on the server.  Also, the ietf-yang-library
@@ -883,11 +888,6 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
 
    The source code can be obtained here: [NP24]
 
-6.4.  Device Implementations
-
-   This section introduced the device implementations status [NA25] of
-   this document from vendors like Huawei, Cisco, 6Wind.
-
 
 
 
@@ -897,6 +897,11 @@ Lin, et al.              Expires 22 August 2026                [Page 16]
 
 Internet-Draft        Augmented-by for YANG Library        February 2026
 
+
+6.4.  Device Implementations
+
+   This section introduced the device implementations status [NA25] of
+   this document from vendors like Huawei, Cisco, 6Wind.
 
    The list of Router Images supporting (upcoming and already
    implemented) the ietf-yang-library-augmentedby YANG module proposed
@@ -941,11 +946,6 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
    Specifically, the following readable data nodes contain potentially
    sensitive information:
 
-   *  /yang-library/module-set/module/augmented-by
-
-   *  /modules-state/module/augmented-by (modules-state is deprecated)
-
-
 
 
 
@@ -953,6 +953,10 @@ Lin, et al.              Expires 22 August 2026                [Page 17]
 
 Internet-Draft        Augmented-by for YANG Library        February 2026
 
+
+   *  /yang-library/module-set/module/augmented-by
+
+   *  /modules-state/module/augmented-by (modules-state is deprecated)
 
    These nodes expose the augmentation relationships among modules
    implemented by a server.  Unauthorized read access could help an
@@ -999,16 +1003,16 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
 
    Maintained by IANA: N
 
-9.  References
-
-9.1.  Normative References
-
 
 
 Lin, et al.              Expires 22 August 2026                [Page 18]
 
 Internet-Draft        Augmented-by for YANG Library        February 2026
 
+
+9.  References
+
+9.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -1051,10 +1055,6 @@ Internet-Draft        Augmented-by for YANG Library        February 2026
               ietf-netconf-udp-notif-25, 28 January 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-netconf-
               udp-notif-25>.
-
-
-
-
 
 
 
