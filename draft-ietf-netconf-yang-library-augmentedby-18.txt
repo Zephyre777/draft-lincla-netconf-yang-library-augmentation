@@ -6,9 +6,9 @@ NETCONF                                                           Z. Lin
 Internet-Draft                                                    Huawei
 Updates: 8525 (if approved)                                    B. Claise
 Intended status: Standards Track                          Everything OPS
-Expires: 15 September 2026                      I. D. Martinez-Casanueva
+Expires: 21 September 2026                      I. D. Martinez-Casanueva
                                                               Telefonica
-                                                           14 March 2026
+                                                           20 March 2026
 
 
                Augmented-by Addition to the YANG Library
@@ -49,11 +49,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 September 2026.
+   This Internet-Draft will expire on 21 September 2026.
 
 
 
-Lin, et al.             Expires 15 September 2026               [Page 1]
+Lin, et al.             Expires 21 September 2026               [Page 1]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Lin, et al.             Expires 15 September 2026               [Page 2]
+Lin, et al.             Expires 21 September 2026               [Page 2]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -165,7 +165,7 @@ Internet-Draft        Augmented-by for YANG Library           March 2026
 
 
 
-Lin, et al.             Expires 15 September 2026               [Page 3]
+Lin, et al.             Expires 21 September 2026               [Page 3]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -221,7 +221,7 @@ Internet-Draft        Augmented-by for YANG Library           March 2026
 
 
 
-Lin, et al.             Expires 15 September 2026               [Page 4]
+Lin, et al.             Expires 21 September 2026               [Page 4]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -277,7 +277,7 @@ Internet-Draft        Augmented-by for YANG Library           March 2026
 
 
 
-Lin, et al.             Expires 15 September 2026               [Page 5]
+Lin, et al.             Expires 21 September 2026               [Page 5]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -333,7 +333,7 @@ Internet-Draft        Augmented-by for YANG Library           March 2026
 
 
 
-Lin, et al.             Expires 15 September 2026               [Page 6]
+Lin, et al.             Expires 21 September 2026               [Page 6]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -389,7 +389,7 @@ Internet-Draft        Augmented-by for YANG Library           March 2026
 
 
 
-Lin, et al.             Expires 15 September 2026               [Page 7]
+Lin, et al.             Expires 21 September 2026               [Page 7]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -445,7 +445,7 @@ Internet-Draft        Augmented-by for YANG Library           March 2026
 
 
 
-Lin, et al.             Expires 15 September 2026               [Page 8]
+Lin, et al.             Expires 21 September 2026               [Page 8]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -501,7 +501,7 @@ Internet-Draft        Augmented-by for YANG Library           March 2026
 
 
 
-Lin, et al.             Expires 15 September 2026               [Page 9]
+Lin, et al.             Expires 21 September 2026               [Page 9]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -557,7 +557,7 @@ Internet-Draft        Augmented-by for YANG Library           March 2026
 
 
 
-Lin, et al.             Expires 15 September 2026              [Page 10]
+Lin, et al.             Expires 21 September 2026              [Page 10]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -613,7 +613,7 @@ Internet-Draft        Augmented-by for YANG Library           March 2026
 
 
 
-Lin, et al.             Expires 15 September 2026              [Page 11]
+Lin, et al.             Expires 21 September 2026              [Page 11]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -669,7 +669,7 @@ Internet-Draft        Augmented-by for YANG Library           March 2026
 
 
 
-Lin, et al.             Expires 15 September 2026              [Page 12]
+Lin, et al.             Expires 21 September 2026              [Page 12]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -725,7 +725,7 @@ Internet-Draft        Augmented-by for YANG Library           March 2026
 
 
 
-Lin, et al.             Expires 15 September 2026              [Page 13]
+Lin, et al.             Expires 21 September 2026              [Page 13]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -781,7 +781,7 @@ Internet-Draft        Augmented-by for YANG Library           March 2026
 
 
 
-Lin, et al.             Expires 15 September 2026              [Page 14]
+Lin, et al.             Expires 21 September 2026              [Page 14]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -837,7 +837,7 @@ Internet-Draft        Augmented-by for YANG Library           March 2026
 
 
 
-Lin, et al.             Expires 15 September 2026              [Page 15]
+Lin, et al.             Expires 21 September 2026              [Page 15]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -893,7 +893,7 @@ Internet-Draft        Augmented-by for YANG Library           March 2026
 
 
 
-Lin, et al.             Expires 15 September 2026              [Page 16]
+Lin, et al.             Expires 21 September 2026              [Page 16]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -949,7 +949,7 @@ Internet-Draft        Augmented-by for YANG Library           March 2026
 
 
 
-Lin, et al.             Expires 15 September 2026              [Page 17]
+Lin, et al.             Expires 21 September 2026              [Page 17]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -1005,7 +1005,7 @@ Internet-Draft        Augmented-by for YANG Library           March 2026
 
 
 
-Lin, et al.             Expires 15 September 2026              [Page 18]
+Lin, et al.             Expires 21 September 2026              [Page 18]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -1061,7 +1061,7 @@ Internet-Draft        Augmented-by for YANG Library           March 2026
 
 
 
-Lin, et al.             Expires 15 September 2026              [Page 19]
+Lin, et al.             Expires 21 September 2026              [Page 19]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -1117,7 +1117,7 @@ Internet-Draft        Augmented-by for YANG Library           March 2026
 
 
 
-Lin, et al.             Expires 15 September 2026              [Page 20]
+Lin, et al.             Expires 21 September 2026              [Page 20]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -1173,7 +1173,7 @@ Internet-Draft        Augmented-by for YANG Library           March 2026
 
 
 
-Lin, et al.             Expires 15 September 2026              [Page 21]
+Lin, et al.             Expires 21 September 2026              [Page 21]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -1229,7 +1229,7 @@ Appendix A.  Full Tree View of ietf-yang-library
 
 
 
-Lin, et al.             Expires 15 September 2026              [Page 22]
+Lin, et al.             Expires 21 September 2026              [Page 22]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -1285,7 +1285,7 @@ B.3.  draft-lincla-netconf-yang-library-augmentedby: Changes from 00 to
 
 
 
-Lin, et al.             Expires 15 September 2026              [Page 23]
+Lin, et al.             Expires 21 September 2026              [Page 23]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -1341,7 +1341,7 @@ B.7.  draft-ietf-netconf-yang-library-augmentedby: Changes from 01 to 02
 
 
 
-Lin, et al.             Expires 15 September 2026              [Page 24]
+Lin, et al.             Expires 21 September 2026              [Page 24]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -1397,7 +1397,7 @@ B.11.  draft-ietf-netconf-yang-library-augmentedby: Changes from 05 to
 
 
 
-Lin, et al.             Expires 15 September 2026              [Page 25]
+Lin, et al.             Expires 21 September 2026              [Page 25]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -1453,7 +1453,7 @@ B.17.  draft-ietf-netconf-yang-library-augmentedby: Changes from 12 to
 
 
 
-Lin, et al.             Expires 15 September 2026              [Page 26]
+Lin, et al.             Expires 21 September 2026              [Page 26]
 
 Internet-Draft        Augmented-by for YANG Library           March 2026
 
@@ -1509,4 +1509,4 @@ Authors' Addresses
 
 
 
-Lin, et al.             Expires 15 September 2026              [Page 27]
+Lin, et al.             Expires 21 September 2026              [Page 27]
